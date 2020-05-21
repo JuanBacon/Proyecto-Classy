@@ -5,15 +5,23 @@
  */
 package modelo;
 
+import control.BaseDatos;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author wedin
  */
 public class Inscripcion {
+
     private int id_inscripcion;
     private String fecha_inscripcion;
     private int id_estudianteF;
     private int id_cursoF;
+
+    public Inscripcion() {
+    }
 
     public Inscripcion(int id_inscripcion, String fecha_inscripcion, int id_estudianteF, int id_cursoF) {
         this.id_inscripcion = id_inscripcion;
@@ -65,7 +73,22 @@ public class Inscripcion {
         return "Inscripcion{" + "id_inscripcion=" + id_inscripcion + ", fecha_inscripcion=" + fecha_inscripcion + ", id_estudianteF=" + id_estudianteF + ", id_cursoF=" + id_cursoF + '}';
     }
 
-    
+    public boolean insertInscripcion(String sql) {
 
+        boolean t = false;
+        BaseDatos objCon = new BaseDatos();
 
+        if (objCon.crearConexion()) {
+            try {
+                Statement sentencia = objCon.getConexion().createStatement();
+                sentencia.executeUpdate(sql);
+                t = true;
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                t = false;
+            }
+        }
+        return t;
+
+    }
 }

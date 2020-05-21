@@ -13,6 +13,9 @@ public class Pais {
     private int id_pais;
     private String nombre_Categoria;
 
+    public Pais() {
+    }
+
     
     public Pais(int id_pais, String nombre_Categoria) {
         this.id_pais = id_pais;

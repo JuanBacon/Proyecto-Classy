@@ -6,9 +6,12 @@
 package modelo;
 
 import control.BaseDatos;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -123,7 +126,36 @@ public class Curso {
     }
 
     public LinkedList<Curso> consultAllCurso(String sql) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LinkedList<Curso> listacurso = new LinkedList<>();
+        BaseDatos objb = new BaseDatos();
+          int id_curso1;
+          String nombre_curso1;
+          String  fecha_creacion_curso1;
+          String  descripcion_curso1;
+          int id_profesorF1;
+          int id_categoriaF1;
+          
+          ResultSet rs= null; //resultado de la consulta que le enviamos
+          if(objb.crearConexion())
+          {
+              try {
+                  rs = objb.getSt().executeQuery(sql); //lo de consultallcurso lo guardamos en este resulset
+                  while(rs.next())//usamos el while que recorra el resulset para saber cuantas filas hay
+                  {
+                   id_curso1 = rs.getInt("id_curso");
+                   nombre_curso1 = rs.getString("nombre_curso");
+                   fecha_creacion_curso1 = rs.getString("fecha_creacion_curso");
+                   descripcion_curso1 = rs.getString("descripcion_curso");
+                   id_profesorF1 = rs.getInt("id_profesorF");
+                   id_categoriaF1 = rs.getInt("id_categoriaF");
+                   listacurso.add(new Curso(id_curso1, nombre_curso1, fecha_creacion_curso1, descripcion_curso1, id_profesorF1, id_categoriaF1 ));//a;ade todo a una lista de curso
+                  }
+              } catch (SQLException ex) {
+                  Logger.getLogger(Curso.class.getName()).log(Level.SEVERE, null, ex);
+              }
+          }
+          return listacurso;
     }
 
     

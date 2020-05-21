@@ -5,6 +5,15 @@
  */
 package modelo;
 
+import control.BaseDatos;
+import java.io.File;
+import java.io.FileInputStream;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author wedin
@@ -15,6 +24,9 @@ public class Publicacion {
     private String titulo_publicacion;
     private String descripcion_publicacion;
     private int id_cursoF;
+
+    public Publicacion() {
+    }
 
     public Publicacion(int id_publicacion, String fecha_publicacion, String titulo_publicacion, String descripcion_publicacion, int id_cursoF) {
         this.id_publicacion = id_publicacion;
@@ -75,7 +87,34 @@ public class Publicacion {
     public String toString() {
         return "Publicacion{" + "id_publicacion=" + id_publicacion + ", fecha_publicacion=" + fecha_publicacion + ", titulo_publicacion=" + titulo_publicacion + ", descripcion_publicacion=" + descripcion_publicacion + ", id_cursoF=" + id_cursoF + '}';
     }
-    
+//volvemos a generar la conexion para evitar que los hacker entren a la base de datos
+    public boolean insertarPublicacion(Publicacion objp, String sql) {
+        boolean t = false;
+        BaseDatos objb = new BaseDatos();
+        FileInputStream fis = null;
+        PreparedStatement ps = null;
+        try {
+            if (objb.crearConexion()) {
+//                objb.getConexion().setAutoCommit(false);
+//                File file = new File(objp.get);
+//                fis = new FileInputStream(file);
+//                ps = objb.getConexion().prepareStatement(sql);
+//                ps.setString(1, objp.getNombrePelicula());
+//                ps.setString(2, objp.getDuracionp());
+//                ps.setString(3, objp.getFechaEstrenop());
+//                ps.setBinaryStream(4, fis, (int) file.length());
+//                ps.setInt(5, objp.getIdPaisf());
+//                ps.setInt(6, objp.getIdClasificacionf());
+//
+//                ps.executeUpdate();
+//                objb.getConexion().commit();
+//                t = true;
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            t = false;
+        }
 
-
+        return t;
+    }
 }

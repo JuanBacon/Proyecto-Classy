@@ -15,9 +15,6 @@ public class Inscripcion {
     private int id_estudianteF;
     private int id_cursoF;
 
-    public Inscripcion() {
-    }
-
     public Inscripcion(int id_inscripcion, String fecha_inscripcion, int id_estudianteF, int id_cursoF) {
         this.id_inscripcion = id_inscripcion;
         this.fecha_inscripcion = fecha_inscripcion;

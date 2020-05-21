@@ -24,31 +24,6 @@ public class Estudiante {
     private String fecha_nacimiento;
     private String contrasenia_estudiante;
 
-    public Estudiante() {
-    }
-
-    public Estudiante(String id_estudiante, String nombre1_estudiante, String nombre2_estudiante, String apellido1_estudiante, String apellido2_estudiante, String correo_estudiante, String fecha_nacimiento, String contrasenia_estudiante) {
-        this.id_estudiante = id_estudiante;
-        this.nombre1_estudiante = nombre1_estudiante;
-        this.nombre2_estudiante = nombre2_estudiante;
-        this.apellido1_estudiante = apellido1_estudiante;
-        this.apellido2_estudiante = apellido2_estudiante;
-        this.correo_estudiante = correo_estudiante;
-        this.fecha_nacimiento = fecha_nacimiento;
-        this.contrasenia_estudiante = contrasenia_estudiante;
-    }
-
-    public Estudiante(String nombre1_estudiante, String nombre2_estudiante, String apellido1_estudiante, String apellido2_estudiante, String correo_estudiante, String contrasenia_estudiante) {
-        this.nombre1_estudiante = nombre1_estudiante;
-        this.nombre2_estudiante = nombre2_estudiante;
-        this.apellido1_estudiante = apellido1_estudiante;
-        this.apellido2_estudiante = apellido2_estudiante;
-        this.correo_estudiante = correo_estudiante;
-        this.contrasenia_estudiante = contrasenia_estudiante;
-    }
-
-    
-   
     public String getContrasenia_estudiante() {
         return contrasenia_estudiante;
     }

@@ -16,9 +16,6 @@ public class Material {
     private String descripcion_publicacion;
     private int id_cursoF;
 
-    public Material() {
-    }
-
     public Material(int id_publicacion, String fecha_publicacion, String titulo_publicacion, String descripcion_publicacion, int id_cursoF) {
         this.id_publicacion = id_publicacion;
         this.fecha_publicacion = fecha_publicacion;

@@ -14,7 +14,7 @@ public class ControlCurso {
 
         return t;
     }
-//esto permite la conexion con las publicaciones
+
     public LinkedList<Curso> consultarTodoCurso() {
         LinkedList<Curso> listacurso = new LinkedList<>();
         Curso objcurso = new Curso();

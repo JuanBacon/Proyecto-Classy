@@ -5,8 +5,8 @@ import java.sql.*;
 
 public class BaseDatos {
 
-    Connection conexion; //conexion a la base
-    Statement st;    //el manejador, el que saca de la base he inserta
+    Connection conexion;
+    Statement st;
 
     public BaseDatos() {
         //conexion
@@ -15,7 +15,7 @@ public class BaseDatos {
     public Connection getConexion() {
         return conexion;
     }
-//esta es la conexion que se qenera
+
     public Statement getSt() {
         return st;
     }

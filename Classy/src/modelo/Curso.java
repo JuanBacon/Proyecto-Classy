@@ -6,9 +6,12 @@
 package modelo;
 
 import control.BaseDatos;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -47,7 +50,7 @@ public class Curso {
     }
 
     public Curso() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     public int getId_curso() {
@@ -123,7 +126,38 @@ public class Curso {
     }
 
     public LinkedList<Curso> consultAllCurso(String sql) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        LinkedList<Curso> lc = new LinkedList<>();
+        BaseDatos objb = new BaseDatos();
+        
+        int idCurso1 = 0;
+        String nombreCurso1 = "";
+        String fechaCreacionCurso1 = "";
+        String descripcionCurso1 = "";
+        int idProfesorF1 = 0;
+        int idCategoriaF1 = 0;      
+
+        ResultSet rs = null;
+        if (objb.crearConexion()) {
+            try {
+                rs = objb.getSt().executeQuery(sql);
+                while (rs.next()) {
+                    
+                    idCurso1 = rs.getInt("id_curso");
+                    nombreCurso1 = rs.getString("nombre_curso");
+                    fechaCreacionCurso1 = rs.getString("fecha_creacion_curso");
+                    descripcionCurso1 = rs.getString("descripcion_curso");
+                    idProfesorF1 = rs.getInt("id_profesorF");
+                    idCategoriaF1 = rs.getInt("id_categoriaF");
+
+                    lc.add(new Curso(idCurso1, nombreCurso1, fechaCreacionCurso1, descripcionCurso1, idProfesorF1, idCategoriaF1));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Curso.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return lc;
+        
     }
 
     

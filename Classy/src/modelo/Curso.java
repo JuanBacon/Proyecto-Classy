@@ -5,6 +5,11 @@
  */
 package modelo;
 
+import control.BaseDatos;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.LinkedList;
+
 /**
  *
  * @author wedin
@@ -32,6 +37,17 @@ public class Curso {
         this.descripcion_curso = descripcion_curso;
         this.id_profesorF = id_profesorF;
         this.id_categoriaF = id_categoriaF;
+    }
+
+    public Curso(String nombre_curso, String descripcion_curso, int id_profesorF, int id_categoriaF) {
+        this.nombre_curso = nombre_curso;
+        this.descripcion_curso = descripcion_curso;
+        this.id_profesorF = id_profesorF;
+        this.id_categoriaF = id_categoriaF;
+    }
+
+    public Curso() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getId_curso() {
@@ -85,6 +101,29 @@ public class Curso {
     @Override
     public String toString() {
         return "Curso{" + "id_curso=" + id_curso + ", nombre_curso=" + nombre_curso + ", fecha_creacion_curso=" + fecha_creacion_curso + ", descripcion_curso=" + descripcion_curso + ", id_profesorF=" + id_profesorF + ", id_categoriaF=" + id_categoriaF + '}';
+    }
+
+    public boolean insertCurso(String sql) {
+
+        boolean t=false;
+        BaseDatos objCon = new BaseDatos();
+
+        if (objCon.crearConexion()) {
+            try {
+                Statement sentencia = objCon.getConexion().createStatement();
+                sentencia.executeUpdate(sql);
+                t=true;
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                t= false;
+            }
+        }
+        
+        return t;
+    }
+
+    public LinkedList<Curso> consultAllCurso(String sql) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

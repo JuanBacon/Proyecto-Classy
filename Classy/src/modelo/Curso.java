@@ -126,38 +126,36 @@ public class Curso {
     }
 
     public LinkedList<Curso> consultAllCurso(String sql) {
-        
-        LinkedList<Curso> lc = new LinkedList<>();
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LinkedList<Curso> listacurso = new LinkedList<>();
         BaseDatos objb = new BaseDatos();
-        
-        int idCurso1 = 0;
-        String nombreCurso1 = "";
-        String fechaCreacionCurso1 = "";
-        String descripcionCurso1 = "";
-        int idProfesorF1 = 0;
-        int idCategoriaF1 = 0;      
-
-        ResultSet rs = null;
-        if (objb.crearConexion()) {
-            try {
-                rs = objb.getSt().executeQuery(sql);
-                while (rs.next()) {
-                    
-                    idCurso1 = rs.getInt("id_curso");
-                    nombreCurso1 = rs.getString("nombre_curso");
-                    fechaCreacionCurso1 = rs.getString("fecha_creacion_curso");
-                    descripcionCurso1 = rs.getString("descripcion_curso");
-                    idProfesorF1 = rs.getInt("id_profesorF");
-                    idCategoriaF1 = rs.getInt("id_categoriaF");
-
-                    lc.add(new Curso(idCurso1, nombreCurso1, fechaCreacionCurso1, descripcionCurso1, idProfesorF1, idCategoriaF1));
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Curso.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        return lc;
-        
+          int id_curso1;
+          String nombre_curso1;
+          String  fecha_creacion_curso1;
+          String  descripcion_curso1;
+          int id_profesorF1;
+          int id_categoriaF1;
+          
+          ResultSet rs= null; //resultado de la consulta que le enviamos
+          if(objb.crearConexion())
+          {
+              try {
+                  rs = objb.getSt().executeQuery(sql); //lo de consultallcurso lo guardamos en este resulset
+                  while(rs.next())//usamos el while que recorra el resulset para saber cuantas filas hay
+                  {
+                   id_curso1 = rs.getInt("id_curso");
+                   nombre_curso1 = rs.getString("nombre_curso");
+                   fecha_creacion_curso1 = rs.getString("fecha_creacion_curso");
+                   descripcion_curso1 = rs.getString("descripcion_curso");
+                   id_profesorF1 = rs.getInt("id_profesorF");
+                   id_categoriaF1 = rs.getInt("id_categoriaF");
+                   listacurso.add(new Curso(id_curso1, nombre_curso1, fecha_creacion_curso1, descripcion_curso1, id_profesorF1, id_categoriaF1 ));//a;ade todo a una lista de curso
+                  }
+              } catch (SQLException ex) {
+                  Logger.getLogger(Curso.class.getName()).log(Level.SEVERE, null, ex);
+              }
+          }
+          return listacurso;
     }
 
     

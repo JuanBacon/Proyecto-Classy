@@ -15,6 +15,9 @@ public class Descarga {
     private int id_materialF;
     private int id_estudianteF;
 
+    public Descarga() {
+    }
+
     public Descarga(int id_descarga, String fecha_descarga, int id_materialF, int id_estudianteF) {
         this.id_descarga = id_descarga;
         this.fecha_descarga = fecha_descarga;

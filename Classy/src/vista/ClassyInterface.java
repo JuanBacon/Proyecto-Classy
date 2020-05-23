@@ -1,7 +1,19 @@
 
 package vista;
-
-
+//Controles
+import control.ControlEstudiante;
+//Modelos
+import modelo.Estudiante;
+//Utilidades
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+//Fechas
+ 
 public class ClassyInterface extends javax.swing.JFrame {
 
     
@@ -48,6 +60,16 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonVolverRol.setOpaque(false);
         ButtonVolverRol.setContentAreaFilled(false); 
         ButtonVolverRol.setBorderPainted(false);
+        
+        ButtonVolverRegistroEstudiante.setOpaque(false);
+        ButtonVolverRegistroEstudiante.setContentAreaFilled(false); 
+        ButtonVolverRegistroEstudiante.setBorderPainted(false);
+        
+        ButtonRegistrarEstudiante.setOpaque(false);
+        ButtonRegistrarEstudiante.setContentAreaFilled(false); 
+        ButtonRegistrarEstudiante.setBorderPainted(false);
+        
+        
     }
 
    
@@ -62,6 +84,22 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonRegistrarInicio = new javax.swing.JButton();
         imgInicio = new javax.swing.JLabel();
         panelRegistroEstudiante = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        ButtonRegistrarEstudiante = new javax.swing.JButton();
+        ButtonVolverRegistroEstudiante = new javax.swing.JButton();
+        jTnombre1Estudiante = new javax.swing.JTextField();
+        jTapellido1Estudiante = new javax.swing.JTextField();
+        jTcorreoEstudiante = new javax.swing.JTextField();
+        jTnombre2Estudiante = new javax.swing.JTextField();
+        jTapellido2Estudiante = new javax.swing.JTextField();
+        jTcontraseñaEstudiante = new javax.swing.JPasswordField();
+        jDateNacimientoEstudiante = new com.toedter.calendar.JDateChooser();
         imgRegistroEstudiante = new javax.swing.JLabel();
         panelRegistroProfesor = new javax.swing.JPanel();
         imgRegistroProfesor = new javax.swing.JLabel();
@@ -86,6 +124,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         imgPublicacionesProfesor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Classy!");
         setMaximumSize(new java.awt.Dimension(1940, 1100));
         setMinimumSize(new java.awt.Dimension(1940, 1100));
         setPreferredSize(new java.awt.Dimension(1940, 1100));
@@ -99,7 +138,6 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelInicio.setLayout(null);
 
         ButtonIngresarInicio.setBackground(new java.awt.Color(255, 255, 255));
-        ButtonIngresarInicio.setText("Ingresar");
         ButtonIngresarInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonIngresarInicioActionPerformed(evt);
@@ -109,7 +147,6 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonIngresarInicio.setBounds(730, 780, 460, 100);
 
         ButtonRegistrarInicio.setBackground(new java.awt.Color(255, 255, 255));
-        ButtonRegistrarInicio.setText("Registrar");
         ButtonRegistrarInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonRegistrarInicioActionPerformed(evt);
@@ -132,8 +169,104 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelRegistroEstudiante.setMinimumSize(new java.awt.Dimension(1920, 1080));
         panelRegistroEstudiante.setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel1.setText("Segundo Nombre");
+        panelRegistroEstudiante.add(jLabel1);
+        jLabel1.setBounds(1080, 390, 330, 50);
+
+        jLabel2.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel2.setText("Primer Nombre");
+        panelRegistroEstudiante.add(jLabel2);
+        jLabel2.setBounds(340, 390, 290, 50);
+
+        jLabel3.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel3.setText("Segundo Apellido");
+        panelRegistroEstudiante.add(jLabel3);
+        jLabel3.setBounds(1080, 500, 330, 50);
+
+        jLabel4.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel4.setText("Primer Apellido");
+        panelRegistroEstudiante.add(jLabel4);
+        jLabel4.setBounds(340, 500, 290, 50);
+
+        jLabel5.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel5.setText("Fecha Nacimiento");
+        panelRegistroEstudiante.add(jLabel5);
+        jLabel5.setBounds(1080, 600, 330, 50);
+
+        jLabel6.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel6.setText("Correo electrónico");
+        panelRegistroEstudiante.add(jLabel6);
+        jLabel6.setBounds(340, 600, 290, 50);
+
+        jLabel7.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel7.setText("Contraseña");
+        panelRegistroEstudiante.add(jLabel7);
+        jLabel7.setBounds(340, 710, 290, 50);
+
+        ButtonRegistrarEstudiante.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonRegistrarEstudiante.setAlignmentY(0.0F);
+        ButtonRegistrarEstudiante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRegistrarEstudianteActionPerformed(evt);
+            }
+        });
+        panelRegistroEstudiante.add(ButtonRegistrarEstudiante);
+        ButtonRegistrarEstudiante.setBounds(830, 910, 260, 100);
+
+        ButtonVolverRegistroEstudiante.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonVolverRegistroEstudiante.setAlignmentY(0.0F);
+        ButtonVolverRegistroEstudiante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonVolverRegistroEstudianteActionPerformed(evt);
+            }
+        });
+        panelRegistroEstudiante.add(ButtonVolverRegistroEstudiante);
+        ButtonVolverRegistroEstudiante.setBounds(1580, 910, 260, 100);
+
+        jTnombre1Estudiante.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        jTnombre1Estudiante.setToolTipText("Tu primer nombre");
+        panelRegistroEstudiante.add(jTnombre1Estudiante);
+        jTnombre1Estudiante.setBounds(340, 440, 520, 50);
+
+        jTapellido1Estudiante.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        jTapellido1Estudiante.setToolTipText("Tu primer apellido");
+        panelRegistroEstudiante.add(jTapellido1Estudiante);
+        jTapellido1Estudiante.setBounds(340, 547, 520, 50);
+
+        jTcorreoEstudiante.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        jTcorreoEstudiante.setToolTipText("Tu correo electrónico");
+        jTcorreoEstudiante.setAlignmentY(0.0F);
+        panelRegistroEstudiante.add(jTcorreoEstudiante);
+        jTcorreoEstudiante.setBounds(340, 655, 520, 50);
+
+        jTnombre2Estudiante.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        jTnombre2Estudiante.setToolTipText("Tu segundo nombre");
+        panelRegistroEstudiante.add(jTnombre2Estudiante);
+        jTnombre2Estudiante.setBounds(1080, 440, 520, 50);
+
+        jTapellido2Estudiante.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        jTapellido2Estudiante.setToolTipText("Tu segundo apellido");
+        panelRegistroEstudiante.add(jTapellido2Estudiante);
+        jTapellido2Estudiante.setBounds(1080, 547, 520, 50);
+
+        jTcontraseñaEstudiante.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        panelRegistroEstudiante.add(jTcontraseñaEstudiante);
+        jTcontraseñaEstudiante.setBounds(341, 760, 520, 50);
+
+        jDateNacimientoEstudiante.setToolTipText("Tu hecha de nacimiento");
+        panelRegistroEstudiante.add(jDateNacimientoEstudiante);
+        jDateNacimientoEstudiante.setBounds(1080, 655, 520, 50);
+
         imgRegistroEstudiante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgRegistroEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Registro 1.0.png"))); // NOI18N
+        imgRegistroEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Registro Estudiante1.0.png"))); // NOI18N
         panelRegistroEstudiante.add(imgRegistroEstudiante);
         imgRegistroEstudiante.setBounds(10, 0, 1920, 1080);
 
@@ -198,7 +331,6 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelRolRegistro.setLayout(null);
 
         ButtonRegistroEstudiante.setBackground(new java.awt.Color(153, 0, 0));
-        ButtonRegistroEstudiante.setText("Estudiante");
         ButtonRegistroEstudiante.setAlignmentY(0.0F);
         ButtonRegistroEstudiante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,13 +341,11 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonRegistroEstudiante.setBounds(1070, 570, 400, 60);
 
         ButtonRegistroProfesor.setBackground(new java.awt.Color(153, 0, 0));
-        ButtonRegistroProfesor.setText("Profesor");
         ButtonRegistroProfesor.setAlignmentY(0.0F);
         panelRolRegistro.add(ButtonRegistroProfesor);
         ButtonRegistroProfesor.setBounds(530, 570, 400, 60);
 
         ButtonVolverRol.setBackground(new java.awt.Color(153, 0, 0));
-        ButtonVolverRol.setText("Volver");
         ButtonVolverRol.setAlignmentY(0.0F);
         ButtonVolverRol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -357,6 +487,24 @@ public class ClassyInterface extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ButtonRegistroEstudianteActionPerformed
 
+    private void ButtonVolverRegistroEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonVolverRegistroEstudianteActionPerformed
+        volverMenuInicial();
+        limpiarCamposRegistroEstudiante();
+    }//GEN-LAST:event_ButtonVolverRegistroEstudianteActionPerformed
+
+    private void ButtonRegistrarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegistrarEstudianteActionPerformed
+        
+        ControlEstudiante objce = new ControlEstudiante();
+        
+        java.util.Date date;
+        java.sql.Date fechaNacimiento;
+        date = jDateNacimientoEstudiante.getDate();
+        fechaNacimiento = new java.sql.Date(date.getTime());
+        //System.out.print(fechaNacimiento); //Imprime la fecha de nacimiento seleccionada
+        
+        
+    }//GEN-LAST:event_ButtonRegistrarEstudianteActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -395,9 +543,11 @@ public class ClassyInterface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonIngresarInicio;
+    private javax.swing.JButton ButtonRegistrarEstudiante;
     private javax.swing.JButton ButtonRegistrarInicio;
     private javax.swing.JButton ButtonRegistroEstudiante;
     private javax.swing.JButton ButtonRegistroProfesor;
+    private javax.swing.JButton ButtonVolverRegistroEstudiante;
     private javax.swing.JButton ButtonVolverRol;
     private javax.swing.JLabel imgCursosEstudiante;
     private javax.swing.JLabel imgCursosProfesor;
@@ -410,6 +560,20 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JLabel imgRegistroProfesor;
     private javax.swing.JLabel imgRolIngreso;
     private javax.swing.JLabel imgRolRegistro;
+    private com.toedter.calendar.JDateChooser jDateNacimientoEstudiante;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField jTapellido1Estudiante;
+    private javax.swing.JTextField jTapellido2Estudiante;
+    private javax.swing.JPasswordField jTcontraseñaEstudiante;
+    private javax.swing.JTextField jTcorreoEstudiante;
+    private javax.swing.JTextField jTnombre1Estudiante;
+    private javax.swing.JTextField jTnombre2Estudiante;
     private javax.swing.JPanel panelCursosEstudiante;
     private javax.swing.JPanel panelCursosProfesor;
     private javax.swing.JPanel panelInicio;
@@ -441,5 +605,16 @@ public class ClassyInterface extends javax.swing.JFrame {
         //cursos
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
+    }
+
+    private void limpiarCamposRegistroEstudiante() {
+        jTapellido1Estudiante.setText("");
+        jTapellido2Estudiante.setText("");
+        jTcontraseñaEstudiante.setText("");
+        jTcorreoEstudiante.setText("");
+        jDateNacimientoEstudiante.setCalendar(null);
+        jTnombre1Estudiante.setText("");
+        jTnombre2Estudiante.setText("");
+        jTcontraseñaEstudiante.setText("");
     }
 }

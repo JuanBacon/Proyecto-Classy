@@ -6,6 +6,7 @@
 package modelo;
 
 import control.BaseDatos;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -21,13 +22,14 @@ public class Estudiante {
     private String apellido1_estudiante;
     private String apellido2_estudiante;
     private String correo_estudiante;
-    private String fecha_nacimiento;
+    private Date fecha_nacimiento;
     private String contrasenia_estudiante;
 
     public Estudiante() {
     }
-
-    public Estudiante(String id_estudiante, String nombre1_estudiante, String nombre2_estudiante, String apellido1_estudiante, String apellido2_estudiante, String correo_estudiante, String fecha_nacimiento, String contrasenia_estudiante) {
+    
+    
+    public Estudiante(String id_estudiante, String nombre1_estudiante, String nombre2_estudiante, String apellido1_estudiante, String apellido2_estudiante, String correo_estudiante, Date fecha_nacimiento, String contrasenia_estudiante) {
         this.id_estudiante = id_estudiante;
         this.nombre1_estudiante = nombre1_estudiante;
         this.nombre2_estudiante = nombre2_estudiante;
@@ -38,7 +40,7 @@ public class Estudiante {
         this.contrasenia_estudiante = contrasenia_estudiante;
     }
 
-    public Estudiante(String nombre1_estudiante, String nombre2_estudiante, String apellido1_estudiante, String apellido2_estudiante, String correo_estudiante, String fecha_nacimiento, String contrasenia_estudiante) {
+    public Estudiante(String nombre1_estudiante, String nombre2_estudiante, String apellido1_estudiante, String apellido2_estudiante, String correo_estudiante, Date fecha_nacimiento, String contrasenia_estudiante) {
         this.nombre1_estudiante = nombre1_estudiante;
         this.nombre2_estudiante = nombre2_estudiante;
         this.apellido1_estudiante = apellido1_estudiante;
@@ -57,13 +59,15 @@ public class Estudiante {
         this.contrasenia_estudiante = contrasenia_estudiante;
     }
 
-    public String getFecha_nacimiento() {
+    public Date getFecha_nacimiento() {
         return fecha_nacimiento;
     }
 
-    public void setFecha_nacimiento(String fecha_nacimiento) {
+    public void setFecha_nacimiento(Date fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
     }
+
+   
 
     public String getCorreo_estudiante() {
         return correo_estudiante;

@@ -12,6 +12,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 //Fechas
  
 public class ClassyInterface extends javax.swing.JFrame {
@@ -20,7 +21,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     
     public ClassyInterface() {
         initComponents();
-        
+   
         //Determinar visibilidad inicial de los paneles
         panelInicio.setVisible(true);
         //Estudiante
@@ -177,7 +178,7 @@ public class ClassyInterface extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(110, 54, 32));
-        jLabel2.setText("Primer Nombre");
+        jLabel2.setText("Primer Nombre*");
         panelRegistroEstudiante.add(jLabel2);
         jLabel2.setBounds(340, 390, 290, 50);
 
@@ -189,25 +190,25 @@ public class ClassyInterface extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(110, 54, 32));
-        jLabel4.setText("Primer Apellido");
+        jLabel4.setText("Primer Apellido*");
         panelRegistroEstudiante.add(jLabel4);
         jLabel4.setBounds(340, 500, 290, 50);
 
         jLabel5.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(110, 54, 32));
-        jLabel5.setText("Fecha Nacimiento");
+        jLabel5.setText("Fecha Nacimiento*");
         panelRegistroEstudiante.add(jLabel5);
         jLabel5.setBounds(1080, 600, 330, 50);
 
         jLabel6.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(110, 54, 32));
-        jLabel6.setText("Correo electrónico");
+        jLabel6.setText("Correo electrónico*");
         panelRegistroEstudiante.add(jLabel6);
         jLabel6.setBounds(340, 600, 290, 50);
 
         jLabel7.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(110, 54, 32));
-        jLabel7.setText("Contraseña");
+        jLabel7.setText("Contraseña*");
         panelRegistroEstudiante.add(jLabel7);
         jLabel7.setBounds(340, 710, 290, 50);
 
@@ -494,6 +495,12 @@ public class ClassyInterface extends javax.swing.JFrame {
 
     private void ButtonRegistrarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegistrarEstudianteActionPerformed
         
+        
+        //Validacion de campos
+        if(jTnombre1Estudiante.getText() == "" || jTapellido1Estudiante.getText()== "" || jDateNacimientoEstudiante.getDate() == null || jTcorreoEstudiante.getText() == "" || jTcontraseñaEstudiante.getText()==""){
+            JOptionPane.showMessageDialog(rootPane, "Por favor llena todos los campos obligatorios");
+        }else{
+            
         ControlEstudiante objce = new ControlEstudiante();
         
         java.util.Date date;
@@ -501,6 +508,21 @@ public class ClassyInterface extends javax.swing.JFrame {
         date = jDateNacimientoEstudiante.getDate();
         fechaNacimiento = new java.sql.Date(date.getTime());
         //System.out.print(fechaNacimiento); //Imprime la fecha de nacimiento seleccionada
+        String nombre1 = jTnombre1Estudiante.getText();
+        String nombre2 = jTnombre2Estudiante.getText();
+        String apellido1 = jTapellido1Estudiante.getText();
+        String apellido2 = jTapellido2Estudiante.getText();
+        String correo = jTcorreoEstudiante.getText();
+        String contraseña = jTcontraseñaEstudiante.getText();
+        
+        Estudiante ee = new Estudiante(nombre1,nombre2,apellido1,apellido2,correo,fechaNacimiento,contraseña);
+        
+        boolean t = objce.insertarEstudiante(ee);
+         JOptionPane.showMessageDialog(rootPane, "Insertado un estudiante a la base de datos");
+         //System.out.print("Insertado un estudiante a la base de datos"); //Mensaje de verificacion en consola
+         limpiarCamposRegistroEstudiante();
+         volverMenuInicial();
+        }
         
         
     }//GEN-LAST:event_ButtonRegistrarEstudianteActionPerformed

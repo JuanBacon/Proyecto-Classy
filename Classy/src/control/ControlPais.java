@@ -18,7 +18,7 @@ public class ControlPais {
     public LinkedList<Pais> consultarPaises() {
         LinkedList<Pais> listac = new LinkedList<>();
         Pais objPais = new Pais();
-        String sql = "select * from clasificaciones;";
+        String sql = "select * from paises;";
         listac = objPais.consultPaises(sql);
         return listac;
     }

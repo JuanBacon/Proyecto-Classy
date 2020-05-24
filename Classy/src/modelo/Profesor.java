@@ -6,6 +6,7 @@
 package modelo;
 
 import control.BaseDatos;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -23,13 +24,13 @@ public class Profesor {
     private String correo_profesor;
     private String direccion_profesor;
     private String contrasenia_profesor;
-    private String fecha_creacion_p;
-    private String id_paisF;
+    private Date fecha_creacion_p;
+    private int id_paisF;
 
     public Profesor() {
     }
 
-    public Profesor(int id_profesor, String nombre1_profesor, String nombre2_profesor, String apellido1_profesor, String apellido2_profesor, String correo_profesor, String direccion_profesor, String contrasenia_profesor, String fecha_creacion_p, String id_paisF) {
+    public Profesor(int id_profesor, String nombre1_profesor, String nombre2_profesor, String apellido1_profesor, String apellido2_profesor, String correo_profesor, String direccion_profesor, String contrasenia_profesor, Date fecha_creacion_p, int id_paisF) {
         this.id_profesor = id_profesor;
         this.nombre1_profesor = nombre1_profesor;
         this.nombre2_profesor = nombre2_profesor;
@@ -42,7 +43,7 @@ public class Profesor {
         this.id_paisF = id_paisF;
     }
 
-    public Profesor(String nombre1_profesor, String nombre2_profesor, String apellido1_profesor, String apellido2_profesor, String correo_profesor, String direccion_profesor, String contrasenia_profesor, String fecha_creacion_p, String id_paisF) {
+    public Profesor(String nombre1_profesor, String nombre2_profesor, String apellido1_profesor, String apellido2_profesor, String correo_profesor, String direccion_profesor, String contrasenia_profesor, Date fecha_creacion_p, int id_paisF) {
         this.nombre1_profesor = nombre1_profesor;
         this.nombre2_profesor = nombre2_profesor;
         this.apellido1_profesor = apellido1_profesor;
@@ -53,24 +54,23 @@ public class Profesor {
         this.fecha_creacion_p = fecha_creacion_p;
         this.id_paisF = id_paisF;
     }
-    
-    
 
-    public String getId_paisF() {
-        return id_paisF;
-    }
-
-    public void setId_paisF(String id_paisF) {
-        this.id_paisF = id_paisF;
-    }
-
-    public String getFecha_creacion_p() {
+    public Date getFecha_creacion_p() {
         return fecha_creacion_p;
     }
 
-    public void setFecha_creacion_p(String fecha_creacion_p) {
+    public void setFecha_creacion_p(Date fecha_creacion_p) {
         this.fecha_creacion_p = fecha_creacion_p;
     }
+
+    public int getId_paisF() {
+        return id_paisF;
+    }
+
+    public void setId_paisF(int id_paisF) {
+        this.id_paisF = id_paisF;
+    }
+    
 
     public String getContrasenia_profesor() {
         return contrasenia_profesor;

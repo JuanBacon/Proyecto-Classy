@@ -28,7 +28,7 @@ public class Estudiante {
     public Estudiante() {
     }
     
-    /*
+    
     public Estudiante(String id_estudiante, String nombre1_estudiante, String nombre2_estudiante, String apellido1_estudiante, String apellido2_estudiante, String correo_estudiante, Date fecha_nacimiento, String contrasenia_estudiante) {
         this.id_estudiante = id_estudiante;
         this.nombre1_estudiante = nombre1_estudiante;
@@ -38,7 +38,7 @@ public class Estudiante {
         this.correo_estudiante = correo_estudiante;
         this.fecha_nacimiento = fecha_nacimiento;
         this.contrasenia_estudiante = contrasenia_estudiante;
-    }*/
+    }
 
     public Estudiante(String nombre1_estudiante, String nombre2_estudiante, String apellido1_estudiante, String apellido2_estudiante, String correo_estudiante, Date fecha_nacimiento, String contrasenia_estudiante) {
         this.nombre1_estudiante = nombre1_estudiante;

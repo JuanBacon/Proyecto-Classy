@@ -516,9 +516,14 @@ public class ClassyInterface extends javax.swing.JFrame {
         String contraseña = jTcontraseñaEstudiante.getText();
         
         Estudiante ee = new Estudiante(nombre1,nombre2,apellido1,apellido2,correo,fechaNacimiento,contraseña);
+
         
         boolean t = objce.insertarEstudiante(ee);
-         JOptionPane.showMessageDialog(rootPane, "Insertado un estudiante a la base de datos");
+            if (t) {
+                JOptionPane.showMessageDialog(rootPane, "Insertado un estudiante a la base de datos");
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "No se incerto a la base de datos");
+            }
          //System.out.print("Insertado un estudiante a la base de datos"); //Mensaje de verificacion en consola
          limpiarCamposRegistroEstudiante();
          volverMenuInicial();

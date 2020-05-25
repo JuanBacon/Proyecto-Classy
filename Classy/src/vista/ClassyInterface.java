@@ -229,6 +229,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelPublicacionesProfesor = new javax.swing.JPanel();
         imgPublicacionesProfesor = new javax.swing.JLabel();
         panelBienvenido = new javax.swing.JPanel();
+        ButtonMisCursosEstudiante = new javax.swing.JButton();
         ButtonCerrarSesionEstudiante = new javax.swing.JButton();
         imgBienvenido = new javax.swing.JLabel();
 
@@ -765,6 +766,16 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelBienvenido.setMinimumSize(new java.awt.Dimension(1920, 1080));
         panelBienvenido.setLayout(null);
 
+        ButtonMisCursosEstudiante.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonMisCursosEstudiante.setAlignmentY(0.0F);
+        ButtonMisCursosEstudiante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonMisCursosEstudianteActionPerformed(evt);
+            }
+        });
+        panelBienvenido.add(ButtonMisCursosEstudiante);
+        ButtonMisCursosEstudiante.setBounds(1180, 910, 330, 100);
+
         ButtonCerrarSesionEstudiante.setBackground(new java.awt.Color(153, 0, 0));
         ButtonCerrarSesionEstudiante.setAlignmentY(0.0F);
         ButtonCerrarSesionEstudiante.addActionListener(new java.awt.event.ActionListener() {
@@ -1107,6 +1118,10 @@ public class ClassyInterface extends javax.swing.JFrame {
         cerrarSesion();
     }//GEN-LAST:event_ButtonCerrarSesionEstudianteActionPerformed
 
+    private void ButtonMisCursosEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMisCursosEstudianteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonMisCursosEstudianteActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1151,6 +1166,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JButton ButtonIngresarInicio;
     private javax.swing.JButton ButtonInicioEstudiante;
     private javax.swing.JButton ButtonInicioProfesor;
+    private javax.swing.JButton ButtonMisCursosEstudiante;
     private javax.swing.JButton ButtonRegistrarEstudiante;
     private javax.swing.JButton ButtonRegistrarInicio;
     private javax.swing.JButton ButtonRegistrarProfesor;

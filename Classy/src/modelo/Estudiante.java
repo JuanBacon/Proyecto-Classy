@@ -7,6 +7,7 @@ package modelo;
 
 import control.BaseDatos;
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -28,7 +29,7 @@ public class Estudiante {
     public Estudiante() {
     }
     
-    /*
+    
     public Estudiante(String id_estudiante, String nombre1_estudiante, String nombre2_estudiante, String apellido1_estudiante, String apellido2_estudiante, String correo_estudiante, Date fecha_nacimiento, String contrasenia_estudiante) {
         this.id_estudiante = id_estudiante;
         this.nombre1_estudiante = nombre1_estudiante;
@@ -38,7 +39,7 @@ public class Estudiante {
         this.correo_estudiante = correo_estudiante;
         this.fecha_nacimiento = fecha_nacimiento;
         this.contrasenia_estudiante = contrasenia_estudiante;
-    }*/
+    }
 
     public Estudiante(String nombre1_estudiante, String nombre2_estudiante, String apellido1_estudiante, String apellido2_estudiante, String correo_estudiante, Date fecha_nacimiento, String contrasenia_estudiante) {
         this.nombre1_estudiante = nombre1_estudiante;
@@ -48,6 +49,11 @@ public class Estudiante {
         this.correo_estudiante = correo_estudiante;
         this.fecha_nacimiento = fecha_nacimiento;
         this.contrasenia_estudiante = contrasenia_estudiante;
+    }
+    
+    public Estudiante(String correo_estudiante, String contraseña_estudiante){
+        this.correo_estudiante = correo_estudiante;
+        this.contrasenia_estudiante = contraseña_estudiante;
     }
 
     
@@ -135,6 +141,29 @@ public class Estudiante {
         
         return t;
         
+    }
+
+    public int ingresarEstudiante(String sql) {
+        
+       int id = 0;
+        BaseDatos objCon = new BaseDatos();
+        ResultSet rs = null;
+        if (objCon.crearConexion()) {
+            try {
+                rs= objCon.getSt().executeQuery(sql);
+                if(rs.next()){
+                    id= rs.getInt("id_estudiante");
+                }else{
+                    id = 0;
+                }
+                   
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                id = 0;
+            }
+        }
+        
+        return id;
     }
 
 }

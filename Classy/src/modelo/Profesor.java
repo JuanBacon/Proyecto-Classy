@@ -7,6 +7,7 @@ package modelo;
 
 import control.BaseDatos;
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -53,6 +54,11 @@ public class Profesor {
         this.contrasenia_profesor = contrasenia_profesor;
         this.fecha_creacion_p = fecha_creacion_p;
         this.id_paisF = id_paisF;
+    }
+
+    public Profesor(String correo_profesor, String contrasenia_profesor) {
+        this.correo_profesor = correo_profesor;
+        this.contrasenia_profesor = contrasenia_profesor;
     }
 
     public Date getFecha_creacion_p() {
@@ -158,6 +164,28 @@ public class Profesor {
         }
         
         return t;
+    }
+
+    public int ingresarProfesor(String sql) {
+        int id = 0;
+        BaseDatos objCon = new BaseDatos();
+        ResultSet rs = null;
+        if (objCon.crearConexion()) {
+            try {
+                rs= objCon.getSt().executeQuery(sql);
+                if(rs.next()){
+                    id= rs.getInt("id_profesor");
+                }else{
+                    id = 0;
+                }
+                   
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                id = 0;
+            }
+        }
+        
+        return id;
     }
 
 }

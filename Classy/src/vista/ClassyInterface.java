@@ -24,6 +24,9 @@ public class ClassyInterface extends javax.swing.JFrame {
     //Creacion de listas
     LinkedList<Pais> lPais;
     
+    //Variables de "sesion"
+    String tipo;
+    int id_usuario;
     
     public ClassyInterface() {
         initComponents();
@@ -50,6 +53,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         //cursos
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
+        //Bienvenido
+        panelBienvenido.setVisible(false);
         
         //Botones
         //PANEL DE INICIO
@@ -93,7 +98,50 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonVolverRegistroProfesor.setContentAreaFilled(false); 
         ButtonVolverRegistroProfesor.setBorderPainted(false);
         
+        //PANEL ROL INICIO
         
+        ButtonInicioEstudiante.setOpaque(false);
+        ButtonInicioEstudiante.setContentAreaFilled(false); 
+        ButtonInicioEstudiante.setBorderPainted(false);
+                
+        ButtonInicioProfesor.setOpaque(false);
+        ButtonInicioProfesor.setContentAreaFilled(false); 
+        ButtonInicioProfesor.setBorderPainted(false);
+        
+        ButtonVolverRol1.setOpaque(false);
+        ButtonVolverRol1.setContentAreaFilled(false); 
+        ButtonVolverRol1.setBorderPainted(false);
+        
+        //PANEL INICIAR ESTUDIANTE
+        
+        ButtonVolverInicioEstudiante.setOpaque(false);
+        ButtonVolverInicioEstudiante.setContentAreaFilled(false); 
+        ButtonVolverInicioEstudiante.setBorderPainted(false);
+        
+        ButtonEntrarInicioEstudiante.setOpaque(false);
+        ButtonEntrarInicioEstudiante.setContentAreaFilled(false); 
+        ButtonEntrarInicioEstudiante.setBorderPainted(false);
+        
+        //PANEL INICIAR PROFESOR
+        
+        ButtonVolverInicioProfesor.setOpaque(false);
+        ButtonVolverInicioProfesor.setContentAreaFilled(false); 
+        ButtonVolverInicioProfesor.setBorderPainted(false);
+        
+        ButtonEntrarInicioProfesor.setOpaque(false);
+        ButtonEntrarInicioProfesor.setContentAreaFilled(false); 
+        ButtonEntrarInicioProfesor.setBorderPainted(false);
+        
+        //PANEL CURSOS PROFESOR
+        ButtonCerrarSesionProfesor.setOpaque(false);
+        ButtonCerrarSesionProfesor.setContentAreaFilled(false); 
+        ButtonCerrarSesionProfesor.setBorderPainted(false);
+        
+        
+        //PANEL BIENVENIDO ESTUDIANTE
+        ButtonCerrarSesionEstudiante.setOpaque(false);
+        ButtonCerrarSesionEstudiante.setContentAreaFilled(false); 
+        ButtonCerrarSesionEstudiante.setBorderPainted(false);
     }
 
    
@@ -146,10 +194,25 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonVolverRegistroProfesor = new javax.swing.JButton();
         imgRegistroProfesor = new javax.swing.JLabel();
         panelInicioEstudiante = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        ButtonEntrarInicioEstudiante = new javax.swing.JButton();
+        ButtonVolverInicioEstudiante = new javax.swing.JButton();
+        jTingresarContraseñaEstudiante = new javax.swing.JPasswordField();
+        jTingresarCorreoEstudiante = new javax.swing.JTextField();
         imgInicioEstudiante = new javax.swing.JLabel();
         panelInicioProfesor = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        ButtonEntrarInicioProfesor = new javax.swing.JButton();
+        ButtonVolverInicioProfesor = new javax.swing.JButton();
+        jTingresarContraseñaProfesor = new javax.swing.JPasswordField();
+        jTingresarCorreoProfesor = new javax.swing.JTextField();
         imgInicioProfesor = new javax.swing.JLabel();
         panelRolIngreso = new javax.swing.JPanel();
+        ButtonInicioEstudiante = new javax.swing.JButton();
+        ButtonInicioProfesor = new javax.swing.JButton();
+        ButtonVolverRol1 = new javax.swing.JButton();
         imgRolIngreso = new javax.swing.JLabel();
         panelRolRegistro = new javax.swing.JPanel();
         ButtonRegistroEstudiante = new javax.swing.JButton();
@@ -159,11 +222,15 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante = new javax.swing.JPanel();
         imgCursosEstudiante = new javax.swing.JLabel();
         panelCursosProfesor = new javax.swing.JPanel();
+        ButtonCerrarSesionProfesor = new javax.swing.JButton();
         imgCursosProfesor = new javax.swing.JLabel();
         panelPublicacionesEstudiante = new javax.swing.JPanel();
         imgPublicacionesEstudiante = new javax.swing.JLabel();
         panelPublicacionesProfesor = new javax.swing.JPanel();
         imgPublicacionesProfesor = new javax.swing.JLabel();
+        panelBienvenido = new javax.swing.JPanel();
+        ButtonCerrarSesionEstudiante = new javax.swing.JButton();
+        imgBienvenido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Classy!");
@@ -441,6 +508,47 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelInicioEstudiante.setMinimumSize(new java.awt.Dimension(1920, 1080));
         panelInicioEstudiante.setLayout(null);
 
+        jLabel16.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel16.setText("Contraseña");
+        panelInicioEstudiante.add(jLabel16);
+        jLabel16.setBounds(700, 560, 330, 50);
+
+        jLabel17.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel17.setText("Correo Electrónico");
+        panelInicioEstudiante.add(jLabel17);
+        jLabel17.setBounds(700, 440, 290, 50);
+
+        ButtonEntrarInicioEstudiante.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonEntrarInicioEstudiante.setAlignmentY(0.0F);
+        ButtonEntrarInicioEstudiante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEntrarInicioEstudianteActionPerformed(evt);
+            }
+        });
+        panelInicioEstudiante.add(ButtonEntrarInicioEstudiante);
+        ButtonEntrarInicioEstudiante.setBounds(830, 730, 250, 100);
+
+        ButtonVolverInicioEstudiante.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonVolverInicioEstudiante.setAlignmentY(0.0F);
+        ButtonVolverInicioEstudiante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonVolverInicioEstudianteActionPerformed(evt);
+            }
+        });
+        panelInicioEstudiante.add(ButtonVolverInicioEstudiante);
+        ButtonVolverInicioEstudiante.setBounds(1580, 910, 250, 100);
+
+        jTingresarContraseñaEstudiante.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        panelInicioEstudiante.add(jTingresarContraseñaEstudiante);
+        jTingresarContraseñaEstudiante.setBounds(700, 607, 520, 50);
+
+        jTingresarCorreoEstudiante.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        jTingresarCorreoEstudiante.setToolTipText("Tu primer nombre");
+        panelInicioEstudiante.add(jTingresarCorreoEstudiante);
+        jTingresarCorreoEstudiante.setBounds(700, 500, 520, 50);
+
         imgInicioEstudiante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgInicioEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Ingreso 1.0.png"))); // NOI18N
         panelInicioEstudiante.add(imgInicioEstudiante);
@@ -454,6 +562,48 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelInicioProfesor.setMinimumSize(new java.awt.Dimension(1920, 1080));
         panelInicioProfesor.setLayout(null);
 
+        jLabel18.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel18.setText("Contraseña");
+        panelInicioProfesor.add(jLabel18);
+        jLabel18.setBounds(700, 560, 330, 50);
+
+        jLabel19.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel19.setText("Correo Electrónico");
+        panelInicioProfesor.add(jLabel19);
+        jLabel19.setBounds(700, 440, 290, 50);
+
+        ButtonEntrarInicioProfesor.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonEntrarInicioProfesor.setAlignmentY(0.0F);
+        ButtonEntrarInicioProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEntrarInicioProfesorActionPerformed(evt);
+            }
+        });
+        panelInicioProfesor.add(ButtonEntrarInicioProfesor);
+        ButtonEntrarInicioProfesor.setBounds(830, 730, 250, 100);
+
+        ButtonVolverInicioProfesor.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonVolverInicioProfesor.setAlignmentY(0.0F);
+        ButtonVolverInicioProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonVolverInicioProfesorActionPerformed(evt);
+            }
+        });
+        panelInicioProfesor.add(ButtonVolverInicioProfesor);
+        ButtonVolverInicioProfesor.setBounds(1580, 910, 250, 100);
+
+        jTingresarContraseñaProfesor.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        jTingresarContraseñaProfesor.setToolTipText("Tu contraseña");
+        panelInicioProfesor.add(jTingresarContraseñaProfesor);
+        jTingresarContraseñaProfesor.setBounds(700, 607, 520, 50);
+
+        jTingresarCorreoProfesor.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        jTingresarCorreoProfesor.setToolTipText("Tu Correo");
+        panelInicioProfesor.add(jTingresarCorreoProfesor);
+        jTingresarCorreoProfesor.setBounds(700, 500, 520, 50);
+
         imgInicioProfesor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgInicioProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Ingreso 1.0.png"))); // NOI18N
         panelInicioProfesor.add(imgInicioProfesor);
@@ -466,6 +616,36 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelRolIngreso.setMaximumSize(new java.awt.Dimension(1920, 1080));
         panelRolIngreso.setMinimumSize(new java.awt.Dimension(1920, 1080));
         panelRolIngreso.setLayout(null);
+
+        ButtonInicioEstudiante.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonInicioEstudiante.setAlignmentY(0.0F);
+        ButtonInicioEstudiante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonInicioEstudianteActionPerformed(evt);
+            }
+        });
+        panelRolIngreso.add(ButtonInicioEstudiante);
+        ButtonInicioEstudiante.setBounds(1070, 570, 400, 60);
+
+        ButtonInicioProfesor.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonInicioProfesor.setAlignmentY(0.0F);
+        ButtonInicioProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonInicioProfesorActionPerformed(evt);
+            }
+        });
+        panelRolIngreso.add(ButtonInicioProfesor);
+        ButtonInicioProfesor.setBounds(530, 570, 400, 60);
+
+        ButtonVolverRol1.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonVolverRol1.setAlignmentY(0.0F);
+        ButtonVolverRol1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonVolverRol1ActionPerformed(evt);
+            }
+        });
+        panelRolIngreso.add(ButtonVolverRol1);
+        ButtonVolverRol1.setBounds(1580, 910, 250, 100);
 
         imgRolIngreso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgRolIngreso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Rol 1.1.png"))); // NOI18N
@@ -536,6 +716,16 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosProfesor.setMinimumSize(new java.awt.Dimension(1920, 1080));
         panelCursosProfesor.setLayout(null);
 
+        ButtonCerrarSesionProfesor.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonCerrarSesionProfesor.setAlignmentY(0.0F);
+        ButtonCerrarSesionProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCerrarSesionProfesorActionPerformed(evt);
+            }
+        });
+        panelCursosProfesor.add(ButtonCerrarSesionProfesor);
+        ButtonCerrarSesionProfesor.setBounds(1540, 910, 330, 100);
+
         imgCursosProfesor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgCursosProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Cursos  profesor 1.0.png"))); // NOI18N
         panelCursosProfesor.add(imgCursosProfesor);
@@ -570,6 +760,30 @@ public class ClassyInterface extends javax.swing.JFrame {
         getContentPane().add(panelPublicacionesProfesor);
         panelPublicacionesProfesor.setBounds(10, 11, 1920, 1080);
 
+        panelBienvenido.setBackground(new java.awt.Color(204, 204, 204));
+        panelBienvenido.setMaximumSize(new java.awt.Dimension(1920, 1080));
+        panelBienvenido.setMinimumSize(new java.awt.Dimension(1920, 1080));
+        panelBienvenido.setLayout(null);
+
+        ButtonCerrarSesionEstudiante.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonCerrarSesionEstudiante.setAlignmentY(0.0F);
+        ButtonCerrarSesionEstudiante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCerrarSesionEstudianteActionPerformed(evt);
+            }
+        });
+        panelBienvenido.add(ButtonCerrarSesionEstudiante);
+        ButtonCerrarSesionEstudiante.setBounds(1540, 910, 330, 100);
+
+        imgBienvenido.setBackground(new java.awt.Color(96, 3, 3));
+        imgBienvenido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgBienvenido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bienvenido 1.0.png"))); // NOI18N
+        panelBienvenido.add(imgBienvenido);
+        imgBienvenido.setBounds(0, 0, 1920, 1080);
+
+        getContentPane().add(panelBienvenido);
+        panelBienvenido.setBounds(10, 11, 1920, 1080);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -592,6 +806,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         //cursos
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
+        //Bienvenido
+        panelBienvenido.setVisible(false);
         
     }//GEN-LAST:event_ButtonIngresarInicioActionPerformed
 
@@ -613,6 +829,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         //cursos
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
+        //Bienvenido
+        panelBienvenido.setVisible(false);
     }//GEN-LAST:event_ButtonRegistrarInicioActionPerformed
 
     private void ButtonVolverRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonVolverRolActionPerformed
@@ -638,6 +856,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         //cursos
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
+        //Bienvenido
+        panelBienvenido.setVisible(false);
         
         
     }//GEN-LAST:event_ButtonRegistroEstudianteActionPerformed
@@ -703,6 +923,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         //cursos
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
+        //Bienvenido
+        panelBienvenido.setVisible(false);
         
         
         ControlPais objcpais = new ControlPais();
@@ -769,6 +991,122 @@ public class ClassyInterface extends javax.swing.JFrame {
         limpiarCamposRegistroProfesor();
     }//GEN-LAST:event_ButtonVolverRegistroProfesorActionPerformed
 
+    private void ButtonInicioEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonInicioEstudianteActionPerformed
+        panelInicio.setVisible(false);
+        //Estudiante
+        panelRegistroEstudiante.setVisible(false);
+        panelInicioEstudiante.setVisible(true);
+        //Profesor
+        panelInicioProfesor.setVisible(false);
+        panelRegistroProfesor.setVisible(false);
+        //Rol
+        panelRolRegistro.setVisible(false);
+        panelRolIngreso.setVisible(false);
+        //Publicaciones
+        panelPublicacionesEstudiante.setVisible(false);
+        panelPublicacionesProfesor.setVisible(false);
+        //cursos
+        panelCursosEstudiante.setVisible(false);
+        panelCursosProfesor.setVisible(false);
+        //Bienvenido
+        panelBienvenido.setVisible(false);
+    }//GEN-LAST:event_ButtonInicioEstudianteActionPerformed
+
+    private void ButtonInicioProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonInicioProfesorActionPerformed
+        panelInicio.setVisible(false);
+        //Estudiante
+        panelRegistroEstudiante.setVisible(false);
+        panelInicioEstudiante.setVisible(false);
+        //Profesor
+        panelInicioProfesor.setVisible(true);
+        panelRegistroProfesor.setVisible(false);
+        //Rol
+        panelRolRegistro.setVisible(false);
+        panelRolIngreso.setVisible(false);
+        //Publicaciones
+        panelPublicacionesEstudiante.setVisible(false);
+        panelPublicacionesProfesor.setVisible(false);
+        //cursos
+        panelCursosEstudiante.setVisible(false);
+        panelCursosProfesor.setVisible(false);
+        //Bienvenido
+        panelBienvenido.setVisible(false);
+    }//GEN-LAST:event_ButtonInicioProfesorActionPerformed
+
+    private void ButtonVolverRol1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonVolverRol1ActionPerformed
+       volverMenuInicial();
+    }//GEN-LAST:event_ButtonVolverRol1ActionPerformed
+
+    private void ButtonVolverInicioEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonVolverInicioEstudianteActionPerformed
+       volverMenuInicial();
+       limpiarCamposInicioEstudiante();
+    }//GEN-LAST:event_ButtonVolverInicioEstudianteActionPerformed
+
+    private void ButtonEntrarInicioEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEntrarInicioEstudianteActionPerformed
+      if(jTingresarCorreoEstudiante.getText().isEmpty() || jTingresarContraseñaEstudiante.getText().isEmpty()){
+          JOptionPane.showMessageDialog(rootPane, "Por favor llena todos los campos obligatorios");
+      }else{
+          ControlEstudiante objce = new ControlEstudiante();
+          
+          String correo = jTingresarCorreoEstudiante.getText();
+          String contraseña = jTingresarContraseñaEstudiante.getText();
+          //System.out.print(correo + "/ " + contraseña);//Output para validar los datos ingresados
+          Estudiante ee = new Estudiante(correo,contraseña);
+          
+          int t = objce.IngresarEstudiante(ee);
+            if(t > 0){
+                tipo = "estudiante";
+                id_usuario = t;
+                
+                MostrarInicioEstudiante();
+                limpiarCamposInicioEstudiante();
+                
+            }else{
+               JOptionPane.showMessageDialog(rootPane, "Usuario y/o Contrasñea incorrectos");
+            }
+      }
+    }//GEN-LAST:event_ButtonEntrarInicioEstudianteActionPerformed
+
+    private void ButtonEntrarInicioProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEntrarInicioProfesorActionPerformed
+        if(jTingresarCorreoProfesor.getText().isEmpty() || jTingresarContraseñaProfesor.getText().isEmpty()){
+          JOptionPane.showMessageDialog(rootPane, "Por favor llena todos los campos obligatorios");
+      }else{
+          ControlProfesor objcpr = new ControlProfesor();
+          
+          String correo = jTingresarCorreoProfesor.getText();
+          String contraseña = jTingresarContraseñaProfesor.getText();
+          //System.out.print(correo + "/ " + contraseña); //Output para validar los datos ingresados
+          Profesor pr = new Profesor(correo,contraseña);
+          
+          int t = objcpr.IngresarProfesor(pr);
+            if(t > 0){
+                tipo = "profesor";
+                id_usuario = t;
+                
+                MostrarInicioProfesor();
+                limpiarCamposInicioProfesor();
+                
+            }else{
+               JOptionPane.showMessageDialog(rootPane, "Usuario y/o Contrasñea incorrectos");
+            }
+      }
+    }//GEN-LAST:event_ButtonEntrarInicioProfesorActionPerformed
+
+    private void ButtonVolverInicioProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonVolverInicioProfesorActionPerformed
+        volverMenuInicial();
+       limpiarCamposInicioProfesor();
+    }//GEN-LAST:event_ButtonVolverInicioProfesorActionPerformed
+
+    private void ButtonCerrarSesionProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCerrarSesionProfesorActionPerformed
+       volverMenuInicial();
+       cerrarSesion();
+    }//GEN-LAST:event_ButtonCerrarSesionProfesorActionPerformed
+
+    private void ButtonCerrarSesionEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCerrarSesionEstudianteActionPerformed
+        volverMenuInicial();
+        cerrarSesion();
+    }//GEN-LAST:event_ButtonCerrarSesionEstudianteActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -806,15 +1144,25 @@ public class ClassyInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonCerrarSesionEstudiante;
+    private javax.swing.JButton ButtonCerrarSesionProfesor;
+    private javax.swing.JButton ButtonEntrarInicioEstudiante;
+    private javax.swing.JButton ButtonEntrarInicioProfesor;
     private javax.swing.JButton ButtonIngresarInicio;
+    private javax.swing.JButton ButtonInicioEstudiante;
+    private javax.swing.JButton ButtonInicioProfesor;
     private javax.swing.JButton ButtonRegistrarEstudiante;
     private javax.swing.JButton ButtonRegistrarInicio;
     private javax.swing.JButton ButtonRegistrarProfesor;
     private javax.swing.JButton ButtonRegistroEstudiante;
     private javax.swing.JButton ButtonRegistroProfesor;
+    private javax.swing.JButton ButtonVolverInicioEstudiante;
+    private javax.swing.JButton ButtonVolverInicioProfesor;
     private javax.swing.JButton ButtonVolverRegistroEstudiante;
     private javax.swing.JButton ButtonVolverRegistroProfesor;
     private javax.swing.JButton ButtonVolverRol;
+    private javax.swing.JButton ButtonVolverRol1;
+    private javax.swing.JLabel imgBienvenido;
     private javax.swing.JLabel imgCursosEstudiante;
     private javax.swing.JLabel imgCursosProfesor;
     private javax.swing.JLabel imgInicio;
@@ -835,6 +1183,10 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -852,10 +1204,15 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JTextField jTcorreoEstudiante;
     private javax.swing.JTextField jTcorreoProfesor;
     private javax.swing.JTextField jTdireccionProfesor;
+    private javax.swing.JPasswordField jTingresarContraseñaEstudiante;
+    private javax.swing.JPasswordField jTingresarContraseñaProfesor;
+    private javax.swing.JTextField jTingresarCorreoEstudiante;
+    private javax.swing.JTextField jTingresarCorreoProfesor;
     private javax.swing.JTextField jTnombre1Estudiante;
     private javax.swing.JTextField jTnombre1Profesor;
     private javax.swing.JTextField jTnombre2Estudiante;
     private javax.swing.JTextField jTnombre2Profesor;
+    private javax.swing.JPanel panelBienvenido;
     private javax.swing.JPanel panelCursosEstudiante;
     private javax.swing.JPanel panelCursosProfesor;
     private javax.swing.JPanel panelInicio;
@@ -887,6 +1244,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         //cursos
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
+        //Bienvenido
+        panelBienvenido.setVisible(false);
     }
 
     private void limpiarCamposRegistroEstudiante() {
@@ -911,5 +1270,62 @@ public class ClassyInterface extends javax.swing.JFrame {
         jTdireccionProfesor.setText("");
         jCpaisProfesor.setSelectedIndex(0);
         jCpaisProfesor.removeAllItems();
+    }
+
+    private void limpiarCamposInicioEstudiante() {
+        jTingresarContraseñaEstudiante.setText("");
+        jTingresarCorreoEstudiante.setText("");
+    }
+
+    private void MostrarInicioEstudiante() {
+        panelInicio.setVisible(false);
+        //Estudiante
+        panelRegistroEstudiante.setVisible(false);
+        panelInicioEstudiante.setVisible(false);
+        //Profesor
+        panelInicioProfesor.setVisible(false);
+        panelRegistroProfesor.setVisible(false);
+        //Rol
+        panelRolRegistro.setVisible(false);
+        panelRolIngreso.setVisible(false);
+        //Publicaciones
+        panelPublicacionesEstudiante.setVisible(false);
+        panelPublicacionesProfesor.setVisible(false);
+        //cursos
+        panelCursosEstudiante.setVisible(false);
+        panelCursosProfesor.setVisible(false);
+        //Bienvenido
+        panelBienvenido.setVisible(true);
+    }
+
+    private void limpiarCamposInicioProfesor() {
+        jTingresarContraseñaProfesor.setText("");
+        jTingresarCorreoProfesor.setText("");
+    }
+
+    private void MostrarInicioProfesor() {
+        panelInicio.setVisible(false);
+        //Estudiante
+        panelRegistroEstudiante.setVisible(false);
+        panelInicioEstudiante.setVisible(false);
+        //Profesor
+        panelInicioProfesor.setVisible(false);
+        panelRegistroProfesor.setVisible(false);
+        //Rol
+        panelRolRegistro.setVisible(false);
+        panelRolIngreso.setVisible(false);
+        //Publicaciones
+        panelPublicacionesEstudiante.setVisible(false);
+        panelPublicacionesProfesor.setVisible(false);
+        //cursos
+        panelCursosEstudiante.setVisible(false);
+        panelCursosProfesor.setVisible(true);
+        //Bienvenido
+        panelBienvenido.setVisible(false);
+    }
+
+    private void cerrarSesion() {
+        id_usuario = -1;
+        tipo = "";
     }
 }

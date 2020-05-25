@@ -22,4 +22,14 @@ public class ControlProfesor {
         return t;       
         
     }
+
+     public int IngresarProfesor(Profesor objpr){
+            
+            int id;
+            Profesor objProfesor = new Profesor();
+            String sql= "SELECT id_profesor FROM profesores where correo_profesor = '"+ objpr.getCorreo_profesor()+"' and contrasenia_profesor = '"+ objpr.getContrasenia_profesor()+"'";
+            
+            id = objProfesor.ingresarProfesor(sql);
+            return id;
+        }
 }

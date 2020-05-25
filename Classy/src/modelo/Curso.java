@@ -6,6 +6,7 @@
 package modelo;
 
 import control.BaseDatos;
+import java.sql.Timestamp;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,12 +21,12 @@ import java.util.logging.Logger;
 public class Curso {
     private int id_curso;
     private String nombre_curso;
-    private String  fecha_creacion_curso;
+    private Timestamp fecha_creacion_curso;
     private String  descripcion_curso;
     private int id_profesorF;
     private int id_categoriaF;
 
-    public Curso(int id_curso, String nombre_curso, String fecha_creacion_curso, String descripcion_curso, int id_profesorF, int id_categoriaF) {
+    public Curso(int id_curso, String nombre_curso, Timestamp fecha_creacion_curso, String descripcion_curso, int id_profesorF, int id_categoriaF) {
         this.id_curso = id_curso;
         this.nombre_curso = nombre_curso;
         this.fecha_creacion_curso = fecha_creacion_curso;
@@ -34,7 +35,7 @@ public class Curso {
         this.id_categoriaF = id_categoriaF;
     }
 
-    public Curso(String nombre_curso, String fecha_creacion_curso, String descripcion_curso, int id_profesorF, int id_categoriaF) {
+    public Curso(String nombre_curso, Timestamp fecha_creacion_curso, String descripcion_curso, int id_profesorF, int id_categoriaF) {
         this.nombre_curso = nombre_curso;
         this.fecha_creacion_curso = fecha_creacion_curso;
         this.descripcion_curso = descripcion_curso;
@@ -69,13 +70,15 @@ public class Curso {
         this.nombre_curso = nombre_curso;
     }
 
-    public String getFecha_creacion_curso() {
+    public Timestamp getFecha_creacion_curso() {
         return fecha_creacion_curso;
     }
 
-    public void setFecha_creacion_curso(String fecha_creacion_curso) {
+    public void setFecha_creacion_curso(Timestamp fecha_creacion_curso) {
         this.fecha_creacion_curso = fecha_creacion_curso;
     }
+
+    
 
     public String getDescripcion_curso() {
         return descripcion_curso;
@@ -131,7 +134,7 @@ public class Curso {
         BaseDatos objb = new BaseDatos();
           int id_curso1;
           String nombre_curso1;
-          String  fecha_creacion_curso1;
+          Timestamp  fecha_creacion_curso1;
           String  descripcion_curso1;
           int id_profesorF1;
           int id_categoriaF1;
@@ -145,7 +148,7 @@ public class Curso {
                   {
                    id_curso1 = rs.getInt("id_curso");
                    nombre_curso1 = rs.getString("nombre_curso");
-                   fecha_creacion_curso1 = rs.getString("fecha_creacion_curso");
+                   fecha_creacion_curso1 = rs.getTimestamp("fecha_creacion_curso");
                    descripcion_curso1 = rs.getString("descripcion_curso");
                    id_profesorF1 = rs.getInt("id_profesorF");
                    id_categoriaF1 = rs.getInt("id_categoriaF");

@@ -15,7 +15,7 @@ public class ControlCategoria {
     public LinkedList<Categoria> consultarClasificaciones() {
         LinkedList<Categoria> listac = new LinkedList<>();
         Categoria objcategoria = new Categoria();
-        String sql = "select * from clasificaciones;";
+        String sql = "select * from categorias;";
         listac = objcategoria.consultCategoria(sql);
         return listac;
     }

@@ -8,6 +8,10 @@ package modelo;
 import control.BaseDatos;
 import java.io.FileInputStream;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,6 +20,7 @@ import java.util.logging.Logger;
  * @author wedin
  */
 public class Publicacion {
+
     private int id_publicacion;
     private String fecha_publicacion;
     private String titulo_publicacion;
@@ -84,37 +89,55 @@ public class Publicacion {
     public String toString() {
         return "Publicacion{" + "id_publicacion=" + id_publicacion + ", fecha_publicacion=" + fecha_publicacion + ", titulo_publicacion=" + titulo_publicacion + ", descripcion_publicacion=" + descripcion_publicacion + ", id_cursoF=" + id_cursoF + '}';
     }
-    
-        public boolean insertarPublicacion(Publicacion objp, String sql) {
+
+    public boolean insertPublicacion(String sql) {
         boolean t = false;
-        BaseDatos objb = new BaseDatos();
-        FileInputStream fis = null;
-        PreparedStatement ps = null;
-        try {
-            if (objb.crearConexion()) {
-//                objb.getConexion().setAutoCommit(false);
-//                File file = new File(objp.get);
-//                fis = new FileInputStream(file);
-//                ps = objb.getConexion().prepareStatement(sql);
-//                ps.setString(1, objp.getNombrePelicula());
-//                ps.setString(2, objp.getDuracionp());
-//                ps.setString(3, objp.getFechaEstrenop());
-//                ps.setBinaryStream(4, fis, (int) file.length());
-//                ps.setInt(5, objp.getIdPaisf());
-//                ps.setInt(6, objp.getIdClasificacionf());
-//
-//                ps.executeUpdate();
-//                objb.getConexion().commit();
-//                t = true;
+        BaseDatos objCon = new BaseDatos();
+
+        if (objCon.crearConexion()) {
+            try {
+                Statement sentencia = objCon.getConexion().createStatement();
+                sentencia.executeUpdate(sql);
+                t = true;
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                t = false;
             }
-        } catch (Exception ex) {
-            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
-            t = false;
         }
 
         return t;
     }
-    
 
+    public LinkedList<Publicacion> consultPublicaciones(String sql) {
+        
+        LinkedList<Publicacion> lp = new LinkedList<>();
+        BaseDatos objb = new BaseDatos();
+        
+        int idPublicacion1 = 0;
+        String fecha1 = "";
+        String titulo1 = "";
+        String descripcion1 = "";
+        int idCurso1 = 0;
+
+        ResultSet rs = null;
+        if (objb.crearConexion()) {
+            try {
+                rs = objb.getSt().executeQuery(sql);
+                while (rs.next()) {
+                    
+                    idPublicacion1 = rs.getInt("id_publicacion");
+                    fecha1 = rs.getString("fecha_publicacion");
+                    titulo1 = rs.getString("titulo_publicacion");
+                    descripcion1 = rs.getString("descripcion_publicacion");
+                    idCurso1 = rs.getInt("id_cursoF");
+
+                    lp.add(new Publicacion(idPublicacion1, fecha1, titulo1, descripcion1, idCurso1));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Categoria.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return lp;
+    }
 
 }

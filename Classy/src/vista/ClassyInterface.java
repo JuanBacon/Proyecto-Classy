@@ -1,6 +1,7 @@
-
 package vista;
 //Controles
+
+import control.ControlCurso;
 import control.ControlEstudiante;
 import control.ControlProfesor;
 import control.ControlPais;
@@ -17,25 +18,35 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import modelo.Curso;
 //Fechas
- 
+
 public class ClassyInterface extends javax.swing.JFrame {
 
     //Creacion de listas
     LinkedList<Pais> lPais;
-    
+    LinkedList<Curso> lc;
+
     //Variables de "sesion"
     String tipo;
     int id_usuario;
     
+    DefaultTableModel modelo; 
+    String data[][] ={};
+    String cabeza[] = {"Curso","Profesor","Ingresar"};
+
     public ClassyInterface() {
         initComponents();
         
+        
+        modelo = new DefaultTableModel(data,cabeza);
+        jtCursos.setModel(modelo);
+        
         //Instancia de listas
-        lPais=new LinkedList<>();
-        
-        
-        
+        lPais = new LinkedList<>();
+        lc = new LinkedList<>();
+
         //Determinar visibilidad inicial de los paneles
         panelInicio.setVisible(true);
         //Estudiante
@@ -55,97 +66,90 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
-        
+
         //Botones
         //PANEL DE INICIO
         ButtonIngresarInicio.setOpaque(false);
         ButtonIngresarInicio.setContentAreaFilled(false); //Hacer el contenido Trasnparente
         ButtonIngresarInicio.setBorderPainted(false);
-        
+
         ButtonRegistrarInicio.setOpaque(false);
-        ButtonRegistrarInicio.setContentAreaFilled(false); 
+        ButtonRegistrarInicio.setContentAreaFilled(false);
         ButtonRegistrarInicio.setBorderPainted(false);
-        
+
         //PANEL ROL REGISTRO
         ButtonRegistroEstudiante.setOpaque(false);
-        ButtonRegistroEstudiante.setContentAreaFilled(false); 
+        ButtonRegistroEstudiante.setContentAreaFilled(false);
         ButtonRegistroEstudiante.setBorderPainted(false);
-                
+
         ButtonRegistroProfesor.setOpaque(false);
-        ButtonRegistroProfesor.setContentAreaFilled(false); 
+        ButtonRegistroProfesor.setContentAreaFilled(false);
         ButtonRegistroProfesor.setBorderPainted(false);
-        
+
         ButtonVolverRol.setOpaque(false);
-        ButtonVolverRol.setContentAreaFilled(false); 
+        ButtonVolverRol.setContentAreaFilled(false);
         ButtonVolverRol.setBorderPainted(false);
-        
+
         //PANEL REGISTRAR ESTUDIANTE
         ButtonVolverRegistroEstudiante.setOpaque(false);
-        ButtonVolverRegistroEstudiante.setContentAreaFilled(false); 
+        ButtonVolverRegistroEstudiante.setContentAreaFilled(false);
         ButtonVolverRegistroEstudiante.setBorderPainted(false);
-        
+
         ButtonRegistrarEstudiante.setOpaque(false);
-        ButtonRegistrarEstudiante.setContentAreaFilled(false); 
+        ButtonRegistrarEstudiante.setContentAreaFilled(false);
         ButtonRegistrarEstudiante.setBorderPainted(false);
-        
+
         //PANEL REGISTRAR PROFESOR
         ButtonRegistrarProfesor.setOpaque(false);
-        ButtonRegistrarProfesor.setContentAreaFilled(false); 
+        ButtonRegistrarProfesor.setContentAreaFilled(false);
         ButtonRegistrarProfesor.setBorderPainted(false);
-        
-        
+
         ButtonVolverRegistroProfesor.setOpaque(false);
-        ButtonVolverRegistroProfesor.setContentAreaFilled(false); 
+        ButtonVolverRegistroProfesor.setContentAreaFilled(false);
         ButtonVolverRegistroProfesor.setBorderPainted(false);
-        
+
         //PANEL ROL INICIO
-        
         ButtonInicioEstudiante.setOpaque(false);
-        ButtonInicioEstudiante.setContentAreaFilled(false); 
+        ButtonInicioEstudiante.setContentAreaFilled(false);
         ButtonInicioEstudiante.setBorderPainted(false);
-                
+
         ButtonInicioProfesor.setOpaque(false);
-        ButtonInicioProfesor.setContentAreaFilled(false); 
+        ButtonInicioProfesor.setContentAreaFilled(false);
         ButtonInicioProfesor.setBorderPainted(false);
-        
+
         ButtonVolverRol1.setOpaque(false);
-        ButtonVolverRol1.setContentAreaFilled(false); 
+        ButtonVolverRol1.setContentAreaFilled(false);
         ButtonVolverRol1.setBorderPainted(false);
-        
+
         //PANEL INICIAR ESTUDIANTE
-        
         ButtonVolverInicioEstudiante.setOpaque(false);
-        ButtonVolverInicioEstudiante.setContentAreaFilled(false); 
+        ButtonVolverInicioEstudiante.setContentAreaFilled(false);
         ButtonVolverInicioEstudiante.setBorderPainted(false);
-        
+
         ButtonEntrarInicioEstudiante.setOpaque(false);
-        ButtonEntrarInicioEstudiante.setContentAreaFilled(false); 
+        ButtonEntrarInicioEstudiante.setContentAreaFilled(false);
         ButtonEntrarInicioEstudiante.setBorderPainted(false);
-        
+
         //PANEL INICIAR PROFESOR
-        
         ButtonVolverInicioProfesor.setOpaque(false);
-        ButtonVolverInicioProfesor.setContentAreaFilled(false); 
+        ButtonVolverInicioProfesor.setContentAreaFilled(false);
         ButtonVolverInicioProfesor.setBorderPainted(false);
-        
+
         ButtonEntrarInicioProfesor.setOpaque(false);
-        ButtonEntrarInicioProfesor.setContentAreaFilled(false); 
+        ButtonEntrarInicioProfesor.setContentAreaFilled(false);
         ButtonEntrarInicioProfesor.setBorderPainted(false);
-        
+
         //PANEL CURSOS PROFESOR
         ButtonCerrarSesionProfesor.setOpaque(false);
-        ButtonCerrarSesionProfesor.setContentAreaFilled(false); 
+        ButtonCerrarSesionProfesor.setContentAreaFilled(false);
         ButtonCerrarSesionProfesor.setBorderPainted(false);
-        
-        
+
         //PANEL BIENVENIDO ESTUDIANTE
         ButtonCerrarSesionEstudiante.setOpaque(false);
-        ButtonCerrarSesionEstudiante.setContentAreaFilled(false); 
+        ButtonCerrarSesionEstudiante.setContentAreaFilled(false);
         ButtonCerrarSesionEstudiante.setBorderPainted(false);
     }
 
-   
-    
     //NO TOCAR
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -229,15 +233,15 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelPublicacionesProfesor = new javax.swing.JPanel();
         imgPublicacionesProfesor = new javax.swing.JLabel();
         panelBienvenido = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtCursos = new javax.swing.JTable();
         ButtonMisCursosEstudiante = new javax.swing.JButton();
         ButtonCerrarSesionEstudiante = new javax.swing.JButton();
         imgBienvenido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Classy!");
-        setMaximumSize(new java.awt.Dimension(1940, 1100));
         setMinimumSize(new java.awt.Dimension(1940, 1100));
-        setPreferredSize(new java.awt.Dimension(1940, 1100));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -766,6 +770,37 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelBienvenido.setMinimumSize(new java.awt.Dimension(1920, 1080));
         panelBienvenido.setLayout(null);
 
+        jtCursos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Nombre del curso", "Nombre del profesor", "Descripcion", "Categoria", "Inscribirme"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jtCursos);
+
+        panelBienvenido.add(jScrollPane2);
+        jScrollPane2.setBounds(200, 450, 1110, 402);
+
         ButtonMisCursosEstudiante.setBackground(new java.awt.Color(153, 0, 0));
         ButtonMisCursosEstudiante.setAlignmentY(0.0F);
         ButtonMisCursosEstudiante.addActionListener(new java.awt.event.ActionListener() {
@@ -799,7 +834,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonIngresarInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonIngresarInicioActionPerformed
-       
+
         //Determinar visibilidad de los paneles
         panelInicio.setVisible(false);
         //Estudiante
@@ -819,7 +854,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
-        
+
     }//GEN-LAST:event_ButtonIngresarInicioActionPerformed
 
     private void ButtonRegistrarInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegistrarInicioActionPerformed
@@ -845,9 +880,9 @@ public class ClassyInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRegistrarInicioActionPerformed
 
     private void ButtonVolverRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonVolverRolActionPerformed
-      
+
         volverMenuInicial();
-        
+
     }//GEN-LAST:event_ButtonVolverRolActionPerformed
 
     private void ButtonRegistroEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegistroEstudianteActionPerformed
@@ -869,8 +904,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
-        
-        
+
+
     }//GEN-LAST:event_ButtonRegistroEstudianteActionPerformed
 
     private void ButtonVolverRegistroEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonVolverRegistroEstudianteActionPerformed
@@ -879,42 +914,40 @@ public class ClassyInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonVolverRegistroEstudianteActionPerformed
 
     private void ButtonRegistrarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegistrarEstudianteActionPerformed
-        
-        
-        //Validacion de campos
-        if(jTnombre1Estudiante.getText().isEmpty() || jTapellido1Estudiante.getText().isEmpty() || jDateNacimientoEstudiante.getDate() == null || jTcorreoEstudiante.getText().isEmpty() || jTcontraseñaEstudiante.getText().isEmpty()){
-            JOptionPane.showMessageDialog(rootPane, "Por favor llena todos los campos obligatorios");
-        }else{
-            
-        ControlEstudiante objce = new ControlEstudiante();
-        
-        java.util.Date date;
-        java.sql.Date fechaNacimiento;
-        date = jDateNacimientoEstudiante.getDate();
-        fechaNacimiento = new java.sql.Date(date.getTime());
-        //System.out.print(fechaNacimiento); //Imprime la fecha de nacimiento seleccionada
-        String nombre1 = jTnombre1Estudiante.getText();
-        String nombre2 = jTnombre2Estudiante.getText();
-        String apellido1 = jTapellido1Estudiante.getText();
-        String apellido2 = jTapellido2Estudiante.getText();
-        String correo = jTcorreoEstudiante.getText();
-        String contraseña = jTcontraseñaEstudiante.getText();
-        
-        Estudiante ee = new Estudiante(nombre1,nombre2,apellido1,apellido2,correo,fechaNacimiento,contraseña);
 
-        
-        boolean t = objce.insertarEstudiante(ee);
+        //Validacion de campos
+        if (jTnombre1Estudiante.getText().isEmpty() || jTapellido1Estudiante.getText().isEmpty() || jDateNacimientoEstudiante.getDate() == null || jTcorreoEstudiante.getText().isEmpty() || jTcontraseñaEstudiante.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Por favor llena todos los campos obligatorios");
+        } else {
+
+            ControlEstudiante objce = new ControlEstudiante();
+
+            java.util.Date date;
+            java.sql.Date fechaNacimiento;
+            date = jDateNacimientoEstudiante.getDate();
+            fechaNacimiento = new java.sql.Date(date.getTime());
+            //System.out.print(fechaNacimiento); //Imprime la fecha de nacimiento seleccionada
+            String nombre1 = jTnombre1Estudiante.getText();
+            String nombre2 = jTnombre2Estudiante.getText();
+            String apellido1 = jTapellido1Estudiante.getText();
+            String apellido2 = jTapellido2Estudiante.getText();
+            String correo = jTcorreoEstudiante.getText();
+            String contraseña = jTcontraseñaEstudiante.getText();
+
+            Estudiante ee = new Estudiante(nombre1, nombre2, apellido1, apellido2, correo, fechaNacimiento, contraseña);
+
+            boolean t = objce.insertarEstudiante(ee);
             if (t) {
                 JOptionPane.showMessageDialog(rootPane, "Insertado un estudiante a la base de datos");
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(rootPane, "No se incerto a la base de datos");
             }
-        //System.out.print("Insertado un estudiante a la base de datos"); //Mensaje de verificacion en consola
-         limpiarCamposRegistroEstudiante();
-         volverMenuInicial();
+            //System.out.print("Insertado un estudiante a la base de datos"); //Mensaje de verificacion en consola
+            limpiarCamposRegistroEstudiante();
+            volverMenuInicial();
         }
-        
-        
+
+
     }//GEN-LAST:event_ButtonRegistrarEstudianteActionPerformed
 
     private void ButtonRegistroProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegistroProfesorActionPerformed
@@ -936,11 +969,10 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
-        
-        
+
         ControlPais objcpais = new ControlPais();
         lPais = objcpais.consultarPaises();
-        
+
         for (int j = 0; j < lPais.size(); j++) {
             Pais objpais = lPais.get(j);
             jCpaisProfesor.addItem(objpais.getNombre_pais());
@@ -948,53 +980,49 @@ public class ClassyInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRegistroProfesorActionPerformed
 
     private void ButtonRegistrarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegistrarProfesorActionPerformed
-        
-       if(jTnombre1Profesor.getText().isEmpty() || jTapellido1Profesor.getText().isEmpty() || jTcorreoProfesor.getText().isEmpty() || jTcontraseñaProfesor.getText().isEmpty() || jTdireccionProfesor.getText().isEmpty()){
+
+        if (jTnombre1Profesor.getText().isEmpty() || jTapellido1Profesor.getText().isEmpty() || jTcorreoProfesor.getText().isEmpty() || jTcontraseñaProfesor.getText().isEmpty() || jTdireccionProfesor.getText().isEmpty()) {
             JOptionPane.showMessageDialog(rootPane, "Por favor llena todos los campos obligatorios");
-       }else{
-        
-        ControlProfesor objcpro = new ControlProfesor();
-        
-        java.util.Date fechaActual = new java.util.Date();
-        java.sql.Date fechaCreacion;
-        fechaCreacion = new java.sql.Date(fechaActual.getTime());
-        //System.out.println(fechaCreacion); //Imprime la fecha actual (creacion de un profesor)
-        String nombre1 = jTnombre1Profesor.getText();
-        String nombre2 = jTnombre2Profesor.getText();
-        String apellido1 = jTapellido1Profesor.getText();
-        String apellido2 = jTapellido2Profesor.getText();
-        String direccion = jTdireccionProfesor.getText();
-        String correo = jTcorreoProfesor.getText();
-        String contraseña = jTcontraseñaProfesor.getText();
-        
-        int idp=0;
+        } else {
+
+            ControlProfesor objcpro = new ControlProfesor();
+
+            java.util.Date fechaActual = new java.util.Date();
+            java.sql.Date fechaCreacion;
+            fechaCreacion = new java.sql.Date(fechaActual.getTime());
+            //System.out.println(fechaCreacion); //Imprime la fecha actual (creacion de un profesor)
+            String nombre1 = jTnombre1Profesor.getText();
+            String nombre2 = jTnombre2Profesor.getText();
+            String apellido1 = jTapellido1Profesor.getText();
+            String apellido2 = jTapellido2Profesor.getText();
+            String direccion = jTdireccionProfesor.getText();
+            String correo = jTcorreoProfesor.getText();
+            String contraseña = jTcontraseñaProfesor.getText();
+
+            int idp = 0;
             for (int i = 0; i < lPais.size(); i++) {
                 Pais get = lPais.get(i);
-                String pais=String.valueOf(jCpaisProfesor.getSelectedItem());
-                if(pais.equals(get.getNombre_pais())){
-                    idp=get.getId_pais();
+                String pais = String.valueOf(jCpaisProfesor.getSelectedItem());
+                if (pais.equals(get.getNombre_pais())) {
+                    idp = get.getId_pais();
                 }
             }
-        
-        Profesor pr = new Profesor(nombre1,nombre2,apellido1,apellido2,correo,direccion,contraseña,fechaCreacion,idp);
-        
-        boolean t = objcpro.insertarProfesor(pr);
-        
-            if(t) {
-                    JOptionPane.showMessageDialog(rootPane, "Insertado un Profesor a la base de datos");
-                }else{
-                    JOptionPane.showMessageDialog(rootPane, "No se incerto a la base de datos");
-                }
-        //System.out.print("Insertado un estudiante a la base de datos"); //Mensaje de verificacion en consola
-        limpiarCamposRegistroProfesor();
-        volverMenuInicial();
-       }
-            
-        
-        
-       
-            
-        
+
+            Profesor pr = new Profesor(nombre1, nombre2, apellido1, apellido2, correo, direccion, contraseña, fechaCreacion, idp);
+
+            boolean t = objcpro.insertarProfesor(pr);
+
+            if (t) {
+                JOptionPane.showMessageDialog(rootPane, "Insertado un Profesor a la base de datos");
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "No se incerto a la base de datos");
+            }
+            //System.out.print("Insertado un estudiante a la base de datos"); //Mensaje de verificacion en consola
+            limpiarCamposRegistroProfesor();
+            volverMenuInicial();
+        }
+
+
     }//GEN-LAST:event_ButtonRegistrarProfesorActionPerformed
 
     private void ButtonVolverRegistroProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonVolverRegistroProfesorActionPerformed
@@ -1045,72 +1073,72 @@ public class ClassyInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonInicioProfesorActionPerformed
 
     private void ButtonVolverRol1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonVolverRol1ActionPerformed
-       volverMenuInicial();
+        volverMenuInicial();
     }//GEN-LAST:event_ButtonVolverRol1ActionPerformed
 
     private void ButtonVolverInicioEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonVolverInicioEstudianteActionPerformed
-       volverMenuInicial();
-       limpiarCamposInicioEstudiante();
+        volverMenuInicial();
+        limpiarCamposInicioEstudiante();
     }//GEN-LAST:event_ButtonVolverInicioEstudianteActionPerformed
 
     private void ButtonEntrarInicioEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEntrarInicioEstudianteActionPerformed
-      if(jTingresarCorreoEstudiante.getText().isEmpty() || jTingresarContraseñaEstudiante.getText().isEmpty()){
-          JOptionPane.showMessageDialog(rootPane, "Por favor llena todos los campos obligatorios");
-      }else{
-          ControlEstudiante objce = new ControlEstudiante();
-          
-          String correo = jTingresarCorreoEstudiante.getText();
-          String contraseña = jTingresarContraseñaEstudiante.getText();
-          //System.out.print(correo + "/ " + contraseña);//Output para validar los datos ingresados
-          Estudiante ee = new Estudiante(correo,contraseña);
-          
-          int t = objce.IngresarEstudiante(ee);
-            if(t > 0){
+        if (jTingresarCorreoEstudiante.getText().isEmpty() || jTingresarContraseñaEstudiante.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Por favor llena todos los campos obligatorios");
+        } else {
+            ControlEstudiante objce = new ControlEstudiante();
+
+            String correo = jTingresarCorreoEstudiante.getText();
+            String contraseña = jTingresarContraseñaEstudiante.getText();
+            //System.out.print(correo + "/ " + contraseña);//Output para validar los datos ingresados
+            Estudiante ee = new Estudiante(correo, contraseña);
+
+            int t = objce.IngresarEstudiante(ee);
+            if (t > 0) {
                 tipo = "estudiante";
                 id_usuario = t;
-                
+
                 MostrarInicioEstudiante();
                 limpiarCamposInicioEstudiante();
-                
-            }else{
-               JOptionPane.showMessageDialog(rootPane, "Usuario y/o Contrasñea incorrectos");
+
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Usuario y/o Contrasñea incorrectos");
             }
-      }
+        }
     }//GEN-LAST:event_ButtonEntrarInicioEstudianteActionPerformed
 
     private void ButtonEntrarInicioProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEntrarInicioProfesorActionPerformed
-        if(jTingresarCorreoProfesor.getText().isEmpty() || jTingresarContraseñaProfesor.getText().isEmpty()){
-          JOptionPane.showMessageDialog(rootPane, "Por favor llena todos los campos obligatorios");
-      }else{
-          ControlProfesor objcpr = new ControlProfesor();
-          
-          String correo = jTingresarCorreoProfesor.getText();
-          String contraseña = jTingresarContraseñaProfesor.getText();
-          //System.out.print(correo + "/ " + contraseña); //Output para validar los datos ingresados
-          Profesor pr = new Profesor(correo,contraseña);
-          
-          int t = objcpr.IngresarProfesor(pr);
-            if(t > 0){
+        if (jTingresarCorreoProfesor.getText().isEmpty() || jTingresarContraseñaProfesor.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Por favor llena todos los campos obligatorios");
+        } else {
+            ControlProfesor objcpr = new ControlProfesor();
+
+            String correo = jTingresarCorreoProfesor.getText();
+            String contraseña = jTingresarContraseñaProfesor.getText();
+            //System.out.print(correo + "/ " + contraseña); //Output para validar los datos ingresados
+            Profesor pr = new Profesor(correo, contraseña);
+
+            int t = objcpr.IngresarProfesor(pr);
+            if (t > 0) {
                 tipo = "profesor";
                 id_usuario = t;
-                
+
                 MostrarInicioProfesor();
                 limpiarCamposInicioProfesor();
-                
-            }else{
-               JOptionPane.showMessageDialog(rootPane, "Usuario y/o Contrasñea incorrectos");
+
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Usuario y/o Contrasñea incorrectos");
             }
-      }
+        }
     }//GEN-LAST:event_ButtonEntrarInicioProfesorActionPerformed
 
     private void ButtonVolverInicioProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonVolverInicioProfesorActionPerformed
         volverMenuInicial();
-       limpiarCamposInicioProfesor();
+        limpiarCamposInicioProfesor();
     }//GEN-LAST:event_ButtonVolverInicioProfesorActionPerformed
 
     private void ButtonCerrarSesionProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCerrarSesionProfesorActionPerformed
-       volverMenuInicial();
-       cerrarSesion();
+        volverMenuInicial();
+        cerrarSesion();
     }//GEN-LAST:event_ButtonCerrarSesionProfesorActionPerformed
 
     private void ButtonCerrarSesionEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCerrarSesionEstudianteActionPerformed
@@ -1145,17 +1173,14 @@ public class ClassyInterface extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ClassyInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-          
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ClassyInterface().setVisible(true);
             }
         });
-        
-        
-        
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1211,6 +1236,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTapellido1Estudiante;
     private javax.swing.JTextField jTapellido1Profesor;
     private javax.swing.JTextField jTapellido2Estudiante;
@@ -1228,6 +1254,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JTextField jTnombre1Profesor;
     private javax.swing.JTextField jTnombre2Estudiante;
     private javax.swing.JTextField jTnombre2Profesor;
+    private javax.swing.JTable jtCursos;
     private javax.swing.JPanel panelBienvenido;
     private javax.swing.JPanel panelCursosEstudiante;
     private javax.swing.JPanel panelCursosProfesor;
@@ -1243,7 +1270,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void volverMenuInicial() {
-        
+
         panelInicio.setVisible(true);
         //Estudiante
         panelRegistroEstudiante.setVisible(false);
@@ -1312,6 +1339,27 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(true);
+        
+        ControlCurso cc = new ControlCurso();
+        lc = cc.consultarTodoCurso();
+        
+        String matriz[][] = new String[lc.size()][5];
+
+        for (int i = 0; i < lc.size(); i++) {
+            matriz[i][0] = lc.get(i).getNombre_curso();
+            matriz[i][1] = lc.get(i).getNombre_profesor();
+            matriz[i][2] = lc.get(i).getCategoria();
+            matriz[i][3] = lc.get(i).getDescripcion_curso();
+            matriz[i][4] = "Boton";
+        }
+        
+        jtCursos.setModel(new javax.swing.table.DefaultTableModel(
+            matriz,
+            new String [] {
+                "Nombre del curso", "Nombre del profesor", "Categoria", "Descripcion", "Inscribirme"
+            }
+        ));
+
     }
 
     private void limpiarCamposInicioProfesor() {

@@ -11,30 +11,30 @@ public class Material {
 
     private int id_material;
     private String nombre_material;
-    private String archivo_material;
-    private String id_publicacionF;
+    private String archivo_material; //se recibe como string pero luego tiene que ser convertido en arreglo de bits
+    private int id_publicacionF;
 
     public Material() {
     }
 
-    public Material(int id_material, String nombre_material, String archivo_material, String id_publicacionF) {
+    public Material(int id_material, String nombre_material, String archivo_material, int id_publicacionF) {
         this.id_material = id_material;
         this.nombre_material = nombre_material;
         this.archivo_material = archivo_material;
         this.id_publicacionF = id_publicacionF;
     }
 
-    public Material(String nombre_material, String archivo_material, String id_publicacionF) {
+    public Material(String nombre_material, String archivo_material, int id_publicacionF) {
         this.nombre_material = nombre_material;
         this.archivo_material = archivo_material;
         this.id_publicacionF = id_publicacionF;
     }
 
-    public String getId_publicacionF() {
+    public int getId_publicacionF() {
         return id_publicacionF;
     }
 
-    public void setId_publicacionF(String id_publicacionF) {
+    public void setId_publicacionF(int id_publicacionF) {
         this.id_publicacionF = id_publicacionF;
     }
 
@@ -62,6 +62,13 @@ public class Material {
         this.id_material = id_material;
     }
 
+    @Override
+    public String toString() {
+        return "Material{" + "id_material=" + id_material + ", nombre_material=" + nombre_material + ", archivo_material=" + archivo_material + ", id_publicacionF=" + id_publicacionF + '}';
+    }
+    
+    
+
     public boolean insertMaterial(Material objma, String sql) {
         boolean t = false;
         BaseDatos objb = new BaseDatos();
@@ -75,7 +82,7 @@ public class Material {
                 ps = objb.getConexion().prepareStatement(sql);
                 ps.setString(1, objma.getNombre_material());
                 ps.setBinaryStream(2, fis, (int) file.length());
-                ps.setString(3, objma.getId_publicacionF());
+                ps.setInt(3, objma.getId_publicacionF());
 
                 ps.executeUpdate();
                 objb.getConexion().commit();

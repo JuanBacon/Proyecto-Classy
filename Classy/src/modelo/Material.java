@@ -1,83 +1,92 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
-/**
- *
- * @author wedin
- */
+import control.BaseDatos;
+import java.io.File;
+import java.io.FileInputStream;
+import java.sql.PreparedStatement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Material {
-    private int id_publicacion;
-    private String fecha_publicacion;
-    private String titulo_publicacion;
-    private String descripcion_publicacion;
-    private int id_cursoF;
+
+    private int id_material;
+    private String nombre_material;
+    private String archivo_material;
+    private String id_publicacionF;
 
     public Material() {
     }
 
-    public Material(int id_publicacion, String fecha_publicacion, String titulo_publicacion, String descripcion_publicacion, int id_cursoF) {
-        this.id_publicacion = id_publicacion;
-        this.fecha_publicacion = fecha_publicacion;
-        this.titulo_publicacion = titulo_publicacion;
-        this.descripcion_publicacion = descripcion_publicacion;
-        this.id_cursoF = id_cursoF;
+    public Material(int id_material, String nombre_material, String archivo_material, String id_publicacionF) {
+        this.id_material = id_material;
+        this.nombre_material = nombre_material;
+        this.archivo_material = archivo_material;
+        this.id_publicacionF = id_publicacionF;
     }
 
-    public Material(String fecha_publicacion, String titulo_publicacion, String descripcion_publicacion, int id_cursoF) {
-        this.fecha_publicacion = fecha_publicacion;
-        this.titulo_publicacion = titulo_publicacion;
-        this.descripcion_publicacion = descripcion_publicacion;
-        this.id_cursoF = id_cursoF;
+    public Material(String nombre_material, String archivo_material, String id_publicacionF) {
+        this.nombre_material = nombre_material;
+        this.archivo_material = archivo_material;
+        this.id_publicacionF = id_publicacionF;
     }
 
-    public int getId_publicacion() {
-        return id_publicacion;
+    public String getId_publicacionF() {
+        return id_publicacionF;
     }
 
-    public void setId_publicacion(int id_publicacion) {
-        this.id_publicacion = id_publicacion;
+    public void setId_publicacionF(String id_publicacionF) {
+        this.id_publicacionF = id_publicacionF;
     }
 
-    public String getFecha_publicacion() {
-        return fecha_publicacion;
+    public String getArchivo_material() {
+        return archivo_material;
     }
 
-    public void setFecha_publicacion(String fecha_publicacion) {
-        this.fecha_publicacion = fecha_publicacion;
+    public void setArchivo_material(String archivo_material) {
+        this.archivo_material = archivo_material;
     }
 
-    public String getTitulo_publicacion() {
-        return titulo_publicacion;
+    public String getNombre_material() {
+        return nombre_material;
     }
 
-    public void setTitulo_publicacion(String titulo_publicacion) {
-        this.titulo_publicacion = titulo_publicacion;
+    public void setNombre_material(String nombre_material) {
+        this.nombre_material = nombre_material;
     }
 
-    public String getDescripcion_publicacion() {
-        return descripcion_publicacion;
+    public int getId_material() {
+        return id_material;
     }
 
-    public void setDescripcion_publicacion(String descripcion_publicacion) {
-        this.descripcion_publicacion = descripcion_publicacion;
+    void setId_material(int id_material) {
+        this.id_material = id_material;
     }
 
-    public int getId_cursoF() {
-        return id_cursoF;
+    public boolean insertMaterial(Material objma, String sql) {
+        boolean t = false;
+        BaseDatos objb = new BaseDatos();
+        FileInputStream fis = null;
+        PreparedStatement ps = null;
+        try {
+            if (objb.crearConexion()) {
+                objb.getConexion().setAutoCommit(false);
+                File file = new File(objma.getArchivo_material());
+                fis = new FileInputStream(file);
+                ps = objb.getConexion().prepareStatement(sql);
+                ps.setString(1, objma.getNombre_material());
+                ps.setBinaryStream(2, fis, (int) file.length());
+                ps.setString(3, objma.getId_publicacionF());
+
+                ps.executeUpdate();
+                objb.getConexion().commit();
+                t = true;
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            t = false;
+        }
+
+        return t;
     }
 
-    public void setId_cursoF(int id_cursoF) {
-        this.id_cursoF = id_cursoF;
-    }
-
-    @Override
-    public String toString() {
-        return "Material{" + "id_publicacion=" + id_publicacion + ", fecha_publicacion=" + fecha_publicacion + ", titulo_publicacion=" + titulo_publicacion + ", descripcion_publicacion=" + descripcion_publicacion + ", id_cursoF=" + id_cursoF + '}';
-    }
-    
-    
 }

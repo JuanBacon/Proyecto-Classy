@@ -7,8 +7,8 @@ public class ControlCurso {
 
     public boolean insertarCurso(Curso objcu) {
         boolean t = false;
-        String sql = "INSERT INTO cursos(nombre_curso, descripcion_curso, id_profesorF, id_categoriaF) "
-                + "VALUES ('" + objcu.getNombre_curso() + "','" + objcu.getDescripcion_curso() + "', "
+        String sql = "INSERT INTO cursos(nombre_curso,fecha_creacion_curso, descripcion_curso, id_profesorF, id_categoriaF) "
+                + "VALUES ('" + objcu.getNombre_curso() + "','" + objcu.getFecha_creacion_curso()+ "','" + objcu.getDescripcion_curso() + "', "
                 + "'" + objcu.getId_profesorF() + "','" + objcu.getId_categoriaF() + "');";
         t = objcu.insertCurso(sql);
 

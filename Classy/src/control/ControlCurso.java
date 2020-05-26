@@ -36,5 +36,14 @@ public class ControlCurso {
         listacurso = objcurso.consultCursosProfesor(sql);
         return listacurso;
     }
+    
+        // este es el que le llega al jcombobox qu esta dentro de las publicaciones
+    public LinkedList<Curso> consultarCurso() {
+        LinkedList<Curso> listaCursos= new LinkedList<>();
+        Curso objcurCursos = new Curso();
+        String sql3= "select* from cursos;";
+        listaCursos = objcurCursos.consultarCurso(sql3);
+        return  listaCursos;
+    }
 
 }

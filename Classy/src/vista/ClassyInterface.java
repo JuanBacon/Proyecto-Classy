@@ -5,16 +5,18 @@ import control.ControlProfesor;
 import control.ControlPais;
 import control.ControlCurso;
 import control.ControlCategoria;
+import control.ControlCurso;
 import control.ControlInscripcion;
-
+import control.ControlPublicacion;
+import control.ControlMaterial;
+import java.awt.event.ActionEvent;
 //Modelos
 import modelo.Estudiante;
 import modelo.Profesor;
 import modelo.Pais;
 import modelo.Curso;
 import modelo.Categoria;
-import modelo.Curso;
-import modelo.Inscripcion;
+import modelo.Material;
 //Utilidades
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -23,10 +25,12 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+import modelo.Curso;
+import modelo.Inscripcion;
+import modelo.Material;
+import modelo.Publicacion;
 //Fechas
 
 public class ClassyInterface extends javax.swing.JFrame {
@@ -35,6 +39,9 @@ public class ClassyInterface extends javax.swing.JFrame {
     LinkedList<Pais> lPais;
     LinkedList<Categoria> lCategoria;
     LinkedList<Curso> lc;
+    LinkedList<Curso> lCurso;
+    LinkedList<Publicacion> lPublicacion;
+    LinkedList<Material> lMaterial;
 
     //Variables de "sesion"
     String tipo;
@@ -55,6 +62,9 @@ public class ClassyInterface extends javax.swing.JFrame {
         lPais = new LinkedList<>();
         lCategoria = new LinkedList<>();
         lc = new LinkedList<>();
+        lCurso = new LinkedList<>();
+        lPublicacion = new LinkedList<>();
+        lMaterial = new LinkedList<>();
 
         //Determinar visibilidad inicial de los paneles
         panelInicio.setVisible(true);
@@ -325,15 +335,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         jtCursosProfesor = new javax.swing.JTable();
         imgCursosProfesor = new javax.swing.JLabel();
         panelPublicacionesProfesor = new javax.swing.JPanel();
-        txtNombreMaterial = new javax.swing.JTextField();
-        txtArchivo = new javax.swing.JTextField();
-        jLabel26 = new javax.swing.JLabel();
-        jComboPublicaciones = new javax.swing.JComboBox<>();
         jComboCursos = new javax.swing.JComboBox<>();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
         btnCrearPublicacion = new javax.swing.JButton();
-        btnCargarPublicacion = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaDescripcion = new javax.swing.JTextArea();
@@ -361,6 +364,13 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonAgregarPublicacionCM = new javax.swing.JButton();
         ButtonAgregarCursoCM = new javax.swing.JButton();
         ButtonRegresarCrearMaterial = new javax.swing.JButton();
+        txtNombreMaterial1 = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        txtArchivo1 = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        jComboPublicaciones1 = new javax.swing.JComboBox<>();
+        ButtonCargarMaterial = new javax.swing.JButton();
         imgMaterialProfesor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1020,38 +1030,19 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelPublicacionesProfesor.setMaximumSize(new java.awt.Dimension(1920, 1080));
         panelPublicacionesProfesor.setMinimumSize(new java.awt.Dimension(1920, 1080));
         panelPublicacionesProfesor.setLayout(null);
-        panelPublicacionesProfesor.add(txtNombreMaterial);
-        txtNombreMaterial.setBounds(370, 660, 170, 20);
-        panelPublicacionesProfesor.add(txtArchivo);
-        txtArchivo.setBounds(370, 710, 170, 20);
-
-        jLabel26.setText("Publicacion");
-        panelPublicacionesProfesor.add(jLabel26);
-        jLabel26.setBounds(250, 770, 100, 14);
-
-        jComboPublicaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panelPublicacionesProfesor.add(jComboPublicaciones);
-        jComboPublicaciones.setBounds(370, 770, 110, 20);
 
         jComboCursos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         panelPublicacionesProfesor.add(jComboCursos);
         jComboCursos.setBounds(590, 400, 150, 20);
 
-        jLabel25.setText("Archivo");
-        panelPublicacionesProfesor.add(jLabel25);
-        jLabel25.setBounds(250, 710, 100, 14);
-
-        jLabel24.setText("Nombre material ");
-        panelPublicacionesProfesor.add(jLabel24);
-        jLabel24.setBounds(250, 660, 110, 14);
-
         btnCrearPublicacion.setText("Crear Publicacion");
+        btnCrearPublicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearPublicacionActionPerformed(evt);
+            }
+        });
         panelPublicacionesProfesor.add(btnCrearPublicacion);
         btnCrearPublicacion.setBounds(370, 560, 140, 23);
-
-        btnCargarPublicacion.setText("Cargar");
-        panelPublicacionesProfesor.add(btnCargarPublicacion);
-        btnCargarPublicacion.setBounds(380, 830, 65, 23);
 
         jLabel23.setText("¿Curso al que corresponde la publicacion?");
         panelPublicacionesProfesor.add(jLabel23);
@@ -1238,6 +1229,48 @@ public class ClassyInterface extends javax.swing.JFrame {
         });
         panelMaterialProfesor.add(ButtonRegresarCrearMaterial);
         ButtonRegresarCrearMaterial.setBounds(1580, 910, 250, 90);
+
+        txtNombreMaterial1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreMaterial1ActionPerformed(evt);
+            }
+        });
+        panelMaterialProfesor.add(txtNombreMaterial1);
+        txtNombreMaterial1.setBounds(770, 380, 380, 60);
+
+        jLabel29.setText("Nombre material:");
+        panelMaterialProfesor.add(jLabel29);
+        jLabel29.setBounds(630, 380, 130, 50);
+
+        jLabel31.setText("Archivo_material:");
+        panelMaterialProfesor.add(jLabel31);
+        jLabel31.setBounds(630, 510, 110, 50);
+
+        txtArchivo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtArchivo1ActionPerformed(evt);
+            }
+        });
+        panelMaterialProfesor.add(txtArchivo1);
+        txtArchivo1.setBounds(770, 500, 380, 60);
+
+        jLabel30.setText("Elegir publicacion");
+        panelMaterialProfesor.add(jLabel30);
+        jLabel30.setBounds(640, 620, 100, 50);
+
+        jComboPublicaciones1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelMaterialProfesor.add(jComboPublicaciones1);
+        jComboPublicaciones1.setBounds(770, 620, 380, 60);
+
+        ButtonCargarMaterial.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonCargarMaterial.setAlignmentY(0.0F);
+        ButtonCargarMaterial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCargarMaterialActionPerformed(evt);
+            }
+        });
+        panelMaterialProfesor.add(ButtonCargarMaterial);
+        ButtonCargarMaterial.setBounds(760, 760, 410, 100);
 
         imgMaterialProfesor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgMaterialProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Material profesor 1.png"))); // NOI18N
@@ -1738,6 +1771,59 @@ public class ClassyInterface extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void txtNombreMaterial1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreMaterial1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreMaterial1ActionPerformed
+
+    private void txtArchivo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtArchivo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtArchivo1ActionPerformed
+
+    private void ButtonCargarMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCargarMaterialActionPerformed
+        ControlMaterial objcm = new ControlMaterial();
+        lPublicacion = new LinkedList<>();
+         String nombre_materialP = txtNombreMaterial1.getText();
+         int idp =0;
+         for(int i=0; i< lPublicacion.size(); i++ )
+         {
+            Publicacion get= lPublicacion.get(i);
+            String  PublicacionS = String.valueOf(jComboPublicaciones1.getSelectedItem());
+            
+            if(PublicacionS.equals(get.getTitulo_publicacion()))
+            {
+              idp = get.getId_publicacion();
+            }
+         }
+         
+         String RutaArchivo = "C:\\Users\\wedin\\OneDrive\\Imágenes\\modeladoUAO.jpg";
+         Material objm= new  Material(nombre_materialP, RutaArchivo, idp);
+         boolean t = objcm.insertarMaterial(objm);
+    }//GEN-LAST:event_ButtonCargarMaterialActionPerformed
+
+    private void btnCrearPublicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPublicacionActionPerformed
+                //aqui se cargan las publicaciones
+        ControlPublicacion objcp= new ControlPublicacion();
+        lCurso = new LinkedList<>();
+        String titulo_publicacionp = txtTituloPublicacion.getText();    
+        String descripcion_publicacionp = txtAreaDescripcion.getText(); 
+                
+        //con esto obtenemos el id del curso que cargamos en el jcobobox
+        int idc= 0;
+        for(int i=0; i< lCurso.size(); i++ )
+         {
+            Curso get= lCurso.get(i);
+            String  cursoS= String.valueOf(jComboCursos.getSelectedItem());
+            
+            if(cursoS.equals(get.getNombre_curso()))
+            {
+              idc = get.getId_curso();
+            }
+         }
+        String fechaPublicacion="20/06/2020";
+        Publicacion objp= new Publicacion(fechaPublicacion, titulo_publicacionp, descripcion_publicacionp, idc);
+      boolean t =  objcp.insertarPublicacion(objp);
+    }//GEN-LAST:event_btnCrearPublicacionActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1781,6 +1867,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JButton ButtonAgregarPublicacion;
     private javax.swing.JButton ButtonAgregarPublicacionCC;
     private javax.swing.JButton ButtonAgregarPublicacionCM;
+    private javax.swing.JButton ButtonCargarMaterial;
     private javax.swing.JButton ButtonCerrarSesionEstudiante;
     private javax.swing.JButton ButtonCerrarSesionEstudiante1;
     private javax.swing.JButton ButtonCerrarSesionProfesor;
@@ -1806,7 +1893,6 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JButton ButtonVolverRegistroProfesor;
     private javax.swing.JButton ButtonVolverRol;
     private javax.swing.JButton ButtonVolverRol1;
-    private javax.swing.JButton btnCargarPublicacion;
     private javax.swing.JButton btnCrearPublicacion;
     private javax.swing.JLabel imgBienvenido;
     private javax.swing.JLabel imgCrearCurso;
@@ -1825,7 +1911,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jCCategoriaCurso;
     private javax.swing.JComboBox<String> jComboCursos;
-    private javax.swing.JComboBox<String> jComboPublicaciones;
+    private javax.swing.JComboBox<String> jComboPublicaciones1;
     private javax.swing.JComboBox<String> jCpaisProfesor;
     private com.toedter.calendar.JDateChooser jDateNacimientoEstudiante;
     private javax.swing.JLabel jLabel1;
@@ -1844,12 +1930,12 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1895,9 +1981,9 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JPanel panelRegistroProfesor;
     private javax.swing.JPanel panelRolIngreso;
     private javax.swing.JPanel panelRolRegistro;
-    private javax.swing.JTextField txtArchivo;
+    private javax.swing.JTextField txtArchivo1;
     private javax.swing.JTextArea txtAreaDescripcion;
-    private javax.swing.JTextField txtNombreMaterial;
+    private javax.swing.JTextField txtNombreMaterial1;
     private javax.swing.JTextField txtTituloPublicacion;
     // End of variables declaration//GEN-END:variables
 
@@ -2118,6 +2204,16 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
+        
+                
+        ControlCurso objccl = new ControlCurso();
+        lCurso = objccl.consultarCurso();
+        
+        for(int i = 0; i<lCurso.size(); i++)
+        {
+          Curso objetoCurso = lCurso.get(i);
+          jComboCursos.addItem(objetoCurso.getNombre_curso());
+        }
     }
 
     private void MostrarAgregarMaterial() {
@@ -2142,5 +2238,16 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelMaterialProfesor.setVisible(true);
         //Bienvenido
         panelBienvenido.setVisible(false);
+        
+               //para llamar la fk que se necesita la publicacion de publicacion
+       ControlPublicacion objccl = new ControlPublicacion();
+       lPublicacion = objccl.consultarPublicaciones();
+       
+       
+       for(int i = 0; i<lPublicacion.size(); i++)
+       {
+          Publicacion objetoClasificacion = lPublicacion.get(i);
+          jComboPublicaciones1.addItem(objetoClasificacion.getTitulo_publicacion());
+       }
     }
 }

@@ -63,21 +63,21 @@ public class Material {
     void setId_material(int id_material) {
         this.id_material = id_material;
     }
-
-    public boolean insertMaterial(Material objma, String sql) {
-        boolean t = false;
+    
+        public boolean insertMaterial(Material objcm, String sql) {
+               boolean t = false;
         BaseDatos objb = new BaseDatos();
-        FileInputStream fis = null;
+        FileInputStream fis = null; //toma la ruta de la foto
         PreparedStatement ps = null;
         try {
             if (objb.crearConexion()) {
                 objb.getConexion().setAutoCommit(false);
-                File file = new File(objma.getArchivo_material());
+                File file = new File(objcm.getArchivo_material());
                 fis = new FileInputStream(file);
                 ps = objb.getConexion().prepareStatement(sql);
-                ps.setString(1, objma.getNombre_material());
+                ps.setString(1, objcm.getNombre_material());
                 ps.setBinaryStream(2, fis, (int) file.length());
-                ps.setInt(3, objma.getId_publicacionF());
+                ps.setInt(3, objcm.getId_publicacionF());
 
                 ps.executeUpdate();
                 objb.getConexion().commit();
@@ -90,5 +90,7 @@ public class Material {
 
         return t;
     }
+
+
 
 }

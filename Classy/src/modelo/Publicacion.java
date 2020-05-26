@@ -119,7 +119,7 @@ public class Publicacion {
         String descripcion1 = "";
         int idCurso1 = 0;
 
-        ResultSet rs = null;
+        ResultSet rs = null; //lo que nos devuelve de la consulta que le enviamos
         if (objb.crearConexion()) {
             try {
                 rs = objb.getSt().executeQuery(sql);
@@ -140,4 +140,28 @@ public class Publicacion {
         return lp;
     }
 
+    public boolean insertarPublicacion(Publicacion objp, String sql) {
+        boolean t = false;
+        BaseDatos objb = new BaseDatos();
+        FileInputStream fis = null; //toma la ruta de la foto
+        PreparedStatement ps = null;
+        try {
+            if (objb.crearConexion()) {
+                objb.getConexion().setAutoCommit(false);
+                ps.setString(1, objp.getFecha_publicacion());
+                ps.setString(2, objp.getTitulo_publicacion());
+                ps.setString(3, objp.getDescripcion_publicacion());
+                ps.setInt(4, objp.getId_cursoF());
+                ps.executeUpdate();
+                objb.getConexion().commit();
+                t = true;
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        t = false;
+        return t;
+
+    }
 }

@@ -261,5 +261,35 @@ public class Curso {
         }
         return listacurso;
     }
-
+    //este metodo es el que muestra los cursos en el combobox que esta en en la vista de las publicaciones
+        public LinkedList<Curso> consultarCurso(String sql) {
+        LinkedList<Curso> listacurso = new LinkedList<>();
+        BaseDatos objb = new BaseDatos();
+        int id_curso1;
+        String nombre_curso1;
+        Timestamp fecha_creacion_curso1;
+        String descripcion_curso1;
+        int id_profesorF1;
+        int id_categoriaF1;
+       
+        ResultSet rs = null; //resultado de la consulta que le enviamos
+        if (objb.crearConexion()) {
+            try {
+                rs = objb.getSt().executeQuery(sql); //lo de consultallcurso lo guardamos en este resulset
+                while (rs.next())//usamos el while que recorra el resulset para saber cuantas filas hay
+                {
+                    id_curso1 = rs.getInt("id_curso");
+                    nombre_curso1 = rs.getString("nombre_curso");
+                    fecha_creacion_curso1 = rs.getTimestamp("fecha_creacion_curso");
+                    descripcion_curso1 = rs.getString("descripcion_curso");
+                    id_profesorF1 = rs.getInt("id_profesorF");
+                   id_categoriaF1 = rs.getInt("id_categoriaF");
+                   listacurso.add(new Curso(id_curso1,nombre_curso1,fecha_creacion_curso1,descripcion_curso1,id_profesorF1,id_categoriaF1));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Curso.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return listacurso;
+    }
 }

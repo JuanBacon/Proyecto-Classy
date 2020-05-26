@@ -119,7 +119,7 @@ public class Publicacion {
         String descripcion1 = "";
         int idCurso1 = 0;
 
-        ResultSet rs = null;
+        ResultSet rs = null; //lo que nos devuelve de la consulta que le enviamos
         if (objb.crearConexion()) {
             try {
                 rs = objb.getSt().executeQuery(sql);

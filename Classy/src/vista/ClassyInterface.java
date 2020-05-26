@@ -70,6 +70,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
         panelCrearCurso.setVisible(false);
+        //Material
+        panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
 
@@ -154,15 +156,57 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonAgregarCurso.setContentAreaFilled(false);
         ButtonAgregarCurso.setBorderPainted(false);
         
-        //PANEL CREAR CURSO PROFESOR
+        ButtonAgregarMaterial.setOpaque(false);
+        ButtonAgregarMaterial.setContentAreaFilled(false);
+        ButtonAgregarMaterial.setBorderPainted(false);
+        
+        ButtonAgregarPublicacion.setOpaque(false);
+        ButtonAgregarPublicacion.setContentAreaFilled(false);
+        ButtonAgregarPublicacion.setBorderPainted(false);
+        
+        //PANEL CREAR CURSO PROFESOR       
+        ButtonCrearCurso.setOpaque(false);
+        ButtonCrearCurso.setContentAreaFilled(false); 
+        ButtonCrearCurso.setBorderPainted(false);
+        
         ButtonRegresarCrearCurso.setOpaque(false);
         ButtonRegresarCrearCurso.setContentAreaFilled(false); 
         ButtonRegresarCrearCurso.setBorderPainted(false);
         
-        ButtonCrearCurso.setOpaque(false);
-        ButtonCrearCurso.setContentAreaFilled(false); 
-        ButtonCrearCurso.setBorderPainted(false);
-
+        ButtonAgregarContenidoCC.setOpaque(false);
+        ButtonAgregarContenidoCC.setContentAreaFilled(false); 
+        ButtonAgregarContenidoCC.setBorderPainted(false);
+        
+        ButtonAgregarPublicacionCC.setOpaque(false);
+        ButtonAgregarPublicacionCC.setContentAreaFilled(false); 
+        ButtonAgregarPublicacionCC.setBorderPainted(false);
+        
+        //PANEL CREAR PUBLICACION PROFESOR
+        ButtonRegresarCrearPublicacion.setOpaque(false);
+        ButtonRegresarCrearPublicacion.setContentAreaFilled(false); 
+        ButtonRegresarCrearPublicacion.setBorderPainted(false);
+        
+        ButtonAgregarContenidoCP.setOpaque(false);
+        ButtonAgregarContenidoCP.setContentAreaFilled(false); 
+        ButtonAgregarContenidoCP.setBorderPainted(false);
+        
+        ButtonAgregarCursoCP.setOpaque(false);
+        ButtonAgregarCursoCP.setContentAreaFilled(false); 
+        ButtonAgregarCursoCP.setBorderPainted(false);
+        
+        //PANEL CREAR MATERIAL PROFESOR
+        ButtonRegresarCrearMaterial.setOpaque(false);
+        ButtonRegresarCrearMaterial.setContentAreaFilled(false); 
+        ButtonRegresarCrearMaterial.setBorderPainted(false);
+        
+        ButtonAgregarCursoCM.setOpaque(false);
+        ButtonAgregarCursoCM.setContentAreaFilled(false); 
+        ButtonAgregarCursoCM.setBorderPainted(false);
+        
+        ButtonAgregarPublicacionCM.setOpaque(false);
+        ButtonAgregarPublicacionCM.setContentAreaFilled(false); 
+        ButtonAgregarPublicacionCM.setBorderPainted(false);
+        
         //PANEL BIENVENIDO ESTUDIANTE
         ButtonCerrarSesionEstudiante.setOpaque(false);
         ButtonCerrarSesionEstudiante.setContentAreaFilled(false);
@@ -255,16 +299,24 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonRegistroProfesor = new javax.swing.JButton();
         ButtonVolverRol = new javax.swing.JButton();
         imgRolRegistro = new javax.swing.JLabel();
+        panelBienvenido = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtCursos = new javax.swing.JTable();
+        ButtonMisCursosEstudiante = new javax.swing.JButton();
+        ButtonCerrarSesionEstudiante = new javax.swing.JButton();
+        imgBienvenido = new javax.swing.JLabel();
         panelCursosEstudiante = new javax.swing.JPanel();
         ButtonRegresarMisCursosEstudiante = new javax.swing.JButton();
         ButtonCerrarSesionEstudiante1 = new javax.swing.JButton();
         imgCursosEstudiante = new javax.swing.JLabel();
+        panelPublicacionesEstudiante = new javax.swing.JPanel();
+        imgPublicacionesEstudiante = new javax.swing.JLabel();
         panelCursosProfesor = new javax.swing.JPanel();
+        ButtonAgregarMaterial = new javax.swing.JButton();
+        ButtonAgregarPublicacion = new javax.swing.JButton();
         ButtonAgregarCurso = new javax.swing.JButton();
         ButtonCerrarSesionProfesor = new javax.swing.JButton();
         imgCursosProfesor = new javax.swing.JLabel();
-        panelPublicacionesEstudiante = new javax.swing.JPanel();
-        imgPublicacionesEstudiante = new javax.swing.JLabel();
         panelPublicacionesProfesor = new javax.swing.JPanel();
         txtNombreMaterial = new javax.swing.JTextField();
         txtArchivo = new javax.swing.JTextField();
@@ -281,14 +333,13 @@ public class ClassyInterface extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         txtTituloPublicacion = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
+        ButtonAgregarCursoCP = new javax.swing.JButton();
+        ButtonAgregarContenidoCP = new javax.swing.JButton();
+        ButtonRegresarCrearPublicacion = new javax.swing.JButton();
         imgPublicacionesProfesor = new javax.swing.JLabel();
-        panelBienvenido = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jtCursos = new javax.swing.JTable();
-        ButtonMisCursosEstudiante = new javax.swing.JButton();
-        ButtonCerrarSesionEstudiante = new javax.swing.JButton();
-        imgBienvenido = new javax.swing.JLabel();
         panelCrearCurso = new javax.swing.JPanel();
+        ButtonAgregarContenidoCC = new javax.swing.JButton();
+        ButtonAgregarPublicacionCC = new javax.swing.JButton();
         ButtonCrearCurso = new javax.swing.JButton();
         ButtonRegresarCrearCurso = new javax.swing.JButton();
         jTNombreCurso = new javax.swing.JTextField();
@@ -299,6 +350,11 @@ public class ClassyInterface extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         imgCrearCurso = new javax.swing.JLabel();
+        panelMaterialProfesor = new javax.swing.JPanel();
+        ButtonAgregarPublicacionCM = new javax.swing.JButton();
+        ButtonAgregarCursoCM = new javax.swing.JButton();
+        ButtonRegresarCrearMaterial = new javax.swing.JButton();
+        imgMaterialProfesor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Classy!");
@@ -562,7 +618,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonVolverRegistroProfesor.setBounds(1580, 910, 260, 100);
 
         imgRegistroProfesor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgRegistroProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Registro 1.0.png"))); // NOI18N
+        imgRegistroProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Registro Profesor 1.0.png"))); // NOI18N
         panelRegistroProfesor.add(imgRegistroProfesor);
         imgRegistroProfesor.setBounds(10, 0, 1920, 1080);
 
@@ -764,151 +820,6 @@ public class ClassyInterface extends javax.swing.JFrame {
         getContentPane().add(panelRolRegistro);
         panelRolRegistro.setBounds(10, 11, 1920, 1080);
 
-        panelCursosEstudiante.setBackground(new java.awt.Color(204, 204, 204));
-        panelCursosEstudiante.setMaximumSize(new java.awt.Dimension(1920, 1080));
-        panelCursosEstudiante.setMinimumSize(new java.awt.Dimension(1920, 1080));
-        panelCursosEstudiante.setLayout(null);
-
-        ButtonRegresarMisCursosEstudiante.setBackground(new java.awt.Color(153, 0, 0));
-        ButtonRegresarMisCursosEstudiante.setAlignmentY(0.0F);
-        ButtonRegresarMisCursosEstudiante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonRegresarMisCursosEstudianteActionPerformed(evt);
-            }
-        });
-        panelCursosEstudiante.add(ButtonRegresarMisCursosEstudiante);
-        ButtonRegresarMisCursosEstudiante.setBounds(1170, 910, 330, 100);
-
-        ButtonCerrarSesionEstudiante1.setBackground(new java.awt.Color(153, 0, 0));
-        ButtonCerrarSesionEstudiante1.setAlignmentY(0.0F);
-        ButtonCerrarSesionEstudiante1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCerrarSesionEstudiante1ActionPerformed(evt);
-            }
-        });
-        panelCursosEstudiante.add(ButtonCerrarSesionEstudiante1);
-        ButtonCerrarSesionEstudiante1.setBounds(1540, 910, 330, 100);
-
-        imgCursosEstudiante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgCursosEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Cursos 1.1.png"))); // NOI18N
-        panelCursosEstudiante.add(imgCursosEstudiante);
-        imgCursosEstudiante.setBounds(0, 0, 1920, 1080);
-
-        getContentPane().add(panelCursosEstudiante);
-        panelCursosEstudiante.setBounds(10, 11, 1920, 1080);
-
-        panelCursosProfesor.setBackground(new java.awt.Color(204, 204, 204));
-        panelCursosProfesor.setMaximumSize(new java.awt.Dimension(1920, 1080));
-        panelCursosProfesor.setMinimumSize(new java.awt.Dimension(1920, 1080));
-        panelCursosProfesor.setLayout(null);
-
-        ButtonAgregarCurso.setBackground(new java.awt.Color(153, 0, 0));
-        ButtonAgregarCurso.setAlignmentY(0.0F);
-        ButtonAgregarCurso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAgregarCursoActionPerformed(evt);
-            }
-        });
-        panelCursosProfesor.add(ButtonAgregarCurso);
-        ButtonAgregarCurso.setBounds(1150, 910, 330, 100);
-
-        ButtonCerrarSesionProfesor.setBackground(new java.awt.Color(153, 0, 0));
-        ButtonCerrarSesionProfesor.setAlignmentY(0.0F);
-        ButtonCerrarSesionProfesor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCerrarSesionProfesorActionPerformed(evt);
-            }
-        });
-        panelCursosProfesor.add(ButtonCerrarSesionProfesor);
-        ButtonCerrarSesionProfesor.setBounds(1540, 910, 330, 100);
-
-        imgCursosProfesor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgCursosProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Cursos  profesor 1.0.png"))); // NOI18N
-        panelCursosProfesor.add(imgCursosProfesor);
-        imgCursosProfesor.setBounds(0, 0, 1920, 1080);
-
-        getContentPane().add(panelCursosProfesor);
-        panelCursosProfesor.setBounds(10, 11, 1920, 1080);
-
-        panelPublicacionesEstudiante.setBackground(new java.awt.Color(204, 204, 204));
-        panelPublicacionesEstudiante.setMaximumSize(new java.awt.Dimension(1920, 1080));
-        panelPublicacionesEstudiante.setMinimumSize(new java.awt.Dimension(1920, 1080));
-        panelPublicacionesEstudiante.setLayout(null);
-
-        imgPublicacionesEstudiante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgPublicacionesEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Publicaciones estudiante 1.0 .png"))); // NOI18N
-        panelPublicacionesEstudiante.add(imgPublicacionesEstudiante);
-        imgPublicacionesEstudiante.setBounds(0, 0, 1920, 1080);
-
-        getContentPane().add(panelPublicacionesEstudiante);
-        panelPublicacionesEstudiante.setBounds(10, 11, 1920, 1080);
-
-        panelPublicacionesProfesor.setBackground(new java.awt.Color(204, 204, 204));
-        panelPublicacionesProfesor.setMaximumSize(new java.awt.Dimension(1920, 1080));
-        panelPublicacionesProfesor.setMinimumSize(new java.awt.Dimension(1920, 1080));
-        panelPublicacionesProfesor.setLayout(null);
-        panelPublicacionesProfesor.add(txtNombreMaterial);
-        txtNombreMaterial.setBounds(370, 660, 170, 20);
-        panelPublicacionesProfesor.add(txtArchivo);
-        txtArchivo.setBounds(370, 710, 170, 20);
-
-        jLabel26.setText("Publicacion");
-        panelPublicacionesProfesor.add(jLabel26);
-        jLabel26.setBounds(250, 770, 100, 14);
-
-        jComboPublicaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panelPublicacionesProfesor.add(jComboPublicaciones);
-        jComboPublicaciones.setBounds(370, 770, 110, 20);
-
-        jComboCursos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panelPublicacionesProfesor.add(jComboCursos);
-        jComboCursos.setBounds(590, 400, 150, 20);
-
-        jLabel25.setText("Archivo");
-        panelPublicacionesProfesor.add(jLabel25);
-        jLabel25.setBounds(250, 710, 100, 14);
-
-        jLabel24.setText("Nombre material ");
-        panelPublicacionesProfesor.add(jLabel24);
-        jLabel24.setBounds(250, 660, 110, 14);
-
-        btnCrearPublicacion.setText("Crear Publicacion");
-        panelPublicacionesProfesor.add(btnCrearPublicacion);
-        btnCrearPublicacion.setBounds(370, 560, 140, 23);
-
-        btnCargarPublicacion.setText("Cargar");
-        panelPublicacionesProfesor.add(btnCargarPublicacion);
-        btnCargarPublicacion.setBounds(380, 830, 65, 23);
-
-        jLabel23.setText("¿Curso al que corresponde la publicacion?");
-        panelPublicacionesProfesor.add(jLabel23);
-        jLabel23.setBounds(590, 370, 210, 20);
-
-        txtAreaDescripcion.setColumns(20);
-        txtAreaDescripcion.setRows(5);
-        jScrollPane1.setViewportView(txtAreaDescripcion);
-
-        panelPublicacionesProfesor.add(jScrollPane1);
-        jScrollPane1.setBounds(370, 430, 166, 96);
-
-        jLabel22.setText("Descripcion");
-        panelPublicacionesProfesor.add(jLabel22);
-        jLabel22.setBounds(250, 430, 60, 20);
-        panelPublicacionesProfesor.add(txtTituloPublicacion);
-        txtTituloPublicacion.setBounds(370, 370, 160, 30);
-
-        jLabel20.setText("Titulo Publicacion");
-        panelPublicacionesProfesor.add(jLabel20);
-        jLabel20.setBounds(240, 370, 100, 30);
-
-        imgPublicacionesProfesor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgPublicacionesProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Publicacion profesor 1.0.png"))); // NOI18N
-        panelPublicacionesProfesor.add(imgPublicacionesProfesor);
-        imgPublicacionesProfesor.setBounds(0, 0, 1920, 1080);
-
-        getContentPane().add(panelPublicacionesProfesor);
-        panelPublicacionesProfesor.setBounds(10, 11, 1920, 1080);
-
         panelBienvenido.setBackground(new java.awt.Color(204, 204, 204));
         panelBienvenido.setMaximumSize(new java.awt.Dimension(1920, 1080));
         panelBienvenido.setMinimumSize(new java.awt.Dimension(1920, 1080));
@@ -974,10 +885,225 @@ public class ClassyInterface extends javax.swing.JFrame {
         getContentPane().add(panelBienvenido);
         panelBienvenido.setBounds(10, 11, 1920, 1080);
 
+        panelCursosEstudiante.setBackground(new java.awt.Color(204, 204, 204));
+        panelCursosEstudiante.setMaximumSize(new java.awt.Dimension(1920, 1080));
+        panelCursosEstudiante.setMinimumSize(new java.awt.Dimension(1920, 1080));
+        panelCursosEstudiante.setLayout(null);
+
+        ButtonRegresarMisCursosEstudiante.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonRegresarMisCursosEstudiante.setAlignmentY(0.0F);
+        ButtonRegresarMisCursosEstudiante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRegresarMisCursosEstudianteActionPerformed(evt);
+            }
+        });
+        panelCursosEstudiante.add(ButtonRegresarMisCursosEstudiante);
+        ButtonRegresarMisCursosEstudiante.setBounds(1170, 910, 330, 100);
+
+        ButtonCerrarSesionEstudiante1.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonCerrarSesionEstudiante1.setAlignmentY(0.0F);
+        ButtonCerrarSesionEstudiante1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCerrarSesionEstudiante1ActionPerformed(evt);
+            }
+        });
+        panelCursosEstudiante.add(ButtonCerrarSesionEstudiante1);
+        ButtonCerrarSesionEstudiante1.setBounds(1540, 910, 330, 100);
+
+        imgCursosEstudiante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgCursosEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Cursos Estudiante 1.1.png"))); // NOI18N
+        panelCursosEstudiante.add(imgCursosEstudiante);
+        imgCursosEstudiante.setBounds(0, 0, 1920, 1080);
+
+        getContentPane().add(panelCursosEstudiante);
+        panelCursosEstudiante.setBounds(10, 11, 1920, 1080);
+
+        panelPublicacionesEstudiante.setBackground(new java.awt.Color(204, 204, 204));
+        panelPublicacionesEstudiante.setMaximumSize(new java.awt.Dimension(1920, 1080));
+        panelPublicacionesEstudiante.setMinimumSize(new java.awt.Dimension(1920, 1080));
+        panelPublicacionesEstudiante.setLayout(null);
+
+        imgPublicacionesEstudiante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgPublicacionesEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Publicaciones estudiante 1.0 .png"))); // NOI18N
+        panelPublicacionesEstudiante.add(imgPublicacionesEstudiante);
+        imgPublicacionesEstudiante.setBounds(0, 0, 1920, 1080);
+
+        getContentPane().add(panelPublicacionesEstudiante);
+        panelPublicacionesEstudiante.setBounds(10, 11, 1920, 1080);
+
+        panelCursosProfesor.setBackground(new java.awt.Color(204, 204, 204));
+        panelCursosProfesor.setMaximumSize(new java.awt.Dimension(1920, 1080));
+        panelCursosProfesor.setMinimumSize(new java.awt.Dimension(1920, 1080));
+        panelCursosProfesor.setLayout(null);
+
+        ButtonAgregarMaterial.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonAgregarMaterial.setAlignmentY(0.0F);
+        ButtonAgregarMaterial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAgregarMaterialActionPerformed(evt);
+            }
+        });
+        panelCursosProfesor.add(ButtonAgregarMaterial);
+        ButtonAgregarMaterial.setBounds(1080, 910, 410, 100);
+
+        ButtonAgregarPublicacion.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonAgregarPublicacion.setAlignmentY(0.0F);
+        ButtonAgregarPublicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAgregarPublicacionActionPerformed(evt);
+            }
+        });
+        panelCursosProfesor.add(ButtonAgregarPublicacion);
+        ButtonAgregarPublicacion.setBounds(620, 910, 410, 100);
+
+        ButtonAgregarCurso.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonAgregarCurso.setAlignmentY(0.0F);
+        ButtonAgregarCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAgregarCursoActionPerformed(evt);
+            }
+        });
+        panelCursosProfesor.add(ButtonAgregarCurso);
+        ButtonAgregarCurso.setBounds(160, 910, 410, 100);
+
+        ButtonCerrarSesionProfesor.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonCerrarSesionProfesor.setAlignmentY(0.0F);
+        ButtonCerrarSesionProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCerrarSesionProfesorActionPerformed(evt);
+            }
+        });
+        panelCursosProfesor.add(ButtonCerrarSesionProfesor);
+        ButtonCerrarSesionProfesor.setBounds(1540, 910, 330, 100);
+
+        imgCursosProfesor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgCursosProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Cursos profesor 1.2.png"))); // NOI18N
+        panelCursosProfesor.add(imgCursosProfesor);
+        imgCursosProfesor.setBounds(0, 0, 1920, 1080);
+
+        getContentPane().add(panelCursosProfesor);
+        panelCursosProfesor.setBounds(10, 11, 1920, 1080);
+
+        panelPublicacionesProfesor.setBackground(new java.awt.Color(204, 204, 204));
+        panelPublicacionesProfesor.setMaximumSize(new java.awt.Dimension(1920, 1080));
+        panelPublicacionesProfesor.setMinimumSize(new java.awt.Dimension(1920, 1080));
+        panelPublicacionesProfesor.setLayout(null);
+        panelPublicacionesProfesor.add(txtNombreMaterial);
+        txtNombreMaterial.setBounds(370, 660, 170, 20);
+        panelPublicacionesProfesor.add(txtArchivo);
+        txtArchivo.setBounds(370, 710, 170, 20);
+
+        jLabel26.setText("Publicacion");
+        panelPublicacionesProfesor.add(jLabel26);
+        jLabel26.setBounds(250, 770, 100, 14);
+
+        jComboPublicaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelPublicacionesProfesor.add(jComboPublicaciones);
+        jComboPublicaciones.setBounds(370, 770, 110, 20);
+
+        jComboCursos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelPublicacionesProfesor.add(jComboCursos);
+        jComboCursos.setBounds(590, 400, 150, 20);
+
+        jLabel25.setText("Archivo");
+        panelPublicacionesProfesor.add(jLabel25);
+        jLabel25.setBounds(250, 710, 100, 14);
+
+        jLabel24.setText("Nombre material ");
+        panelPublicacionesProfesor.add(jLabel24);
+        jLabel24.setBounds(250, 660, 110, 14);
+
+        btnCrearPublicacion.setText("Crear Publicacion");
+        panelPublicacionesProfesor.add(btnCrearPublicacion);
+        btnCrearPublicacion.setBounds(370, 560, 140, 23);
+
+        btnCargarPublicacion.setText("Cargar");
+        panelPublicacionesProfesor.add(btnCargarPublicacion);
+        btnCargarPublicacion.setBounds(380, 830, 65, 23);
+
+        jLabel23.setText("¿Curso al que corresponde la publicacion?");
+        panelPublicacionesProfesor.add(jLabel23);
+        jLabel23.setBounds(590, 370, 210, 20);
+
+        txtAreaDescripcion.setColumns(20);
+        txtAreaDescripcion.setRows(5);
+        jScrollPane1.setViewportView(txtAreaDescripcion);
+
+        panelPublicacionesProfesor.add(jScrollPane1);
+        jScrollPane1.setBounds(370, 430, 166, 96);
+
+        jLabel22.setText("Descripcion");
+        panelPublicacionesProfesor.add(jLabel22);
+        jLabel22.setBounds(250, 430, 60, 20);
+        panelPublicacionesProfesor.add(txtTituloPublicacion);
+        txtTituloPublicacion.setBounds(370, 370, 160, 30);
+
+        jLabel20.setText("Titulo Publicacion");
+        panelPublicacionesProfesor.add(jLabel20);
+        jLabel20.setBounds(240, 370, 100, 30);
+
+        ButtonAgregarCursoCP.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonAgregarCursoCP.setAlignmentY(0.0F);
+        ButtonAgregarCursoCP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAgregarCursoCPActionPerformed(evt);
+            }
+        });
+        panelPublicacionesProfesor.add(ButtonAgregarCursoCP);
+        ButtonAgregarCursoCP.setBounds(240, 910, 410, 100);
+
+        ButtonAgregarContenidoCP.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonAgregarContenidoCP.setAlignmentY(0.0F);
+        ButtonAgregarContenidoCP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAgregarContenidoCPActionPerformed(evt);
+            }
+        });
+        panelPublicacionesProfesor.add(ButtonAgregarContenidoCP);
+        ButtonAgregarContenidoCP.setBounds(1140, 910, 400, 100);
+
+        ButtonRegresarCrearPublicacion.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonRegresarCrearPublicacion.setAlignmentY(0.0F);
+        ButtonRegresarCrearPublicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRegresarCrearPublicacionActionPerformed(evt);
+            }
+        });
+        panelPublicacionesProfesor.add(ButtonRegresarCrearPublicacion);
+        ButtonRegresarCrearPublicacion.setBounds(1570, 910, 260, 100);
+
+        imgPublicacionesProfesor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgPublicacionesProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Publicacion profesor 1.1.png"))); // NOI18N
+        panelPublicacionesProfesor.add(imgPublicacionesProfesor);
+        imgPublicacionesProfesor.setBounds(0, 0, 1920, 1080);
+
+        getContentPane().add(panelPublicacionesProfesor);
+        panelPublicacionesProfesor.setBounds(10, 11, 1920, 1080);
+
         panelCrearCurso.setBackground(new java.awt.Color(204, 204, 204));
         panelCrearCurso.setMaximumSize(new java.awt.Dimension(1920, 1080));
         panelCrearCurso.setMinimumSize(new java.awt.Dimension(1920, 1080));
         panelCrearCurso.setLayout(null);
+
+        ButtonAgregarContenidoCC.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonAgregarContenidoCC.setAlignmentY(0.0F);
+        ButtonAgregarContenidoCC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAgregarContenidoCCActionPerformed(evt);
+            }
+        });
+        panelCrearCurso.add(ButtonAgregarContenidoCC);
+        ButtonAgregarContenidoCC.setBounds(1080, 910, 420, 100);
+
+        ButtonAgregarPublicacionCC.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonAgregarPublicacionCC.setAlignmentY(0.0F);
+        ButtonAgregarPublicacionCC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAgregarPublicacionCCActionPerformed(evt);
+            }
+        });
+        panelCrearCurso.add(ButtonAgregarPublicacionCC);
+        ButtonAgregarPublicacionCC.setBounds(630, 910, 420, 100);
 
         ButtonCrearCurso.setBackground(new java.awt.Color(153, 0, 0));
         ButtonCrearCurso.setAlignmentY(0.0F);
@@ -987,7 +1113,7 @@ public class ClassyInterface extends javax.swing.JFrame {
             }
         });
         panelCrearCurso.add(ButtonCrearCurso);
-        ButtonCrearCurso.setBounds(800, 860, 330, 100);
+        ButtonCrearCurso.setBounds(800, 770, 330, 100);
 
         ButtonRegresarCrearCurso.setBackground(new java.awt.Color(153, 0, 0));
         ButtonRegresarCrearCurso.setAlignmentY(0.0F);
@@ -1001,11 +1127,11 @@ public class ClassyInterface extends javax.swing.JFrame {
 
         jTNombreCurso.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         panelCrearCurso.add(jTNombreCurso);
-        jTNombreCurso.setBounds(800, 450, 320, 50);
+        jTNombreCurso.setBounds(800, 396, 320, 50);
 
         jCCategoriaCurso.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         panelCrearCurso.add(jCCategoriaCurso);
-        jCCategoriaCurso.setBounds(800, 547, 320, 50);
+        jCCategoriaCurso.setBounds(800, 495, 320, 50);
 
         jScrollPane3.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
 
@@ -1017,34 +1143,77 @@ public class ClassyInterface extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTDescripcionCurso);
 
         panelCrearCurso.add(jScrollPane3);
-        jScrollPane3.setBounds(800, 650, 320, 130);
+        jScrollPane3.setBounds(800, 596, 320, 130);
 
         jLabel21.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(110, 54, 32));
         jLabel21.setText("Descripcion");
         panelCrearCurso.add(jLabel21);
-        jLabel21.setBounds(800, 600, 330, 50);
+        jLabel21.setBounds(800, 550, 330, 50);
 
         jLabel27.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(110, 54, 32));
         jLabel27.setText("Nombre Curso*");
         panelCrearCurso.add(jLabel27);
-        jLabel27.setBounds(800, 390, 290, 50);
+        jLabel27.setBounds(800, 340, 290, 50);
 
         jLabel28.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(110, 54, 32));
         jLabel28.setText("Categoria");
         panelCrearCurso.add(jLabel28);
-        jLabel28.setBounds(800, 500, 330, 50);
+        jLabel28.setBounds(800, 450, 330, 50);
 
         imgCrearCurso.setBackground(new java.awt.Color(96, 3, 3));
         imgCrearCurso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgCrearCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Agregar curso 1.1.png"))); // NOI18N
+        imgCrearCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Agregar curso 1.2.png"))); // NOI18N
         panelCrearCurso.add(imgCrearCurso);
         imgCrearCurso.setBounds(0, 0, 1920, 1080);
 
         getContentPane().add(panelCrearCurso);
         panelCrearCurso.setBounds(10, 11, 1920, 1080);
+
+        panelMaterialProfesor.setBackground(new java.awt.Color(204, 204, 204));
+        panelMaterialProfesor.setMaximumSize(new java.awt.Dimension(1920, 1080));
+        panelMaterialProfesor.setMinimumSize(new java.awt.Dimension(1920, 1080));
+        panelMaterialProfesor.setLayout(null);
+
+        ButtonAgregarPublicacionCM.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonAgregarPublicacionCM.setAlignmentY(0.0F);
+        ButtonAgregarPublicacionCM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAgregarPublicacionCMActionPerformed(evt);
+            }
+        });
+        panelMaterialProfesor.add(ButtonAgregarPublicacionCM);
+        ButtonAgregarPublicacionCM.setBounds(690, 910, 410, 100);
+
+        ButtonAgregarCursoCM.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonAgregarCursoCM.setAlignmentY(0.0F);
+        ButtonAgregarCursoCM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAgregarCursoCMActionPerformed(evt);
+            }
+        });
+        panelMaterialProfesor.add(ButtonAgregarCursoCM);
+        ButtonAgregarCursoCM.setBounds(240, 910, 410, 100);
+
+        ButtonRegresarCrearMaterial.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonRegresarCrearMaterial.setAlignmentY(0.0F);
+        ButtonRegresarCrearMaterial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRegresarCrearMaterialActionPerformed(evt);
+            }
+        });
+        panelMaterialProfesor.add(ButtonRegresarCrearMaterial);
+        ButtonRegresarCrearMaterial.setBounds(1580, 910, 250, 90);
+
+        imgMaterialProfesor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgMaterialProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Material profesor 1.png"))); // NOI18N
+        panelMaterialProfesor.add(imgMaterialProfesor);
+        imgMaterialProfesor.setBounds(0, 0, 1920, 1080);
+
+        getContentPane().add(panelMaterialProfesor);
+        panelMaterialProfesor.setBounds(10, 11, 1920, 1080);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1069,6 +1238,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
         panelCrearCurso.setVisible(false);
+        //Material
+        panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
         
@@ -1093,6 +1264,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
         panelCrearCurso.setVisible(false);
+        //Material
+        panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
     }//GEN-LAST:event_ButtonRegistrarInicioActionPerformed
@@ -1121,6 +1294,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
         panelCrearCurso.setVisible(false);
+        //Material
+        panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
 
@@ -1187,6 +1362,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
         panelCrearCurso.setVisible(false);
+        //Material
+        panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
 
@@ -1268,6 +1445,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
         panelCrearCurso.setVisible(false);
+        //Material
+        panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
     }//GEN-LAST:event_ButtonInicioEstudianteActionPerformed
@@ -1386,40 +1565,16 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante.setVisible(true);
         panelCursosProfesor.setVisible(false);
         panelCrearCurso.setVisible(false);
+        //Material
+        panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
     }//GEN-LAST:event_ButtonMisCursosEstudianteActionPerformed
 
     private void ButtonAgregarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarCursoActionPerformed
        
-        panelInicio.setVisible(false);
-        //Estudiante
-        panelRegistroEstudiante.setVisible(false);
-        panelInicioEstudiante.setVisible(false);
-        //Profesor
-        panelInicioProfesor.setVisible(false);
-        panelRegistroProfesor.setVisible(false);
-        //Rol
-        panelRolRegistro.setVisible(false);
-        panelRolIngreso.setVisible(false);
-        //Publicaciones
-        panelPublicacionesEstudiante.setVisible(false);
-        panelPublicacionesProfesor.setVisible(false);
-        //cursos
-        panelCursosEstudiante.setVisible(false);
-        panelCursosProfesor.setVisible(false);
-        panelCrearCurso.setVisible(true);
-        //Bienvenido
-        panelBienvenido.setVisible(false);
+        MostrarAgregarCurso();
         
-        
-        ControlCategoria objcat = new ControlCategoria();
-        lCategoria = objcat.consultarClasificaciones();
-        
-        for (int j = 0; j < lCategoria.size(); j++) {
-            Categoria objcategoria = lCategoria.get(j);
-            jCCategoriaCurso.addItem(objcategoria.getNombre_categoria());
-        }
     }//GEN-LAST:event_ButtonAgregarCursoActionPerformed
 
     private void ButtonCrearCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCrearCursoActionPerformed
@@ -1478,6 +1633,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
         panelCrearCurso.setVisible(false);
+        //Material
+        panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(true);
     }//GEN-LAST:event_ButtonRegresarMisCursosEstudianteActionPerformed
@@ -1486,6 +1643,46 @@ public class ClassyInterface extends javax.swing.JFrame {
         volverMenuInicial();
         cerrarSesion();
     }//GEN-LAST:event_ButtonCerrarSesionEstudiante1ActionPerformed
+
+    private void ButtonAgregarPublicacionCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarPublicacionCCActionPerformed
+        MostrarAgregarPublicacion();
+    }//GEN-LAST:event_ButtonAgregarPublicacionCCActionPerformed
+
+    private void ButtonAgregarContenidoCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarContenidoCCActionPerformed
+        MostrarAgregarMaterial();
+    }//GEN-LAST:event_ButtonAgregarContenidoCCActionPerformed
+
+    private void ButtonAgregarPublicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarPublicacionActionPerformed
+        MostrarAgregarPublicacion();
+    }//GEN-LAST:event_ButtonAgregarPublicacionActionPerformed
+
+    private void ButtonAgregarMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarMaterialActionPerformed
+        MostrarAgregarMaterial();
+    }//GEN-LAST:event_ButtonAgregarMaterialActionPerformed
+
+    private void ButtonAgregarPublicacionCMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarPublicacionCMActionPerformed
+        MostrarAgregarPublicacion();
+    }//GEN-LAST:event_ButtonAgregarPublicacionCMActionPerformed
+
+    private void ButtonAgregarCursoCMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarCursoCMActionPerformed
+        MostrarAgregarCurso();
+    }//GEN-LAST:event_ButtonAgregarCursoCMActionPerformed
+
+    private void ButtonRegresarCrearMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegresarCrearMaterialActionPerformed
+       mostrarInicioProfesor();
+    }//GEN-LAST:event_ButtonRegresarCrearMaterialActionPerformed
+
+    private void ButtonAgregarCursoCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarCursoCPActionPerformed
+        MostrarAgregarCurso();
+    }//GEN-LAST:event_ButtonAgregarCursoCPActionPerformed
+
+    private void ButtonAgregarContenidoCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarContenidoCPActionPerformed
+        MostrarAgregarMaterial();
+    }//GEN-LAST:event_ButtonAgregarContenidoCPActionPerformed
+
+    private void ButtonRegresarCrearPublicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegresarCrearPublicacionActionPerformed
+        mostrarInicioProfesor();        
+    }//GEN-LAST:event_ButtonRegresarCrearPublicacionActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1521,7 +1718,15 @@ public class ClassyInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonAgregarContenidoCC;
+    private javax.swing.JButton ButtonAgregarContenidoCP;
     private javax.swing.JButton ButtonAgregarCurso;
+    private javax.swing.JButton ButtonAgregarCursoCM;
+    private javax.swing.JButton ButtonAgregarCursoCP;
+    private javax.swing.JButton ButtonAgregarMaterial;
+    private javax.swing.JButton ButtonAgregarPublicacion;
+    private javax.swing.JButton ButtonAgregarPublicacionCC;
+    private javax.swing.JButton ButtonAgregarPublicacionCM;
     private javax.swing.JButton ButtonCerrarSesionEstudiante;
     private javax.swing.JButton ButtonCerrarSesionEstudiante1;
     private javax.swing.JButton ButtonCerrarSesionProfesor;
@@ -1538,6 +1743,8 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JButton ButtonRegistroEstudiante;
     private javax.swing.JButton ButtonRegistroProfesor;
     private javax.swing.JButton ButtonRegresarCrearCurso;
+    private javax.swing.JButton ButtonRegresarCrearMaterial;
+    private javax.swing.JButton ButtonRegresarCrearPublicacion;
     private javax.swing.JButton ButtonRegresarMisCursosEstudiante;
     private javax.swing.JButton ButtonVolverInicioEstudiante;
     private javax.swing.JButton ButtonVolverInicioProfesor;
@@ -1554,6 +1761,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JLabel imgInicio;
     private javax.swing.JLabel imgInicioEstudiante;
     private javax.swing.JLabel imgInicioProfesor;
+    private javax.swing.JLabel imgMaterialProfesor;
     private javax.swing.JLabel imgPublicacionesEstudiante;
     private javax.swing.JLabel imgPublicacionesProfesor;
     private javax.swing.JLabel imgRegistroEstudiante;
@@ -1623,6 +1831,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JPanel panelInicio;
     private javax.swing.JPanel panelInicioEstudiante;
     private javax.swing.JPanel panelInicioProfesor;
+    private javax.swing.JPanel panelMaterialProfesor;
     private javax.swing.JPanel panelPublicacionesEstudiante;
     private javax.swing.JPanel panelPublicacionesProfesor;
     private javax.swing.JPanel panelRegistroEstudiante;
@@ -1654,6 +1863,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
         panelCrearCurso.setVisible(false);
+        //Material
+        panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
     }
@@ -1705,6 +1916,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(false);
         panelCrearCurso.setVisible(false);
+        //Material
+        panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(true);
         
@@ -1753,6 +1966,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante.setVisible(false);
         panelCursosProfesor.setVisible(true);
         panelCrearCurso.setVisible(false);
+        //Material
+        panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
     }
@@ -1767,5 +1982,86 @@ public class ClassyInterface extends javax.swing.JFrame {
     private void cerrarSesion() {
         id_usuario = -1;
         tipo = "";
+    }
+
+    private void MostrarAgregarCurso() {
+        panelInicio.setVisible(false);
+        //Estudiante
+        panelRegistroEstudiante.setVisible(false);
+        panelInicioEstudiante.setVisible(false);
+        //Profesor
+        panelInicioProfesor.setVisible(false);
+        panelRegistroProfesor.setVisible(false);
+        //Rol
+        panelRolRegistro.setVisible(false);
+        panelRolIngreso.setVisible(false);
+        //Publicaciones
+        panelPublicacionesEstudiante.setVisible(false);
+        panelPublicacionesProfesor.setVisible(false);
+        //cursos
+        panelCursosEstudiante.setVisible(false);
+        panelCursosProfesor.setVisible(false);
+        panelCrearCurso.setVisible(true);
+        //Material
+        panelMaterialProfesor.setVisible(false);
+        //Bienvenido
+        panelBienvenido.setVisible(false);
+        
+        
+        ControlCategoria objcat = new ControlCategoria();
+        lCategoria = objcat.consultarClasificaciones();
+        
+        for (int j = 0; j < lCategoria.size(); j++) {
+            Categoria objcategoria = lCategoria.get(j);
+            jCCategoriaCurso.addItem(objcategoria.getNombre_categoria());
+        }
+    }
+
+    private void MostrarAgregarPublicacion() {
+        panelInicio.setVisible(false);
+        //Estudiante
+        panelRegistroEstudiante.setVisible(false);
+        panelInicioEstudiante.setVisible(false);
+        //Profesor
+        panelInicioProfesor.setVisible(false);
+        panelRegistroProfesor.setVisible(false);
+        //Rol
+        panelRolRegistro.setVisible(false);
+        panelRolIngreso.setVisible(false);
+        //Publicaciones
+        panelPublicacionesEstudiante.setVisible(false);
+        panelPublicacionesProfesor.setVisible(true);
+        //cursos
+        panelCursosEstudiante.setVisible(false);
+        panelCursosProfesor.setVisible(false);
+        panelCrearCurso.setVisible(false);
+        //Material
+        panelMaterialProfesor.setVisible(false);
+        //Bienvenido
+        panelBienvenido.setVisible(false);
+    }
+
+    private void MostrarAgregarMaterial() {
+        panelInicio.setVisible(false);
+        //Estudiante
+        panelRegistroEstudiante.setVisible(false);
+        panelInicioEstudiante.setVisible(false);
+        //Profesor
+        panelInicioProfesor.setVisible(false);
+        panelRegistroProfesor.setVisible(false);
+        //Rol
+        panelRolRegistro.setVisible(false);
+        panelRolIngreso.setVisible(false);
+        //Publicaciones
+        panelPublicacionesEstudiante.setVisible(false);
+        panelPublicacionesProfesor.setVisible(false);
+        //cursos
+        panelCursosEstudiante.setVisible(false);
+        panelCursosProfesor.setVisible(false);
+        panelCrearCurso.setVisible(false);
+        //Material
+        panelMaterialProfesor.setVisible(true);
+        //Bienvenido
+        panelBienvenido.setVisible(false);
     }
 }

@@ -30,8 +30,12 @@ public class Inscripcion {
         this.id_cursoF = id_cursoF;
     }
 
-    public Inscripcion(String fecha_inscripcion, int id_estudianteF, int id_cursoF) {
+    /* public Inscripcion(String fecha_inscripcion, int id_estudianteF, int id_cursoF) {
         this.fecha_inscripcion = fecha_inscripcion;
+        this.id_estudianteF = id_estudianteF;
+        this.id_cursoF = id_cursoF;
+    }*/
+    public Inscripcion(int id_estudianteF, int id_cursoF) {
         this.id_estudianteF = id_estudianteF;
         this.id_cursoF = id_cursoF;
     }

@@ -1,5 +1,6 @@
 package vista;
 //Controles
+
 import control.ControlEstudiante;
 import control.ControlProfesor;
 import control.ControlPais;
@@ -42,22 +43,22 @@ public class ClassyInterface extends javax.swing.JFrame {
     LinkedList<Curso> lCurso;
     LinkedList<Publicacion> lPublicacion;
     LinkedList<Material> lMaterial;
-
+    LinkedList<Publicacion> lPublicacionC;
     //Variables de "sesion"
     String tipo;
     int id_usuario;
-    
-    DefaultTableModel modelo; 
-    String data[][] ={};
-    String cabeza[] = {"Curso","Profesor","Ingresar"};
+    int id_cursoe;
+
+    DefaultTableModel modelo;
+    String data[][] = {};
+    String cabeza[] = {"Curso", "Profesor", "Ingresar"};
 
     public ClassyInterface() {
         initComponents();
-        
-        
-        modelo = new DefaultTableModel(data,cabeza);
+
+        modelo = new DefaultTableModel(data, cabeza);
         jtCursos.setModel(modelo);
-        
+
         //Instancia de listas
         lPais = new LinkedList<>();
         lCategoria = new LinkedList<>();
@@ -65,6 +66,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         lCurso = new LinkedList<>();
         lPublicacion = new LinkedList<>();
         lMaterial = new LinkedList<>();
+        lPublicacionC = new LinkedList<>();
 
         //Determinar visibilidad inicial de los paneles
         panelInicio.setVisible(true);
@@ -165,81 +167,80 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonCerrarSesionProfesor.setOpaque(false);
         ButtonCerrarSesionProfesor.setContentAreaFilled(false);
         ButtonCerrarSesionProfesor.setBorderPainted(false);
-        
+
         ButtonAgregarCurso.setOpaque(false);
         ButtonAgregarCurso.setContentAreaFilled(false);
         ButtonAgregarCurso.setBorderPainted(false);
-        
+
         ButtonAgregarMaterial.setOpaque(false);
         ButtonAgregarMaterial.setContentAreaFilled(false);
         ButtonAgregarMaterial.setBorderPainted(false);
-        
+
         ButtonAgregarPublicacion.setOpaque(false);
         ButtonAgregarPublicacion.setContentAreaFilled(false);
         ButtonAgregarPublicacion.setBorderPainted(false);
-        
+
         //PANEL CREAR CURSO PROFESOR       
         ButtonCrearCurso.setOpaque(false);
-        ButtonCrearCurso.setContentAreaFilled(false); 
+        ButtonCrearCurso.setContentAreaFilled(false);
         ButtonCrearCurso.setBorderPainted(false);
-        
+
         ButtonRegresarCrearCurso.setOpaque(false);
-        ButtonRegresarCrearCurso.setContentAreaFilled(false); 
+        ButtonRegresarCrearCurso.setContentAreaFilled(false);
         ButtonRegresarCrearCurso.setBorderPainted(false);
-        
+
         ButtonAgregarContenidoCC.setOpaque(false);
-        ButtonAgregarContenidoCC.setContentAreaFilled(false); 
+        ButtonAgregarContenidoCC.setContentAreaFilled(false);
         ButtonAgregarContenidoCC.setBorderPainted(false);
-        
+
         ButtonAgregarPublicacionCC.setOpaque(false);
-        ButtonAgregarPublicacionCC.setContentAreaFilled(false); 
+        ButtonAgregarPublicacionCC.setContentAreaFilled(false);
         ButtonAgregarPublicacionCC.setBorderPainted(false);
-        
+
         //PANEL CREAR PUBLICACION PROFESOR
         ButtonRegresarCrearPublicacion.setOpaque(false);
-        ButtonRegresarCrearPublicacion.setContentAreaFilled(false); 
+        ButtonRegresarCrearPublicacion.setContentAreaFilled(false);
         ButtonRegresarCrearPublicacion.setBorderPainted(false);
-        
+
         ButtonAgregarContenidoCP.setOpaque(false);
-        ButtonAgregarContenidoCP.setContentAreaFilled(false); 
+        ButtonAgregarContenidoCP.setContentAreaFilled(false);
         ButtonAgregarContenidoCP.setBorderPainted(false);
-        
+
         ButtonAgregarCursoCP.setOpaque(false);
-        ButtonAgregarCursoCP.setContentAreaFilled(false); 
+        ButtonAgregarCursoCP.setContentAreaFilled(false);
         ButtonAgregarCursoCP.setBorderPainted(false);
-        
+
         //PANEL CREAR MATERIAL PROFESOR
         ButtonRegresarCrearMaterial.setOpaque(false);
-        ButtonRegresarCrearMaterial.setContentAreaFilled(false); 
+        ButtonRegresarCrearMaterial.setContentAreaFilled(false);
         ButtonRegresarCrearMaterial.setBorderPainted(false);
-        
+
         ButtonAgregarCursoCM.setOpaque(false);
-        ButtonAgregarCursoCM.setContentAreaFilled(false); 
+        ButtonAgregarCursoCM.setContentAreaFilled(false);
         ButtonAgregarCursoCM.setBorderPainted(false);
-        
+
         ButtonAgregarPublicacionCM.setOpaque(false);
-        ButtonAgregarPublicacionCM.setContentAreaFilled(false); 
+        ButtonAgregarPublicacionCM.setContentAreaFilled(false);
         ButtonAgregarPublicacionCM.setBorderPainted(false);
-        
+
         ButtonCargarMaterial.setOpaque(false);
-        ButtonCargarMaterial.setContentAreaFilled(false); 
+        ButtonCargarMaterial.setContentAreaFilled(false);
         ButtonCargarMaterial.setBorderPainted(false);
-        
-        
+
         //PANEL BIENVENIDO ESTUDIANTE
         ButtonCerrarSesionEstudiante.setOpaque(false);
         ButtonCerrarSesionEstudiante.setContentAreaFilled(false);
         ButtonCerrarSesionEstudiante.setBorderPainted(false);
-        
+
         ButtonMisCursosEstudiante.setOpaque(false);
         ButtonMisCursosEstudiante.setContentAreaFilled(false);
         ButtonMisCursosEstudiante.setBorderPainted(false);
-        
+
         //PANEL MIS CURSOS ESTUDIANTE
         ButtonRegresarMisCursosEstudiante.setOpaque(false);
         ButtonRegresarMisCursosEstudiante.setContentAreaFilled(false);
         ButtonRegresarMisCursosEstudiante.setBorderPainted(false);
-        
+
         ButtonCerrarSesionEstudiante1.setOpaque(false);
         ButtonCerrarSesionEstudiante1.setContentAreaFilled(false);
         ButtonCerrarSesionEstudiante1.setBorderPainted(false);
@@ -331,8 +332,13 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante = new javax.swing.JPanel();
         ButtonRegresarMisCursosEstudiante = new javax.swing.JButton();
         ButtonCerrarSesionEstudiante1 = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jtCursosEstudiante = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         imgCursosEstudiante = new javax.swing.JLabel();
         panelPublicacionesEstudiante = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jtPublicacionesE = new javax.swing.JTable();
         imgPublicacionesEstudiante = new javax.swing.JLabel();
         panelCursosProfesor = new javax.swing.JPanel();
         ButtonAgregarMaterial = new javax.swing.JButton();
@@ -976,6 +982,31 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante.add(ButtonCerrarSesionEstudiante1);
         ButtonCerrarSesionEstudiante1.setBounds(1540, 910, 330, 100);
 
+        jtCursosEstudiante.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(jtCursosEstudiante);
+
+        panelCursosEstudiante.add(jScrollPane6);
+        jScrollPane6.setBounds(670, 430, 570, 402);
+
+        jButton1.setText("Ingresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        panelCursosEstudiante.add(jButton1);
+        jButton1.setBounds(1350, 540, 190, 60);
+
         imgCursosEstudiante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgCursosEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Cursos Estudiante 1.1.png"))); // NOI18N
         panelCursosEstudiante.add(imgCursosEstudiante);
@@ -988,6 +1019,22 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelPublicacionesEstudiante.setMaximumSize(new java.awt.Dimension(1920, 1080));
         panelPublicacionesEstudiante.setMinimumSize(new java.awt.Dimension(1920, 1080));
         panelPublicacionesEstudiante.setLayout(null);
+
+        jtPublicacionesE.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(jtPublicacionesE);
+
+        panelPublicacionesEstudiante.add(jScrollPane5);
+        jScrollPane5.setBounds(120, 360, 1190, 402);
 
         imgPublicacionesEstudiante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgPublicacionesEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Publicaciones estudiante 1.0 .png"))); // NOI18N
@@ -1366,7 +1413,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
-        
+
     }//GEN-LAST:event_ButtonIngresarInicioActionPerformed
 
     private void ButtonRegistrarInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegistrarInicioActionPerformed
@@ -1693,41 +1740,43 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
+        
+        MostrarMisCursos();
     }//GEN-LAST:event_ButtonMisCursosEstudianteActionPerformed
 
     private void ButtonAgregarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarCursoActionPerformed
-       
+
         MostrarAgregarCurso();
-        
+
     }//GEN-LAST:event_ButtonAgregarCursoActionPerformed
 
     private void ButtonCrearCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCrearCursoActionPerformed
-        if(jTNombreCurso.getText().isEmpty() || jTDescripcionCurso.getText().isEmpty()){
-             JOptionPane.showMessageDialog(rootPane, "Por favor llena todos los campos obligatorios");
-        }else{
+        if (jTNombreCurso.getText().isEmpty() || jTDescripcionCurso.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Por favor llena todos los campos obligatorios");
+        } else {
             ControlCurso obccu = new ControlCurso();
-            
-            java.util.Date fechaActual = new java.util.Date();            
+
+            java.util.Date fechaActual = new java.util.Date();
             java.sql.Timestamp fechaCreacion;
             fechaCreacion = new java.sql.Timestamp(fechaActual.getTime());
             //System.out.print(fechaCreacion); //Verificacion fecha 
-            
+
             String nombreCurso = jTNombreCurso.getText();
             String DescripcionCurso = jTDescripcionCurso.getText();
-            
-            int idc=0;
+
+            int idc = 0;
             for (int i = 0; i < lCategoria.size(); i++) {
                 Categoria get = lCategoria.get(i);
-                String Categoria=String.valueOf(jCCategoriaCurso.getSelectedItem());
-                if(Categoria.equals(get.getNombre_categoria())){
-                    idc=get.getId_categoria();
+                String Categoria = String.valueOf(jCCategoriaCurso.getSelectedItem());
+                if (Categoria.equals(get.getNombre_categoria())) {
+                    idc = get.getId_categoria();
                 }
             }
-            
-            Curso cu = new Curso(nombreCurso, fechaCreacion, DescripcionCurso,id_usuario,idc);
-            
+
+            Curso cu = new Curso(nombreCurso, fechaCreacion, DescripcionCurso, id_usuario, idc);
+
             obccu.insertarCurso(cu);
-            
+
             JOptionPane.showMessageDialog(rootPane, "Haz insertado un curso!");
             mostrarInicioProfesor();
             limpiarCrearCurso();
@@ -1740,7 +1789,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRegresarCrearCursoActionPerformed
 
     private void ButtonRegresarMisCursosEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegresarMisCursosEstudianteActionPerformed
-       panelInicio.setVisible(false);
+        panelInicio.setVisible(false);
         //Estudiante
         panelRegistroEstudiante.setVisible(false);
         panelInicioEstudiante.setVisible(false);
@@ -1793,7 +1842,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonAgregarCursoCMActionPerformed
 
     private void ButtonRegresarCrearMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegresarCrearMaterialActionPerformed
-       mostrarInicioProfesor();
+        mostrarInicioProfesor();
     }//GEN-LAST:event_ButtonRegresarCrearMaterialActionPerformed
 
     private void ButtonAgregarCursoCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarCursoCPActionPerformed
@@ -1805,7 +1854,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonAgregarContenidoCPActionPerformed
 
     private void ButtonRegresarCrearPublicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegresarCrearPublicacionActionPerformed
-        mostrarInicioProfesor();        
+        mostrarInicioProfesor();
     }//GEN-LAST:event_ButtonRegresarCrearPublicacionActionPerformed
 
     private void txtNombreMaterial1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreMaterial1ActionPerformed
@@ -1819,71 +1868,81 @@ public class ClassyInterface extends javax.swing.JFrame {
     private void ButtonCargarMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCargarMaterialActionPerformed
         ControlMaterial objcm = new ControlMaterial();
         lPublicacion = new LinkedList<>();
-         String nombre_materialP = txtNombreMaterial1.getText();
-         int idp =0;
-         for(int i=0; i< lPublicacion.size(); i++ )
-         {
-            Publicacion get= lPublicacion.get(i);
-            String  PublicacionS = String.valueOf(jComboPublicaciones1.getSelectedItem());
-            
-            if(PublicacionS.equals(get.getTitulo_publicacion()))
-            {
-              idp = get.getId_publicacion();
+        String nombre_materialP = txtNombreMaterial1.getText();
+        int idp = 0;
+        for (int i = 0; i < lPublicacion.size(); i++) {
+            Publicacion get = lPublicacion.get(i);
+            String PublicacionS = String.valueOf(jComboPublicaciones1.getSelectedItem());
+
+            if (PublicacionS.equals(get.getTitulo_publicacion())) {
+                idp = get.getId_publicacion();
             }
-         }
-         
-         String RutaArchivo = "C:\\Users\\wedin\\OneDrive\\Imágenes\\modeladoUAO.jpg";
-         Material objm= new  Material(nombre_materialP, RutaArchivo, idp);
-         boolean t = objcm.insertarMaterial(objm);
+        }
+
+        String RutaArchivo = "C:\\Users\\wedin\\OneDrive\\Imágenes\\modeladoUAO.jpg";
+        Material objm = new Material(nombre_materialP, RutaArchivo, idp);
+        boolean t = objcm.insertarMaterial(objm);
     }//GEN-LAST:event_ButtonCargarMaterialActionPerformed
 
     private void btnCrearPublicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPublicacionActionPerformed
-                //aqui se cargan las publicaciones
-        ControlPublicacion objcp= new ControlPublicacion();
+        //aqui se cargan las publicaciones
+        ControlPublicacion objcp = new ControlPublicacion();
         lCurso = new LinkedList<>();
-        String titulo_publicacionp = txtTituloPublicacion.getText();    
-        String descripcion_publicacionp = txtAreaDescripcion.getText(); 
-                
+        String titulo_publicacionp = txtTituloPublicacion.getText();
+        String descripcion_publicacionp = txtAreaDescripcion.getText();
+
         //con esto obtenemos el id del curso que cargamos en el jcobobox
-        int idc= 0;
-        for(int i=0; i< lCurso.size(); i++ )
-         {
-            Curso get= lCurso.get(i);
-            String  cursoS= String.valueOf(jComboCursos.getSelectedItem());
-            
-            if(cursoS.equals(get.getNombre_curso()))
-            {
-              idc = get.getId_curso();
+        int idc = 0;
+        for (int i = 0; i < lCurso.size(); i++) {
+            Curso get = lCurso.get(i);
+            String cursoS = String.valueOf(jComboCursos.getSelectedItem());
+
+            if (cursoS.equals(get.getNombre_curso())) {
+                idc = get.getId_curso();
             }
-         }
-        String fechaPublicacion="20/06/2020";
-        Publicacion objp= new Publicacion(fechaPublicacion, titulo_publicacionp, descripcion_publicacionp, idc);
-      boolean t =  objcp.insertarPublicacion(objp);
+        }
+        String fechaPublicacion = "20/06/2020";
+        Publicacion objp = new Publicacion(fechaPublicacion, titulo_publicacionp, descripcion_publicacionp, idc);
+        boolean t = objcp.insertarPublicacion(objp);
     }//GEN-LAST:event_btnCrearPublicacionActionPerformed
 
     private void jtCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtCursosMouseClicked
         int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog (null, "Quieres inscribir este curso?","Inscribir curso",dialogButton);
-        if(dialogResult == JOptionPane.YES_OPTION){
-                int fila = jtCursos.getSelectedRow();
-                    if (fila >= 0) {
-                        ControlInscripcion objci = new ControlInscripcion();
-                        int id_curso = Integer.parseInt(jtCursos.getValueAt(fila, 0).toString());
-                        Inscripcion objins;
-                        objins = new Inscripcion(id_usuario, id_curso);
-                        boolean t = objci.insertarInscripcion(objins);
-                        //System.out.print(id_curso);//Comprobar que toma el id correcto
-                        if (t) {
-                            JOptionPane.showMessageDialog(this, "Inscripcion exitosa");
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Inscripcion no exitosa");
-                        }
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Quieres inscribir este curso?", "Inscribir curso", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            int fila = jtCursos.getSelectedRow();
+            if (fila >= 0) {
+                ControlInscripcion objci = new ControlInscripcion();
+                int id_curso = Integer.parseInt(jtCursos.getValueAt(fila, 0).toString());
+                Inscripcion objins;
+                objins = new Inscripcion(id_usuario, id_curso);
+                boolean t = objci.insertarInscripcion(objins);
+                //System.out.print(id_cursoe);//Comprobar que toma el id correcto
+                if (t) {
+                    JOptionPane.showMessageDialog(this, "Inscripcion exitosa");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Inscripcion no exitosa");
+                }
 
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Fila no seleccionada");
-                    }
+            } else {
+                JOptionPane.showMessageDialog(this, "Fila no seleccionada");
             }
+        }
     }//GEN-LAST:event_jtCursosMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+///////////////////////////////////////////////////////////////////////       
+        int fila = jtCursosEstudiante.getSelectedRow();
+        if (fila >=0) {
+            ControlInscripcion objci = new ControlInscripcion();
+                id_cursoe = Integer.parseInt(jtCursos.getValueAt(fila, 0).toString());
+                
+                MostrarPublicaciones();
+        } else {
+            JOptionPane.showMessageDialog(this, "Fila no seleccionada");
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1969,6 +2028,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JLabel imgRegistroProfesor;
     private javax.swing.JLabel imgRolIngreso;
     private javax.swing.JLabel imgRolRegistro;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jCCategoriaCurso;
     private javax.swing.JComboBox<String> jComboCursos;
     private javax.swing.JComboBox<String> jComboPublicaciones1;
@@ -2011,6 +2071,8 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTextArea jTDescripcionCurso;
     private javax.swing.JTextField jTNombreCurso;
     private javax.swing.JTextField jTapellido1Estudiante;
@@ -2031,7 +2093,9 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JTextField jTnombre2Estudiante;
     private javax.swing.JTextField jTnombre2Profesor;
     private javax.swing.JTable jtCursos;
+    private javax.swing.JTable jtCursosEstudiante;
     private javax.swing.JTable jtCursosProfesor;
+    private javax.swing.JTable jtPublicacionesE;
     private javax.swing.JPanel panelBienvenido;
     private javax.swing.JPanel panelCrearCurso;
     private javax.swing.JPanel panelCursosEstudiante;
@@ -2107,8 +2171,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     }
 
     private void MostrarInicioEstudiante() {
-        
-        
+
         panelInicio.setVisible(false);
         //Estudiante
         panelRegistroEstudiante.setVisible(false);
@@ -2130,10 +2193,10 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(true);
-        
+
         ControlCurso cc = new ControlCurso();
         lc = cc.consultarTodoCurso();
-        
+
         String matriz[][] = new String[lc.size()][5];
 
         for (int i = 0; i < lc.size(); i++) {
@@ -2143,19 +2206,19 @@ public class ClassyInterface extends javax.swing.JFrame {
             matriz[i][3] = lc.get(i).getCategoria();
             matriz[i][4] = lc.get(i).getDescripcion_curso();
         }
-        
+
         jtCursos.setModel(new javax.swing.table.DefaultTableModel(
-            matriz,
-            new String [] {
-                "ID","Nombre del curso", "Nombre del profesor", "Categoria", "Descripcion"
-            }
+                matriz,
+                new String[]{
+                    "ID", "Nombre del curso", "Nombre del profesor", "Categoria", "Descripcion"
+                }
         ));
-        
+
         //Ocultar el id de la columna
         jtCursos.getColumnModel().getColumn(0).setMinWidth(0);
         jtCursos.getColumnModel().getColumn(0).setMaxWidth(0);
         jtCursos.getColumnModel().getColumn(0).setWidth(0);
-        
+
         JOptionPane.showMessageDialog(this, "Haz click sobre un curso para inscribirte en él'");
     }
 
@@ -2186,10 +2249,10 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
-        
+
         ControlCurso cc = new ControlCurso();
         lc = cc.consultarCursosProfesor(id_usuario);
-        
+
         String matriz[][] = new String[lc.size()][5];
 
         for (int i = 0; i < lc.size(); i++) {
@@ -2198,20 +2261,18 @@ public class ClassyInterface extends javax.swing.JFrame {
             matriz[i][2] = lc.get(i).getCategoria();
             matriz[i][3] = lc.get(i).getDescripcion_curso();
         }
-        
+
         jtCursosProfesor.setModel(new javax.swing.table.DefaultTableModel(
-            matriz,
-            new String [] {
-                "Nombre del curso", "Fecha de Creacion", "Categoria", "Descripcion"
-            }
+                matriz,
+                new String[]{
+                    "Nombre del curso", "Fecha de Creacion", "Categoria", "Descripcion"
+                }
         ));
-        
-        
-        
+
     }
-    
+
     private void limpiarCrearCurso() {
-        
+
         jTNombreCurso.setText("");
         jTDescripcionCurso.setText("");
         jCCategoriaCurso.setSelectedItem(0);
@@ -2244,11 +2305,10 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
-        
-        
+
         ControlCategoria objcat = new ControlCategoria();
         lCategoria = objcat.consultarClasificaciones();
-        
+
         for (int j = 0; j < lCategoria.size(); j++) {
             Categoria objcategoria = lCategoria.get(j);
             jCCategoriaCurso.addItem(objcategoria.getNombre_categoria());
@@ -2277,15 +2337,13 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
-        
-                
+
         ControlCurso objccl = new ControlCurso();
         lCurso = objccl.consultarCurso();
-        
-        for(int i = 0; i<lCurso.size(); i++)
-        {
-          Curso objetoCurso = lCurso.get(i);
-          jComboCursos.addItem(objetoCurso.getNombre_curso());
+
+        for (int i = 0; i < lCurso.size(); i++) {
+            Curso objetoCurso = lCurso.get(i);
+            jComboCursos.addItem(objetoCurso.getNombre_curso());
         }
     }
 
@@ -2311,16 +2369,77 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelMaterialProfesor.setVisible(true);
         //Bienvenido
         panelBienvenido.setVisible(false);
+
+        //para llamar la fk que se necesita la publicacion de publicacion
+        ControlPublicacion objccl = new ControlPublicacion();
+        lPublicacion = objccl.consultarPublicaciones();
+
+        for (int i = 0; i < lPublicacion.size(); i++) {
+            Publicacion objetoClasificacion = lPublicacion.get(i);
+            jComboPublicaciones1.addItem(objetoClasificacion.getTitulo_publicacion());
+        }
+    }
+
+    private void MostrarPublicaciones() {
+        //Determinar visibilidad inicial de los paneles
+        panelInicio.setVisible(false);
+        //Estudiante
+        panelRegistroEstudiante.setVisible(false);
+        panelInicioEstudiante.setVisible(false);
+        //Profesor
+        panelInicioProfesor.setVisible(false);
+        panelRegistroProfesor.setVisible(false);
+        //Rol
+        panelRolRegistro.setVisible(false);
+        panelRolIngreso.setVisible(false);
+        //Publicaciones
+        panelPublicacionesEstudiante.setVisible(true);
+        panelPublicacionesProfesor.setVisible(false);
+        //cursos
+        panelCursosEstudiante.setVisible(false);
+        panelCursosProfesor.setVisible(false);
+        panelCrearCurso.setVisible(false);
+        //Material
+        panelMaterialProfesor.setVisible(false);
+        //Bienvenido
+        panelBienvenido.setVisible(false);
         
-               //para llamar la fk que se necesita la publicacion de publicacion
-       ControlPublicacion objccl = new ControlPublicacion();
-       lPublicacion = objccl.consultarPublicaciones();
-       
-       
-       for(int i = 0; i<lPublicacion.size(); i++)
-       {
-          Publicacion objetoClasificacion = lPublicacion.get(i);
-          jComboPublicaciones1.addItem(objetoClasificacion.getTitulo_publicacion());
-       }
+        ControlPublicacion cp = new ControlPublicacion();
+        lPublicacionC = cp.consultarPublicacionesCurso(id_cursoe);
+
+        String matriz[][] = new String[lPublicacionC.size()][4];
+
+        for (int i = 0; i < lPublicacionC.size(); i++) {
+            matriz[i][0] = lPublicacionC.get(i).getId_publicacion() + "";
+            matriz[i][1] = lPublicacionC.get(i).getFecha_publicacion();
+            matriz[i][2] = lPublicacionC.get(i).getTitulo_publicacion();
+            matriz[i][3] = lPublicacionC.get(i).getDescripcion_publicacion();
+        }
+
+        jtPublicacionesE.setModel(new javax.swing.table.DefaultTableModel(
+                matriz,
+                new String[]{
+                    "ID", "Fecha de Publicacion", "Titulo", "Informacion"
+                }
+        ));
+    }
+
+    private void MostrarMisCursos() {
+        ControlCurso cc = new ControlCurso();
+        lc = cc.consultarCursoEstudiante(id_usuario);
+
+        String matriz[][] = new String[lc.size()][2];
+
+        for (int i = 0; i < lc.size(); i++) {
+            matriz[i][0] = lc.get(i).getId_curso() + "";
+            matriz[i][1] = lc.get(i).getNombre_curso();
+        }
+
+        jtCursosEstudiante.setModel(new javax.swing.table.DefaultTableModel(
+                matriz,
+                new String[]{
+                    "ID","Nombre del curso"
+                }
+        ));
     }
 }

@@ -53,6 +53,11 @@ public class Curso {
         this.id_categoriaF = id_categoriaF;
     }
 
+    public Curso(int id_curso, String nombre_curso) {
+        this.id_curso = id_curso;
+        this.nombre_curso = nombre_curso;
+    } 
+    
     public Curso() {
 
     }
@@ -285,6 +290,29 @@ public class Curso {
                     id_profesorF1 = rs.getInt("id_profesorF");
                    id_categoriaF1 = rs.getInt("id_categoriaF");
                    listacurso.add(new Curso(id_curso1,nombre_curso1,fecha_creacion_curso1,descripcion_curso1,id_profesorF1,id_categoriaF1));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Curso.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return listacurso;
+    }
+
+    public LinkedList<Curso> consultCursoEstudiante(String sql4) {
+        LinkedList<Curso> listacurso = new LinkedList<>();
+        BaseDatos objb = new BaseDatos();
+        int id_curso1;
+        String nombre_curso1;
+       
+        ResultSet rs = null; //resultado de la consulta que le enviamos
+        if (objb.crearConexion()) {
+            try {
+                rs = objb.getSt().executeQuery(sql4); //lo de consultallcurso lo guardamos en este resulset
+                while (rs.next())//usamos el while que recorra el resulset para saber cuantas filas hay
+                {
+                    id_curso1 = rs.getInt("id_curso");
+                    nombre_curso1 = rs.getString("nombre_curso");                    
+                   listacurso.add(new Curso(id_curso1,nombre_curso1));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Curso.class.getName()).log(Level.SEVERE, null, ex);

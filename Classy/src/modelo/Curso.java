@@ -184,6 +184,8 @@ public class Curso {
         }
         return listacurso;
     }
+    
+    
 
     public LinkedList<Curso> consultCurso(String sql2) {
 
@@ -220,6 +222,44 @@ public class Curso {
         }
         return listacurso;
 
+    }
+    
+    
+    
+    public LinkedList<Curso> consultCursosProfesor(String sql) {
+        LinkedList<Curso> listacurso = new LinkedList<>();
+
+        BaseDatos objb = new BaseDatos();
+        int id_curso1;
+        String nombre_curso1;
+        Timestamp fecha_creacion_curso1;
+        String descripcion_curso1;
+        int id_profesorF1;
+        int id_categoriaF1;
+        String Categoria;
+
+        ResultSet rs = null; //resultado de la consulta que le enviamos
+        if (objb.crearConexion()) {
+            try {
+                rs = objb.getSt().executeQuery(sql); //lo de consultallcurso lo guardamos en este resulset
+                while (rs.next())//usamos el while que recorra el resulset para saber cuantas filas hay
+                {
+                    id_curso1 = rs.getInt("id_curso");
+                    nombre_curso1 = rs.getString("nombre_curso");
+                    fecha_creacion_curso1 = rs.getTimestamp("fecha_creacion_curso");
+                    descripcion_curso1 = rs.getString("descripcion_curso");
+                    id_profesorF1 = rs.getInt("id_profesorF");
+                    id_categoriaF1 = rs.getInt("id_categoriaF");
+                    Curso cu = new Curso(id_curso1, nombre_curso1, fecha_creacion_curso1, descripcion_curso1, id_profesorF1, id_categoriaF1);
+                    //cu.setNombre_profesor(rs.getString("nombre1_profesor") + " " + rs.getString(("apellido1_profesor")));
+                    cu.setCategoria(rs.getString("nombre_categoria"));
+                    listacurso.add(cu);//a;ade todo a una lista de curso
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Curso.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return listacurso;
     }
 
 }

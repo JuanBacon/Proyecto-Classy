@@ -221,6 +221,11 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonAgregarPublicacionCM.setContentAreaFilled(false); 
         ButtonAgregarPublicacionCM.setBorderPainted(false);
         
+        ButtonCargarMaterial.setOpaque(false);
+        ButtonCargarMaterial.setContentAreaFilled(false); 
+        ButtonCargarMaterial.setBorderPainted(false);
+        
+        
         //PANEL BIENVENIDO ESTUDIANTE
         ButtonCerrarSesionEstudiante.setOpaque(false);
         ButtonCerrarSesionEstudiante.setContentAreaFilled(false);
@@ -257,6 +262,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         ButtonRegistrarEstudiante = new javax.swing.JButton();
         ButtonVolverRegistroEstudiante = new javax.swing.JButton();
         jTnombre1Estudiante = new javax.swing.JTextField();
@@ -268,6 +274,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         jDateNacimientoEstudiante = new com.toedter.calendar.JDateChooser();
         imgRegistroEstudiante = new javax.swing.JLabel();
         panelRegistroProfesor = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -290,6 +297,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelInicioEstudiante = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
         ButtonEntrarInicioEstudiante = new javax.swing.JButton();
         ButtonVolverInicioEstudiante = new javax.swing.JButton();
         jTingresarContraseñaEstudiante = new javax.swing.JPasswordField();
@@ -302,6 +310,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonVolverInicioProfesor = new javax.swing.JButton();
         jTingresarContraseñaProfesor = new javax.swing.JPasswordField();
         jTingresarCorreoProfesor = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
         imgInicioProfesor = new javax.swing.JLabel();
         panelRolIngreso = new javax.swing.JPanel();
         ButtonInicioEstudiante = new javax.swing.JButton();
@@ -318,7 +327,6 @@ public class ClassyInterface extends javax.swing.JFrame {
         jtCursos = new javax.swing.JTable();
         ButtonMisCursosEstudiante = new javax.swing.JButton();
         ButtonCerrarSesionEstudiante = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         imgBienvenido = new javax.swing.JLabel();
         panelCursosEstudiante = new javax.swing.JPanel();
         ButtonRegresarMisCursosEstudiante = new javax.swing.JButton();
@@ -333,6 +341,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonCerrarSesionProfesor = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtCursosProfesor = new javax.swing.JTable();
+        jLabel33 = new javax.swing.JLabel();
         imgCursosProfesor = new javax.swing.JLabel();
         panelPublicacionesProfesor = new javax.swing.JPanel();
         jComboCursos = new javax.swing.JComboBox<>();
@@ -365,12 +374,12 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonAgregarCursoCM = new javax.swing.JButton();
         ButtonRegresarCrearMaterial = new javax.swing.JButton();
         txtNombreMaterial1 = new javax.swing.JTextField();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
         txtArchivo1 = new javax.swing.JTextField();
-        jLabel30 = new javax.swing.JLabel();
         jComboPublicaciones1 = new javax.swing.JComboBox<>();
         ButtonCargarMaterial = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
         imgMaterialProfesor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -419,9 +428,9 @@ public class ClassyInterface extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(110, 54, 32));
-        jLabel1.setText("Segundo Nombre");
+        jLabel1.setText("Estudiante");
         panelRegistroEstudiante.add(jLabel1);
-        jLabel1.setBounds(1080, 390, 330, 50);
+        jLabel1.setBounds(1050, 280, 330, 50);
 
         jLabel2.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(110, 54, 32));
@@ -458,6 +467,12 @@ public class ClassyInterface extends javax.swing.JFrame {
         jLabel7.setText("Contraseña*");
         panelRegistroEstudiante.add(jLabel7);
         jLabel7.setBounds(340, 710, 290, 50);
+
+        jLabel24.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel24.setText("Segundo Nombre");
+        panelRegistroEstudiante.add(jLabel24);
+        jLabel24.setBounds(1080, 390, 330, 50);
 
         ButtonRegistrarEstudiante.setBackground(new java.awt.Color(153, 0, 0));
         ButtonRegistrarEstudiante.setAlignmentY(0.0F);
@@ -525,6 +540,12 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelRegistroProfesor.setMaximumSize(new java.awt.Dimension(1920, 1080));
         panelRegistroProfesor.setMinimumSize(new java.awt.Dimension(1920, 1080));
         panelRegistroProfesor.setLayout(null);
+
+        jLabel25.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel25.setText("Profesor");
+        panelRegistroProfesor.add(jLabel25);
+        jLabel25.setBounds(1090, 280, 330, 50);
 
         jLabel8.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(110, 54, 32));
@@ -659,6 +680,12 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelInicioEstudiante.add(jLabel17);
         jLabel17.setBounds(700, 440, 290, 50);
 
+        jLabel26.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel26.setText("Estudiante");
+        panelInicioEstudiante.add(jLabel26);
+        jLabel26.setBounds(1010, 390, 330, 50);
+
         ButtonEntrarInicioEstudiante.setBackground(new java.awt.Color(153, 0, 0));
         ButtonEntrarInicioEstudiante.setAlignmentY(0.0F);
         ButtonEntrarInicioEstudiante.addActionListener(new java.awt.event.ActionListener() {
@@ -742,6 +769,12 @@ public class ClassyInterface extends javax.swing.JFrame {
         jTingresarCorreoProfesor.setToolTipText("Tu Correo");
         panelInicioProfesor.add(jTingresarCorreoProfesor);
         jTingresarCorreoProfesor.setBounds(700, 500, 520, 50);
+
+        jLabel32.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel32.setText("Profesor");
+        panelInicioProfesor.add(jLabel32);
+        jLabel32.setBounds(1010, 390, 330, 50);
 
         imgInicioProfesor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgInicioProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Ingreso 1.0.png"))); // NOI18N
@@ -842,6 +875,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelBienvenido.setMinimumSize(new java.awt.Dimension(1920, 1080));
         panelBienvenido.setLayout(null);
 
+        jtCursos.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         jtCursos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -868,7 +902,22 @@ public class ClassyInterface extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jtCursos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jtCursos.setAutoscrolls(false);
+        jtCursos.setPreferredSize(new java.awt.Dimension(375, 402));
+        jtCursos.getTableHeader().setReorderingAllowed(false);
+        jtCursos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtCursosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jtCursos);
+        if (jtCursos.getColumnModel().getColumnCount() > 0) {
+            jtCursos.getColumnModel().getColumn(0).setResizable(false);
+            jtCursos.getColumnModel().getColumn(0).setPreferredWidth(1);
+            jtCursos.getColumnModel().getColumn(1).setResizable(false);
+            jtCursos.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         panelBienvenido.add(jScrollPane2);
         jScrollPane2.setBounds(200, 450, 1380, 402);
@@ -892,15 +941,6 @@ public class ClassyInterface extends javax.swing.JFrame {
         });
         panelBienvenido.add(ButtonCerrarSesionEstudiante);
         ButtonCerrarSesionEstudiante.setBounds(1540, 910, 330, 100);
-
-        jButton1.setText("Inscribirme");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        panelBienvenido.add(jButton1);
-        jButton1.setBounds(820, 940, 230, 80);
 
         imgBienvenido.setBackground(new java.awt.Color(96, 3, 3));
         imgBienvenido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1002,6 +1042,9 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosProfesor.add(ButtonCerrarSesionProfesor);
         ButtonCerrarSesionProfesor.setBounds(1540, 910, 330, 100);
 
+        jScrollPane4.setPreferredSize(new java.awt.Dimension(452, 420));
+
+        jtCursosProfesor.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         jtCursosProfesor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -1012,11 +1055,25 @@ public class ClassyInterface extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane4.setViewportView(jtCursosProfesor);
 
         panelCursosProfesor.add(jScrollPane4);
-        jScrollPane4.setBounds(540, 440, 1000, 360);
+        jScrollPane4.setBounds(480, 440, 1000, 420);
+
+        jLabel33.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel33.setText("Tus");
+        panelCursosProfesor.add(jLabel33);
+        jLabel33.setBounds(790, 280, 70, 50);
 
         imgCursosProfesor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgCursosProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Cursos profesor 1.2.png"))); // NOI18N
@@ -1030,8 +1087,6 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelPublicacionesProfesor.setMaximumSize(new java.awt.Dimension(1920, 1080));
         panelPublicacionesProfesor.setMinimumSize(new java.awt.Dimension(1920, 1080));
         panelPublicacionesProfesor.setLayout(null);
-
-        jComboCursos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         panelPublicacionesProfesor.add(jComboCursos);
         jComboCursos.setBounds(590, 400, 150, 20);
 
@@ -1238,13 +1293,11 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelMaterialProfesor.add(txtNombreMaterial1);
         txtNombreMaterial1.setBounds(770, 380, 380, 60);
 
-        jLabel29.setText("Nombre material:");
-        panelMaterialProfesor.add(jLabel29);
-        jLabel29.setBounds(630, 380, 130, 50);
-
-        jLabel31.setText("Archivo_material:");
-        panelMaterialProfesor.add(jLabel31);
-        jLabel31.setBounds(630, 510, 110, 50);
+        jLabel34.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel34.setText("Publicacion");
+        panelMaterialProfesor.add(jLabel34);
+        jLabel34.setBounds(770, 570, 330, 50);
 
         txtArchivo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1253,12 +1306,6 @@ public class ClassyInterface extends javax.swing.JFrame {
         });
         panelMaterialProfesor.add(txtArchivo1);
         txtArchivo1.setBounds(770, 500, 380, 60);
-
-        jLabel30.setText("Elegir publicacion");
-        panelMaterialProfesor.add(jLabel30);
-        jLabel30.setBounds(640, 620, 100, 50);
-
-        jComboPublicaciones1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         panelMaterialProfesor.add(jComboPublicaciones1);
         jComboPublicaciones1.setBounds(770, 620, 380, 60);
 
@@ -1271,6 +1318,18 @@ public class ClassyInterface extends javax.swing.JFrame {
         });
         panelMaterialProfesor.add(ButtonCargarMaterial);
         ButtonCargarMaterial.setBounds(760, 760, 410, 100);
+
+        jLabel35.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel35.setText("Nombre Material");
+        panelMaterialProfesor.add(jLabel35);
+        jLabel35.setBounds(760, 320, 330, 50);
+
+        jLabel36.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel36.setText("Archivo Material");
+        panelMaterialProfesor.add(jLabel36);
+        jLabel36.setBounds(770, 440, 330, 50);
 
         imgMaterialProfesor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgMaterialProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Material profesor 1.png"))); // NOI18N
@@ -1749,28 +1808,6 @@ public class ClassyInterface extends javax.swing.JFrame {
         mostrarInicioProfesor();        
     }//GEN-LAST:event_ButtonRegresarCrearPublicacionActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-        int fila = jtCursos.getSelectedRow();
-        if (fila >= 0) {
-            ControlInscripcion objci = new ControlInscripcion();
-            int id_curso = Integer.parseInt(jtCursos.getValueAt(fila, 0).toString());
-            Inscripcion objins;
-            objins = new Inscripcion(id_usuario, id_curso);
-            boolean t = objci.insertarInscripcion(objins);
-            
-            if (t) {
-                JOptionPane.showMessageDialog(this, "Inscripcion exitosa");
-            } else {
-                JOptionPane.showMessageDialog(this, "Inscripcion no exitosa");
-            }
-            
-        } else {
-            JOptionPane.showMessageDialog(this, "Fila no seleccionada");
-        }
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void txtNombreMaterial1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreMaterial1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreMaterial1ActionPerformed
@@ -1823,6 +1860,30 @@ public class ClassyInterface extends javax.swing.JFrame {
         Publicacion objp= new Publicacion(fechaPublicacion, titulo_publicacionp, descripcion_publicacionp, idc);
       boolean t =  objcp.insertarPublicacion(objp);
     }//GEN-LAST:event_btnCrearPublicacionActionPerformed
+
+    private void jtCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtCursosMouseClicked
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Quieres inscribir este curso?","Inscribir curso",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+                int fila = jtCursos.getSelectedRow();
+                    if (fila >= 0) {
+                        ControlInscripcion objci = new ControlInscripcion();
+                        int id_curso = Integer.parseInt(jtCursos.getValueAt(fila, 0).toString());
+                        Inscripcion objins;
+                        objins = new Inscripcion(id_usuario, id_curso);
+                        boolean t = objci.insertarInscripcion(objins);
+                        //System.out.print(id_curso);//Comprobar que toma el id correcto
+                        if (t) {
+                            JOptionPane.showMessageDialog(this, "Inscripcion exitosa");
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Inscripcion no exitosa");
+                        }
+
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Fila no seleccionada");
+                    }
+            }
+    }//GEN-LAST:event_jtCursosMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1908,7 +1969,6 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JLabel imgRegistroProfesor;
     private javax.swing.JLabel imgRolIngreso;
     private javax.swing.JLabel imgRolRegistro;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jCCategoriaCurso;
     private javax.swing.JComboBox<String> jComboCursos;
     private javax.swing.JComboBox<String> jComboPublicaciones1;
@@ -1930,12 +1990,17 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2085,7 +2150,13 @@ public class ClassyInterface extends javax.swing.JFrame {
                 "ID","Nombre del curso", "Nombre del profesor", "Categoria", "Descripcion"
             }
         ));
-        JOptionPane.showMessageDialog(this, "Para inscribirte, selecciona el curso de tu interes y da click en el boton 'Inscribirme'");
+        
+        //Ocultar el id de la columna
+        jtCursos.getColumnModel().getColumn(0).setMinWidth(0);
+        jtCursos.getColumnModel().getColumn(0).setMaxWidth(0);
+        jtCursos.getColumnModel().getColumn(0).setWidth(0);
+        
+        JOptionPane.showMessageDialog(this, "Haz click sobre un curso para inscribirte en él'");
     }
 
     private void limpiarCamposInicioProfesor() {
@@ -2126,15 +2197,17 @@ public class ClassyInterface extends javax.swing.JFrame {
             matriz[i][1] = lc.get(i).getFecha_creacion_curso().toString();
             matriz[i][2] = lc.get(i).getCategoria();
             matriz[i][3] = lc.get(i).getDescripcion_curso();
-            matriz[i][4] = "Boton";
         }
         
         jtCursosProfesor.setModel(new javax.swing.table.DefaultTableModel(
             matriz,
             new String [] {
-                "Nombre del curso", "Nombre del profesor", "Categoria", "Descripcion", "Inscribirme"
+                "Nombre del curso", "Fecha de Creacion", "Categoria", "Descripcion"
             }
         ));
+        
+        
+        
     }
     
     private void limpiarCrearCurso() {

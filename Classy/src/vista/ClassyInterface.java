@@ -5,6 +5,7 @@ import control.ControlProfesor;
 import control.ControlPais;
 import control.ControlCurso;
 import control.ControlCategoria;
+import control.ControlInscripcion;
 import java.awt.event.ActionEvent;
 //Modelos
 import modelo.Estudiante;
@@ -23,6 +24,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Curso;
+import modelo.Inscripcion;
 //Fechas
 
 public class ClassyInterface extends javax.swing.JFrame {
@@ -304,6 +306,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         jtCursos = new javax.swing.JTable();
         ButtonMisCursosEstudiante = new javax.swing.JButton();
         ButtonCerrarSesionEstudiante = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         imgBienvenido = new javax.swing.JLabel();
         panelCursosEstudiante = new javax.swing.JPanel();
         ButtonRegresarMisCursosEstudiante = new javax.swing.JButton();
@@ -833,11 +836,11 @@ public class ClassyInterface extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Nombre del curso", "Nombre del profesor", "Descripcion", "Categoria", "Inscribirme"
+                "id", "Nombre del curso", "Nombre del profesor", "Descripcion", "Categoria"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -854,7 +857,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jtCursos);
 
         panelBienvenido.add(jScrollPane2);
-        jScrollPane2.setBounds(200, 450, 1110, 402);
+        jScrollPane2.setBounds(200, 450, 1380, 402);
 
         ButtonMisCursosEstudiante.setBackground(new java.awt.Color(153, 0, 0));
         ButtonMisCursosEstudiante.setAlignmentY(0.0F);
@@ -875,6 +878,15 @@ public class ClassyInterface extends javax.swing.JFrame {
         });
         panelBienvenido.add(ButtonCerrarSesionEstudiante);
         ButtonCerrarSesionEstudiante.setBounds(1540, 910, 330, 100);
+
+        jButton1.setText("Inscribirme");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        panelBienvenido.add(jButton1);
+        jButton1.setBounds(820, 940, 230, 80);
 
         imgBienvenido.setBackground(new java.awt.Color(96, 3, 3));
         imgBienvenido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1684,6 +1696,28 @@ public class ClassyInterface extends javax.swing.JFrame {
         mostrarInicioProfesor();        
     }//GEN-LAST:event_ButtonRegresarCrearPublicacionActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+        int fila = jtCursos.getSelectedRow();
+        if (fila >= 0) {
+            ControlInscripcion objci = new ControlInscripcion();
+            int id_curso = Integer.parseInt(jtCursos.getValueAt(fila, 0).toString());
+            Inscripcion objins;
+            objins = new Inscripcion(id_usuario, id_curso);
+            boolean t = objci.insertarInscripcion(objins);
+            
+            if (t) {
+                JOptionPane.showMessageDialog(this, "Inscripcion exitosa");
+            } else {
+                JOptionPane.showMessageDialog(this, "Inscripcion no exitosa");
+            }
+            
+        } else {
+            JOptionPane.showMessageDialog(this, "Fila no seleccionada");
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1768,6 +1802,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JLabel imgRegistroProfesor;
     private javax.swing.JLabel imgRolIngreso;
     private javax.swing.JLabel imgRolRegistro;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jCCategoriaCurso;
     private javax.swing.JComboBox<String> jComboCursos;
     private javax.swing.JComboBox<String> jComboPublicaciones;
@@ -1899,6 +1934,8 @@ public class ClassyInterface extends javax.swing.JFrame {
     }
 
     private void MostrarInicioEstudiante() {
+        
+        
         panelInicio.setVisible(false);
         //Estudiante
         panelRegistroEstudiante.setVisible(false);
@@ -1927,20 +1964,20 @@ public class ClassyInterface extends javax.swing.JFrame {
         String matriz[][] = new String[lc.size()][5];
 
         for (int i = 0; i < lc.size(); i++) {
-            matriz[i][0] = lc.get(i).getNombre_curso();
-            matriz[i][1] = lc.get(i).getNombre_profesor();
-            matriz[i][2] = lc.get(i).getCategoria();
-            matriz[i][3] = lc.get(i).getDescripcion_curso();
-            matriz[i][4] = "Boton";
+            matriz[i][0] = lc.get(i).getId_curso() + "";
+            matriz[i][1] = lc.get(i).getNombre_curso();
+            matriz[i][2] = lc.get(i).getNombre_profesor();
+            matriz[i][3] = lc.get(i).getCategoria();
+            matriz[i][4] = lc.get(i).getDescripcion_curso();
         }
         
         jtCursos.setModel(new javax.swing.table.DefaultTableModel(
             matriz,
             new String [] {
-                "Nombre del curso", "Nombre del profesor", "Categoria", "Descripcion", "Inscribirme"
+                "ID","Nombre del curso", "Nombre del profesor", "Categoria", "Descripcion"
             }
         ));
-
+        JOptionPane.showMessageDialog(this, "Para inscribirte, selecciona el curso de tu interes y da click en el boton 'Inscribirme'");
     }
 
     private void limpiarCamposInicioProfesor() {

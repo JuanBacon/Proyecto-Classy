@@ -262,7 +262,7 @@ public class Curso {
         return listacurso;
     }
     //este metodo es el que muestra los cursos en el combobox que esta en en la vista de las publicaciones
-        public LinkedList<Curso> consultarCurso(String sql) {
+    public LinkedList<Curso> consultarCurso(String sql3) {
         LinkedList<Curso> listacurso = new LinkedList<>();
         BaseDatos objb = new BaseDatos();
         int id_curso1;
@@ -275,7 +275,7 @@ public class Curso {
         ResultSet rs = null; //resultado de la consulta que le enviamos
         if (objb.crearConexion()) {
             try {
-                rs = objb.getSt().executeQuery(sql); //lo de consultallcurso lo guardamos en este resulset
+                rs = objb.getSt().executeQuery(sql3); //lo de consultallcurso lo guardamos en este resulset
                 while (rs.next())//usamos el while que recorra el resulset para saber cuantas filas hay
                 {
                     id_curso1 = rs.getInt("id_curso");

@@ -41,8 +41,8 @@ public class ControlCurso {
     public LinkedList<Curso> consultarCurso() {
         LinkedList<Curso> listaCursos= new LinkedList<>();
         Curso objcurCursos = new Curso();
-        String sql= "select* from cursos;";
-        listaCursos = objcurCursos.consultarCurso(sql);
+        String sql3= "select* from cursos;";
+        listaCursos = objcurCursos.consultarCurso(sql3);
         return  listaCursos;
     }
 

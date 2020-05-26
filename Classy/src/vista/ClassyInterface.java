@@ -1802,6 +1802,11 @@ public class ClassyInterface extends javax.swing.JFrame {
 
     private void btnCrearPublicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPublicacionActionPerformed
                 //aqui se cargan las publicaciones
+        ControlPublicacion objcp= new ControlPublicacion();
+        lCurso = new LinkedList<>();
+        String titulo_publicacionp = txtTituloPublicacion.getText();    
+        String descripcion_publicacionp = txtAreaDescripcion.getText(); 
+                
         //con esto obtenemos el id del curso que cargamos en el jcobobox
         int idc= 0;
         for(int i=0; i< lCurso.size(); i++ )
@@ -1814,6 +1819,9 @@ public class ClassyInterface extends javax.swing.JFrame {
               idc = get.getId_curso();
             }
          }
+        String fechaPublicacion="20/06/2020";
+        Publicacion objp= new Publicacion(fechaPublicacion, titulo_publicacionp, descripcion_publicacionp, idc);
+      boolean t =  objcp.insertarPublicacion(objp);
     }//GEN-LAST:event_btnCrearPublicacionActionPerformed
 
     public static void main(String args[]) {

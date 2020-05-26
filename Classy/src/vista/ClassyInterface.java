@@ -316,6 +316,8 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonAgregarPublicacion = new javax.swing.JButton();
         ButtonAgregarCurso = new javax.swing.JButton();
         ButtonCerrarSesionProfesor = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jtCursosProfesor = new javax.swing.JTable();
         imgCursosProfesor = new javax.swing.JLabel();
         panelPublicacionesProfesor = new javax.swing.JPanel();
         txtNombreMaterial = new javax.swing.JTextField();
@@ -975,6 +977,22 @@ public class ClassyInterface extends javax.swing.JFrame {
         });
         panelCursosProfesor.add(ButtonCerrarSesionProfesor);
         ButtonCerrarSesionProfesor.setBounds(1540, 910, 330, 100);
+
+        jtCursosProfesor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jtCursosProfesor);
+
+        panelCursosProfesor.add(jScrollPane4);
+        jScrollPane4.setBounds(540, 440, 1000, 360);
 
         imgCursosProfesor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgCursosProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Cursos profesor 1.2.png"))); // NOI18N
@@ -1804,6 +1822,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTDescripcionCurso;
     private javax.swing.JTextField jTNombreCurso;
     private javax.swing.JTextField jTapellido1Estudiante;
@@ -1824,6 +1843,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JTextField jTnombre2Estudiante;
     private javax.swing.JTextField jTnombre2Profesor;
     private javax.swing.JTable jtCursos;
+    private javax.swing.JTable jtCursosProfesor;
     private javax.swing.JPanel panelBienvenido;
     private javax.swing.JPanel panelCrearCurso;
     private javax.swing.JPanel panelCursosEstudiante;
@@ -1970,6 +1990,26 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelMaterialProfesor.setVisible(false);
         //Bienvenido
         panelBienvenido.setVisible(false);
+        
+        ControlCurso cc = new ControlCurso();
+        lc = cc.consultarCursosProfesor(id_usuario);
+        
+        String matriz[][] = new String[lc.size()][5];
+
+        for (int i = 0; i < lc.size(); i++) {
+            matriz[i][0] = lc.get(i).getNombre_curso();
+            matriz[i][1] = lc.get(i).getFecha_creacion_curso().toString();
+            matriz[i][2] = lc.get(i).getCategoria();
+            matriz[i][3] = lc.get(i).getDescripcion_curso();
+            matriz[i][4] = "Boton";
+        }
+        
+        jtCursosProfesor.setModel(new javax.swing.table.DefaultTableModel(
+            matriz,
+            new String [] {
+                "Nombre del curso", "Nombre del profesor", "Categoria", "Descripcion", "Inscribirme"
+            }
+        ));
     }
     
     private void limpiarCrearCurso() {

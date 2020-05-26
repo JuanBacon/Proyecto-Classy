@@ -25,5 +25,16 @@ public class ControlCurso {
         listacurso = objcurso.consultAllCurso(sql);
         return listacurso;
     }
+    
+    
+    public LinkedList<Curso> consultarCursosProfesor(int id) {
+        LinkedList<Curso> listacurso = new LinkedList<>();
+        Curso objcurso = new Curso();
+        //String sql = "SELECT * FROM cursos;";  
+        String sql = "SELECT a.id_curso, a.nombre_curso, a.fecha_creacion_curso, a.descripcion_curso, a.id_profesorF, a.id_categoriaF, b.nombre1_profesor, b.apellido1_profesor, c.nombre_categoria \n"
+                + "FROM cursos a INNER JOIN profesores b iNNER JOIN categorias c WHERE a.id_profesorF = b.id_profesor AND a.id_categoriaF = c.id_categoria AND b.id_profesor = '"+ id +"';";
+        listacurso = objcurso.consultCursosProfesor(sql);
+        return listacurso;
+    }
 
 }

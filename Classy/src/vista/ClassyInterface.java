@@ -1719,27 +1719,6 @@ public class ClassyInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCerrarSesionEstudianteActionPerformed
 
     private void ButtonMisCursosEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMisCursosEstudianteActionPerformed
-        panelInicio.setVisible(false);
-        //Estudiante
-        panelRegistroEstudiante.setVisible(false);
-        panelInicioEstudiante.setVisible(false);
-        //Profesor
-        panelInicioProfesor.setVisible(false);
-        panelRegistroProfesor.setVisible(false);
-        //Rol
-        panelRolRegistro.setVisible(false);
-        panelRolIngreso.setVisible(false);
-        //Publicaciones
-        panelPublicacionesEstudiante.setVisible(false);
-        panelPublicacionesProfesor.setVisible(false);
-        //cursos
-        panelCursosEstudiante.setVisible(true);
-        panelCursosProfesor.setVisible(false);
-        panelCrearCurso.setVisible(false);
-        //Material
-        panelMaterialProfesor.setVisible(false);
-        //Bienvenido
-        panelBienvenido.setVisible(false);
         
         MostrarMisCursos();
     }//GEN-LAST:event_ButtonMisCursosEstudianteActionPerformed
@@ -1920,6 +1899,8 @@ public class ClassyInterface extends javax.swing.JFrame {
                 //System.out.print(id_cursoe);//Comprobar que toma el id correcto
                 if (t) {
                     JOptionPane.showMessageDialog(this, "Inscripcion exitosa");
+                    ((DefaultTableModel)jtCursos.getModel()).removeRow(jtCursos.getSelectedRow());
+                    MostrarMisCursos();
                 } else {
                     JOptionPane.showMessageDialog(this, "Inscripcion no exitosa");
                 }
@@ -2195,8 +2176,9 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelBienvenido.setVisible(true);
 
         ControlCurso cc = new ControlCurso();
-        lc = cc.consultarTodoCurso();
-
+        lc = cc.consultarTodoCurso(id_usuario);
+        
+        
         String matriz[][] = new String[lc.size()][5];
 
         for (int i = 0; i < lc.size(); i++) {
@@ -2425,6 +2407,31 @@ public class ClassyInterface extends javax.swing.JFrame {
     }
 
     private void MostrarMisCursos() {
+        
+        panelInicio.setVisible(false);
+        //Estudiante
+        panelRegistroEstudiante.setVisible(false);
+        panelInicioEstudiante.setVisible(false);
+        //Profesor
+        panelInicioProfesor.setVisible(false);
+        panelRegistroProfesor.setVisible(false);
+        //Rol
+        panelRolRegistro.setVisible(false);
+        panelRolIngreso.setVisible(false);
+        //Publicaciones
+        panelPublicacionesEstudiante.setVisible(false);
+        panelPublicacionesProfesor.setVisible(false);
+        //cursos
+        panelCursosEstudiante.setVisible(true);
+        panelCursosProfesor.setVisible(false);
+        panelCrearCurso.setVisible(false);
+        //Material
+        panelMaterialProfesor.setVisible(false);
+        //Bienvenido
+        panelBienvenido.setVisible(false);
+        
+        
+        
         ControlCurso cc = new ControlCurso();
         lc = cc.consultarCursoEstudiante(id_usuario);
 

@@ -51,9 +51,10 @@ public class ControlCurso {
         public LinkedList<Curso> consultarCursoEstudiante(int id_usuario) {
         LinkedList<Curso> listaCursos= new LinkedList<>();
         Curso objcurCursos = new Curso();
-        String sql4= "SELECT c.id_curso, c.nombre_curso FROM inscripciones a "
+        String sql4= "SELECT c.id_curso, c.nombre_curso, c.descripcion_curso, ca.nombre_categoria FROM inscripciones a "
                 + "inner join estudiantes b on a.id_estudianteF = b.id_estudiante "
                 + "inner join cursos c on a.id_cursoF = c.id_curso "
+                + "inner join categorias ca on c.id_categoriaF = ca.id_categoria "
                 + "where a.id_estudianteF = "+ id_usuario +";";
         listaCursos = objcurCursos.consultCursoEstudiante(sql4);
         return  listaCursos;

@@ -56,6 +56,12 @@ public class Curso {
     public Curso(int id_curso, String nombre_curso) {
         this.id_curso = id_curso;
         this.nombre_curso = nombre_curso;
+    }
+    
+    public Curso(int id_curso, String nombre_curso, String descripcion_curso) {
+        this.id_curso = id_curso;
+        this.nombre_curso = nombre_curso;
+        this.descripcion_curso = descripcion_curso;
     } 
     
     public Curso() {
@@ -303,6 +309,8 @@ public class Curso {
         BaseDatos objb = new BaseDatos();
         int id_curso1;
         String nombre_curso1;
+        String descripcion_curso;
+        String categoria_curso;
        
         ResultSet rs = null; //resultado de la consulta que le enviamos
         if (objb.crearConexion()) {
@@ -311,8 +319,12 @@ public class Curso {
                 while (rs.next())//usamos el while que recorra el resulset para saber cuantas filas hay
                 {
                     id_curso1 = rs.getInt("id_curso");
-                    nombre_curso1 = rs.getString("nombre_curso");                    
-                   listacurso.add(new Curso(id_curso1,nombre_curso1));
+                    nombre_curso1 = rs.getString("nombre_curso");  
+                    descripcion_curso = rs.getString("descripcion_curso");
+                    categoria_curso = rs.getString("nombre_categoria");
+                    Curso obcur = new Curso(id_curso1,nombre_curso1,descripcion_curso);
+                    obcur.setCategoria(categoria_curso);
+                    listacurso.add(obcur);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Curso.class.getName()).log(Level.SEVERE, null, ex);

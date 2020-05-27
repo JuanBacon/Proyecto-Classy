@@ -244,6 +244,13 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonCerrarSesionEstudiante1.setOpaque(false);
         ButtonCerrarSesionEstudiante1.setContentAreaFilled(false);
         ButtonCerrarSesionEstudiante1.setBorderPainted(false);
+        
+        //PANEL PUBLICACIONES ESTUDIANTE
+        
+        ButtonRegresarAMisCursos.setOpaque(false);
+        ButtonRegresarAMisCursos.setContentAreaFilled(false);
+        ButtonRegresarAMisCursos.setBorderPainted(false);
+        
     }
 
     //NO TOCAR
@@ -331,14 +338,15 @@ public class ClassyInterface extends javax.swing.JFrame {
         imgBienvenido = new javax.swing.JLabel();
         panelCursosEstudiante = new javax.swing.JPanel();
         ButtonRegresarMisCursosEstudiante = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
         ButtonCerrarSesionEstudiante1 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jtCursosEstudiante = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         imgCursosEstudiante = new javax.swing.JLabel();
         panelPublicacionesEstudiante = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jtPublicacionesE = new javax.swing.JTable();
+        ButtonRegresarAMisCursos = new javax.swing.JButton();
         imgPublicacionesEstudiante = new javax.swing.JLabel();
         panelCursosProfesor = new javax.swing.JPanel();
         ButtonAgregarMaterial = new javax.swing.JButton();
@@ -972,6 +980,12 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante.add(ButtonRegresarMisCursosEstudiante);
         ButtonRegresarMisCursosEstudiante.setBounds(1170, 910, 330, 100);
 
+        jLabel29.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel29.setText("Mis");
+        panelCursosEstudiante.add(jLabel29);
+        jLabel29.setBounds(780, 280, 330, 50);
+
         ButtonCerrarSesionEstudiante1.setBackground(new java.awt.Color(153, 0, 0));
         ButtonCerrarSesionEstudiante1.setAlignmentY(0.0F);
         ButtonCerrarSesionEstudiante1.addActionListener(new java.awt.event.ActionListener() {
@@ -982,6 +996,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelCursosEstudiante.add(ButtonCerrarSesionEstudiante1);
         ButtonCerrarSesionEstudiante1.setBounds(1540, 910, 330, 100);
 
+        jtCursosEstudiante.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         jtCursosEstudiante.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -992,20 +1007,24 @@ public class ClassyInterface extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtCursosEstudiante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtCursosEstudianteMouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(jtCursosEstudiante);
 
         panelCursosEstudiante.add(jScrollPane6);
-        jScrollPane6.setBounds(670, 430, 570, 402);
-
-        jButton1.setText("Ingresar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        panelCursosEstudiante.add(jButton1);
-        jButton1.setBounds(1350, 540, 190, 60);
+        jScrollPane6.setBounds(460, 430, 990, 402);
 
         imgCursosEstudiante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgCursosEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Cursos Estudiante 1.1.png"))); // NOI18N
@@ -1030,11 +1049,29 @@ public class ClassyInterface extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane5.setViewportView(jtPublicacionesE);
 
         panelPublicacionesEstudiante.add(jScrollPane5);
         jScrollPane5.setBounds(120, 360, 1190, 402);
+
+        ButtonRegresarAMisCursos.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonRegresarAMisCursos.setAlignmentY(0.0F);
+        ButtonRegresarAMisCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRegresarAMisCursosActionPerformed(evt);
+            }
+        });
+        panelPublicacionesEstudiante.add(ButtonRegresarAMisCursos);
+        ButtonRegresarAMisCursos.setBounds(1580, 910, 260, 100);
 
         imgPublicacionesEstudiante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgPublicacionesEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Publicaciones estudiante 1.0 .png"))); // NOI18N
@@ -1911,19 +1948,28 @@ public class ClassyInterface extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jtCursosMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-///////////////////////////////////////////////////////////////////////       
-        int fila = jtCursosEstudiante.getSelectedRow();
-        if (fila >=0) {
-            ControlInscripcion objci = new ControlInscripcion();
-                id_cursoe = Integer.parseInt(jtCursos.getValueAt(fila, 0).toString());
-                
-                MostrarPublicaciones();
-        } else {
-            JOptionPane.showMessageDialog(this, "Fila no seleccionada");
+    private void jtCursosEstudianteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtCursosEstudianteMouseClicked
+     int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Quieres Entrar a este curso?", "Entrar al curso", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            int fila = jtCursosEstudiante.getSelectedRow();
+            if (fila >=0) {
+                ControlInscripcion objci = new ControlInscripcion();
+                    id_cursoe = Integer.parseInt(jtCursosEstudiante.getValueAt(fila, 0).toString());
+                    System.out.print(id_cursoe);
+                    MostrarPublicaciones();
+            } else {
+                JOptionPane.showMessageDialog(this, "Fila no seleccionada");
+            }
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        
+    }//GEN-LAST:event_jtCursosEstudianteMouseClicked
+
+    private void ButtonRegresarAMisCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegresarAMisCursosActionPerformed
+     MostrarMisCursos();
+    }//GEN-LAST:event_ButtonRegresarAMisCursosActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1984,6 +2030,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JButton ButtonRegistrarProfesor;
     private javax.swing.JButton ButtonRegistroEstudiante;
     private javax.swing.JButton ButtonRegistroProfesor;
+    private javax.swing.JButton ButtonRegresarAMisCursos;
     private javax.swing.JButton ButtonRegresarCrearCurso;
     private javax.swing.JButton ButtonRegresarCrearMaterial;
     private javax.swing.JButton ButtonRegresarCrearPublicacion;
@@ -2009,7 +2056,6 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JLabel imgRegistroProfesor;
     private javax.swing.JLabel imgRolIngreso;
     private javax.swing.JLabel imgRolRegistro;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jCCategoriaCurso;
     private javax.swing.JComboBox<String> jComboCursos;
     private javax.swing.JComboBox<String> jComboPublicaciones1;
@@ -2036,6 +2082,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -2435,18 +2482,26 @@ public class ClassyInterface extends javax.swing.JFrame {
         ControlCurso cc = new ControlCurso();
         lc = cc.consultarCursoEstudiante(id_usuario);
 
-        String matriz[][] = new String[lc.size()][2];
+        String matriz[][] = new String[lc.size()][4];
 
         for (int i = 0; i < lc.size(); i++) {
             matriz[i][0] = lc.get(i).getId_curso() + "";
             matriz[i][1] = lc.get(i).getNombre_curso();
+            matriz[i][2] = lc.get(i).getCategoria(); 
+            matriz[i][3] = lc.get(i).getDescripcion_curso();
+                     
         }
 
         jtCursosEstudiante.setModel(new javax.swing.table.DefaultTableModel(
                 matriz,
                 new String[]{
-                    "ID","Nombre del curso"
+                    "ID","Curso","Categoria","Descripcion"
                 }
         ));
+        //Ocultar el id de la columna
+        jtCursosEstudiante.getColumnModel().getColumn(0).setMinWidth(0);
+        jtCursosEstudiante.getColumnModel().getColumn(0).setMaxWidth(0);
+        jtCursosEstudiante.getColumnModel().getColumn(0).setWidth(0);
+        
     }
 }

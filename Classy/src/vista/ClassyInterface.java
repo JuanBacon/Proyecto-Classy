@@ -63,7 +63,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     String tipo;
     int id_usuario;
     int id_cursoe;
-    String pathImagen;
+    String pathImagen = "";
 
     DefaultTableModel modelo;
     String data[][] = {};
@@ -1067,6 +1067,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         panelPublicacionesEstudiante.setMinimumSize(new java.awt.Dimension(1920, 1080));
         panelPublicacionesEstudiante.setLayout(null);
 
+        jtPublicacionesE.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         jtPublicacionesE.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -1218,6 +1219,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         btnCrearPublicacion.setBounds(240, 710, 410, 70);
 
         jLabel23.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(110, 54, 32));
         jLabel23.setText("¿Curso al que corresponde la publicacion?");
         panelPublicacionesProfesor.add(jLabel23);
         jLabel23.setBounds(710, 210, 600, 20);
@@ -1231,6 +1233,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         jScrollPane1.setBounds(240, 540, 410, 120);
 
         jLabel22.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(110, 54, 32));
         jLabel22.setText("Descripcion");
         panelPublicacionesProfesor.add(jLabel22);
         jLabel22.setBounds(240, 510, 270, 20);
@@ -1240,6 +1243,7 @@ public class ClassyInterface extends javax.swing.JFrame {
         txtTituloPublicacion.setBounds(240, 425, 410, 50);
 
         jLabel20.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(110, 54, 32));
         jLabel20.setText("Titulo Publicacion");
         panelPublicacionesProfesor.add(jLabel20);
         jLabel20.setBounds(240, 390, 300, 30);
@@ -1384,7 +1388,7 @@ public class ClassyInterface extends javax.swing.JFrame {
 
         imgCrearCurso.setBackground(new java.awt.Color(96, 3, 3));
         imgCrearCurso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgCrearCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Agregar curso 1.2.png"))); // NOI18N
+        imgCrearCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Agregar curso 1.1.png"))); // NOI18N
         panelCrearCurso.add(imgCrearCurso);
         imgCrearCurso.setBounds(0, 0, 1920, 1080);
 

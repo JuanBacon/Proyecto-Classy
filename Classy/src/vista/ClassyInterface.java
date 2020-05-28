@@ -10,7 +10,8 @@ import control.ControlCurso;
 import control.ControlInscripcion;
 import control.ControlPublicacion;
 import control.ControlMaterial;
-import java.awt.event.ActionEvent;
+import java.awt.Image;
+
 //Modelos
 import modelo.Estudiante;
 import modelo.Profesor;
@@ -18,6 +19,10 @@ import modelo.Pais;
 import modelo.Curso;
 import modelo.Categoria;
 import modelo.Material;
+import modelo.Curso;
+import modelo.Inscripcion;
+import modelo.Material;
+import modelo.Publicacion;
 //Utilidades
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -28,14 +33,24 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import modelo.Curso;
-import modelo.Inscripcion;
-import modelo.Material;
-import modelo.Publicacion;
+import java.awt.event.ActionEvent;
+import java.io.File;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import javafx.stage.FileChooser;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 //Fechas
 
 public class ClassyInterface extends javax.swing.JFrame {
 
+    //File chooser
+    FileChooser fileChooser;
     //Creacion de listas
     LinkedList<Pais> lPais;
     LinkedList<Categoria> lCategoria;
@@ -48,6 +63,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     String tipo;
     int id_usuario;
     int id_cursoe;
+    String pathImagen;
 
     DefaultTableModel modelo;
     String data[][] = {};
@@ -230,6 +246,10 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonCargarMaterial.setOpaque(false);
         ButtonCargarMaterial.setContentAreaFilled(false);
         ButtonCargarMaterial.setBorderPainted(false);
+        
+        ButtonAbrirMaterial.setOpaque(false);
+        ButtonAbrirMaterial.setContentAreaFilled(false);
+        ButtonAbrirMaterial.setBorderPainted(false);
 
         //PANEL BIENVENIDO ESTUDIANTE
         ButtonCerrarSesionEstudiante.setOpaque(false);
@@ -395,11 +415,13 @@ public class ClassyInterface extends javax.swing.JFrame {
         ButtonRegresarCrearMaterial = new javax.swing.JButton();
         txtNombreMaterial1 = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
-        txtArchivo1 = new javax.swing.JTextField();
         jComboPublicaciones1 = new javax.swing.JComboBox<>();
+        ButtonAbrirMaterial = new javax.swing.JButton();
         ButtonCargarMaterial = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        subirImagen = new javax.swing.JLabel();
         imgMaterialProfesor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1417,16 +1439,18 @@ public class ClassyInterface extends javax.swing.JFrame {
         jLabel34.setText("Publicacion");
         panelMaterialProfesor.add(jLabel34);
         jLabel34.setBounds(770, 570, 330, 50);
-
-        txtArchivo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtArchivo1ActionPerformed(evt);
-            }
-        });
-        panelMaterialProfesor.add(txtArchivo1);
-        txtArchivo1.setBounds(770, 500, 380, 60);
         panelMaterialProfesor.add(jComboPublicaciones1);
         jComboPublicaciones1.setBounds(770, 620, 380, 60);
+
+        ButtonAbrirMaterial.setBackground(new java.awt.Color(153, 0, 0));
+        ButtonAbrirMaterial.setAlignmentY(0.0F);
+        ButtonAbrirMaterial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAbrirMaterialActionPerformed(evt);
+            }
+        });
+        panelMaterialProfesor.add(ButtonAbrirMaterial);
+        ButtonAbrirMaterial.setBounds(750, 490, 410, 70);
 
         ButtonCargarMaterial.setBackground(new java.awt.Color(153, 0, 0));
         ButtonCargarMaterial.setAlignmentY(0.0F);
@@ -1440,15 +1464,23 @@ public class ClassyInterface extends javax.swing.JFrame {
 
         jLabel35.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(110, 54, 32));
-        jLabel35.setText("Nombre Material");
+        jLabel35.setText("Previsualizacion");
         panelMaterialProfesor.add(jLabel35);
-        jLabel35.setBounds(760, 320, 330, 50);
+        jLabel35.setBounds(1230, 460, 330, 50);
 
         jLabel36.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(110, 54, 32));
         jLabel36.setText("Archivo Material");
         panelMaterialProfesor.add(jLabel36);
-        jLabel36.setBounds(770, 440, 330, 50);
+        jLabel36.setBounds(780, 500, 330, 50);
+
+        jLabel37.setFont(new java.awt.Font("Montserrat", 3, 26)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(110, 54, 32));
+        jLabel37.setText("Nombre Material");
+        panelMaterialProfesor.add(jLabel37);
+        jLabel37.setBounds(760, 320, 330, 50);
+        panelMaterialProfesor.add(subirImagen);
+        subirImagen.setBounds(1230, 510, 300, 300);
 
         imgMaterialProfesor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgMaterialProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Material profesor 1.png"))); // NOI18N
@@ -1930,16 +1962,12 @@ public class ClassyInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreMaterial1ActionPerformed
 
-    private void txtArchivo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtArchivo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtArchivo1ActionPerformed
-
     private void ButtonCargarMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCargarMaterialActionPerformed
-        if(txtNombreMaterial1.getText().isEmpty()){
+        if(txtNombreMaterial1.getText().isEmpty() || pathImagen == ""){
             JOptionPane.showMessageDialog(rootPane, "Por favor, asigna un nomnbre al material");
         }else{
             ControlMaterial objcm = new ControlMaterial();
-        lPublicacion = new LinkedList<>();
+        //lPublicacion = new LinkedList<>();
         String nombre_materialP = txtNombreMaterial1.getText();
         int idp = 0;
         for (int i = 0; i < lPublicacion.size(); i++) {
@@ -1951,12 +1979,12 @@ public class ClassyInterface extends javax.swing.JFrame {
             }
         }
 
-        String RutaArchivo = "C:\\Users\\wedin\\OneDrive\\Imágenes\\modeladoUAO.jpg";
-        Material objm = new Material(nombre_materialP, RutaArchivo, idp);
+        
+        Material objm = new Material(nombre_materialP, pathImagen, idp);
         boolean t = objcm.insertarMaterial(objm);
         
         if (t) {
-                JOptionPane.showMessageDialog(rootPane, "Insertado una publicacion");
+                JOptionPane.showMessageDialog(rootPane, "Insertado un material");
                 mostrarInicioProfesor();
                 LimpiarAgregarMaterial(); 
             } else {
@@ -2095,6 +2123,25 @@ public class ClassyInterface extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jComboCursosItemStateChanged
 
+    private void ButtonAbrirMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAbrirMaterialActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+         fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+         FileNameExtensionFilter filter = new FileNameExtensionFilter("*.IMAGE", "jpg","gif","png");
+         fileChooser.addChoosableFileFilter(filter);
+         int result = fileChooser.showSaveDialog(null);
+         if(result == JFileChooser.APPROVE_OPTION){
+             File selectedFile = fileChooser.getSelectedFile();
+             String path = selectedFile.getAbsolutePath();
+             
+             pathImagen = path;
+             subirImagen.setIcon(ResizeImage(path));
+              }
+         else if(result == JFileChooser.CANCEL_OPTION){
+             System.out.println("No Data");
+         }
+
+    }//GEN-LAST:event_ButtonAbrirMaterialActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -2129,6 +2176,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonAbrirMaterial;
     private javax.swing.JButton ButtonAgregarContenidoCC;
     private javax.swing.JButton ButtonAgregarContenidoCP;
     private javax.swing.JButton ButtonAgregarCurso;
@@ -2213,6 +2261,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2264,7 +2313,7 @@ public class ClassyInterface extends javax.swing.JFrame {
     private javax.swing.JPanel panelRegistroProfesor;
     private javax.swing.JPanel panelRolIngreso;
     private javax.swing.JPanel panelRolRegistro;
-    private javax.swing.JTextField txtArchivo1;
+    private javax.swing.JLabel subirImagen;
     private javax.swing.JTextArea txtAreaDescripcion;
     private javax.swing.JTextField txtNombreMaterial1;
     private javax.swing.JTextField txtTituloPublicacion;
@@ -2658,5 +2707,17 @@ public class ClassyInterface extends javax.swing.JFrame {
 
     private void LimpiarAgregarMaterial() {
        txtNombreMaterial1.setText("");
+       subirImagen.setIcon(null);
+       pathImagen = "";
     }
+
+    private Icon ResizeImage(String imgPath) {
+        ImageIcon MyImage = new ImageIcon(imgPath);
+        Image img = MyImage.getImage();
+        Image newImage = img.getScaledInstance(subirImagen.getWidth(), subirImagen.getHeight(),Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(newImage);
+        return image;
+    }
+
+    
 }

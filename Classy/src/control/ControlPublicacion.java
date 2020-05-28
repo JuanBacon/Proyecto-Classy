@@ -15,6 +15,16 @@ public class ControlPublicacion {
         t = objp2.insertarPublicacion(objp, sql);
         return t;
     }
+    
+    public boolean insertPublicacion(Publicacion objp) {
+        boolean t = false;
+        Publicacion objp2 = new Publicacion();
+        String sql = "";
+        sql = "insert into publicaciones (fecha_publicacion, titulo_publicacion, descripcion_publicacion, id_cursoF )VALUES ('"+objp.getFecha_publicacion()+"',"
+                + "'"+objp.getTitulo_publicacion()+"','"+objp.getDescripcion_publicacion()+"','"+objp.getId_cursoF()+"');";
+        t = objp2.insertPublicacion(sql);
+        return t;
+    }
 
     public LinkedList<Publicacion> consultarPublicaciones() {
         LinkedList<Publicacion> listap = new LinkedList<>();
@@ -31,5 +41,7 @@ public class ControlPublicacion {
         listap = objPublicacion.consultPublicacionesCE(sql);
         return listap;
     }
+    
+    
 
 }

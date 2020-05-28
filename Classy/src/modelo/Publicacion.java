@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +23,7 @@ import java.util.logging.Logger;
 public class Publicacion {
 
     private int id_publicacion;
-    private String fecha_publicacion;
+    private Timestamp fecha_publicacion;
     private String titulo_publicacion;
     private String descripcion_publicacion;
     private int id_cursoF;
@@ -30,7 +31,7 @@ public class Publicacion {
     public Publicacion() {
     }
 
-    public Publicacion(int id_publicacion, String fecha_publicacion, String titulo_publicacion, String descripcion_publicacion, int id_cursoF) {
+    public Publicacion(int id_publicacion, Timestamp fecha_publicacion, String titulo_publicacion, String descripcion_publicacion, int id_cursoF) {
         this.id_publicacion = id_publicacion;
         this.fecha_publicacion = fecha_publicacion;
         this.titulo_publicacion = titulo_publicacion;
@@ -38,19 +39,21 @@ public class Publicacion {
         this.id_cursoF = id_cursoF;
     }
 
-    public Publicacion(String fecha_publicacion, String titulo_publicacion, String descripcion_publicacion, int id_cursoF) {
+    public Publicacion(Timestamp fecha_publicacion, String titulo_publicacion, String descripcion_publicacion, int id_cursoF) {
         this.fecha_publicacion = fecha_publicacion;
         this.titulo_publicacion = titulo_publicacion;
         this.descripcion_publicacion = descripcion_publicacion;
         this.id_cursoF = id_cursoF;
     }
 
-    public Publicacion(int id_publicacion, String fecha_publicacion, String titulo_publicacion, String descripcion_publicacion) {
+    public Publicacion(int id_publicacion, Timestamp fecha_publicacion, String titulo_publicacion, String descripcion_publicacion) {
         this.id_publicacion = id_publicacion;
         this.fecha_publicacion = fecha_publicacion;
         this.titulo_publicacion = titulo_publicacion;
         this.descripcion_publicacion = descripcion_publicacion;
     }  
+
+    
     
     public int getId_publicacion() {
         return id_publicacion;
@@ -60,13 +63,15 @@ public class Publicacion {
         this.id_publicacion = id_publicacion;
     }
 
-    public String getFecha_publicacion() {
+    public Timestamp getFecha_publicacion() {
         return fecha_publicacion;
     }
 
-    public void setFecha_publicacion(String fecha_publicacion) {
+    public void setFecha_publicacion(Timestamp fecha_publicacion) {
         this.fecha_publicacion = fecha_publicacion;
     }
+
+    
 
     public String getTitulo_publicacion() {
         return titulo_publicacion;
@@ -121,7 +126,7 @@ public class Publicacion {
         BaseDatos objb = new BaseDatos();
         
         int idPublicacion1 = 0;
-        String fecha1 = "";
+        Timestamp fecha1;
         String titulo1 = "";
         String descripcion1 = "";
         int idCurso1 = 0;
@@ -133,7 +138,7 @@ public class Publicacion {
                 while (rs.next()) {
                     
                     idPublicacion1 = rs.getInt("id_publicacion");
-                    fecha1 = rs.getString("fecha_publicacion");
+                    fecha1 = rs.getTimestamp("fecha_publicacion");
                     titulo1 = rs.getString("titulo_publicacion");
                     descripcion1 = rs.getString("descripcion_publicacion");
                     idCurso1 = rs.getInt("id_cursoF");
@@ -150,12 +155,11 @@ public class Publicacion {
     public boolean insertarPublicacion(Publicacion objp, String sql) {
         boolean t = false;
         BaseDatos objb = new BaseDatos();
-        FileInputStream fis = null; //toma la ruta de la foto
         PreparedStatement ps = null;
         try {
             if (objb.crearConexion()) {
                 objb.getConexion().setAutoCommit(false);
-                ps.setString(1, objp.getFecha_publicacion());
+                ps.setString(1, objp.getFecha_publicacion().toString());
                 ps.setString(2, objp.getTitulo_publicacion());
                 ps.setString(3, objp.getDescripcion_publicacion());
                 ps.setInt(4, objp.getId_cursoF());
@@ -166,8 +170,9 @@ public class Publicacion {
 
         } catch (Exception ex) {
             Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            t = false;
         } 
-        t = false;
+        
         return t;
 
     }
@@ -178,7 +183,7 @@ public class Publicacion {
         BaseDatos objb = new BaseDatos();
         
         int idPublicacion1 = 0;
-        String fecha1 = "";
+        Timestamp fecha1;
         String titulo1 = "";
         String descripcion1 = "";
 
@@ -189,7 +194,7 @@ public class Publicacion {
                 while (rs.next()) {
                     
                     idPublicacion1 = rs.getInt("id_publicacion");
-                    fecha1 = rs.getString("fecha_publicacion");
+                    fecha1 = rs.getTimestamp("fecha_publicacion");
                     titulo1 = rs.getString("titulo_publicacion");
                     descripcion1 = rs.getString("descripcion_publicacion");
 

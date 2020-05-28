@@ -309,6 +309,7 @@ public class Curso {
         BaseDatos objb = new BaseDatos();
         int id_curso1;
         String nombre_curso1;
+        String nombre_profesor;
         String descripcion_curso;
         String categoria_curso;
        
@@ -322,7 +323,9 @@ public class Curso {
                     nombre_curso1 = rs.getString("nombre_curso");  
                     descripcion_curso = rs.getString("descripcion_curso");
                     categoria_curso = rs.getString("nombre_categoria");
+                    nombre_profesor = rs.getString("nombre1_profesor") +" "+  rs.getString("apellido1_profesor");
                     Curso obcur = new Curso(id_curso1,nombre_curso1,descripcion_curso);
+                    obcur.setNombre_profesor(nombre_profesor);
                     obcur.setCategoria(categoria_curso);
                     listacurso.add(obcur);
                 }
